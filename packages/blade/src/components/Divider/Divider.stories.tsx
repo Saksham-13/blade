@@ -1,5 +1,4 @@
-import type { ComponentStory, Meta } from '@storybook/react';
-import { Title } from '@storybook/addon-docs';
+import type { StoryFn, Meta } from '@storybook/react';
 import type { DividerProps } from './Divider';
 import { Divider as DividerComponent } from './Divider';
 import { Heading } from '~components/Typography/Heading';
@@ -16,16 +15,12 @@ import { getStyledPropsArgTypes } from '~components/Box/BaseBox/storybookArgType
 const Page = (): React.ReactElement => {
   return (
     <StoryPageWrapper
-      figmaURL={{
-        paymentTheme:
-          'https://www.figma.com/file/LSG77hEeVYDk7j7WV7OMJE/Blade-DSL---Components-Guideline?type=design&node-id=608-883166&mode=design&t=6uRroMDHC66zlvxT-0',
-        bankingTheme:
-          'https://www.figma.com/file/LSG77hEeVYDk7j7WV7OMJE/Blade-DSL---Components-Guideline?type=design&node-id=608-883166&mode=design&t=6uRroMDHC66zlvxT-0',
-      }}
       componentName="Divider"
       componentDescription="Divider is a visual element that is used to separate or divide content within a layout"
+      apiDecisionLink={null}
+      figmaURL="https://www.figma.com/file/jubmQL9Z8V7881ayUD95ps/Blade-DSL?type=design&node-id=71106-265680&mode=design&t=jyVG8aXFc1Dlw2Se-4"
     >
-      <Title>Usage</Title>
+      <Heading size="large">Usage</Heading>
       <Sandbox>
         {`
           import {
@@ -72,6 +67,7 @@ const Page = (): React.ReactElement => {
 export default {
   title: 'Components/Divider',
   component: DividerComponent,
+  tags: ['autodocs'],
   argTypes: getStyledPropsArgTypes(),
   parameters: {
     docs: {
@@ -80,7 +76,7 @@ export default {
   },
 } as Meta<DividerProps>;
 
-const DividerDefaultTemplate: ComponentStory<typeof DividerComponent> = (args) => {
+const DividerDefaultTemplate: StoryFn<typeof DividerComponent> = (args) => {
   return (
     <Card>
       <CardBody>
@@ -104,7 +100,7 @@ const DividerDefaultTemplate: ComponentStory<typeof DividerComponent> = (args) =
 export const Divider = DividerDefaultTemplate.bind({});
 Divider.storyName = 'Default';
 
-const DividerHorizontalTemplate: ComponentStory<typeof DividerComponent> = () => {
+const DividerHorizontalTemplate: StoryFn<typeof DividerComponent> = () => {
   return (
     <Card>
       <CardBody>
@@ -119,12 +115,12 @@ const DividerHorizontalTemplate: ComponentStory<typeof DividerComponent> = () =>
   );
 };
 
-export const DividerHorizontal: ComponentStory<
-  typeof DividerComponent
-> = DividerHorizontalTemplate.bind({});
+export const DividerHorizontal: StoryFn<typeof DividerComponent> = DividerHorizontalTemplate.bind(
+  {},
+);
 DividerHorizontal.storyName = 'Horizontal';
 
-const DividerVerticalTemplate: ComponentStory<typeof DividerComponent> = () => {
+const DividerVerticalTemplate: StoryFn<typeof DividerComponent> = () => {
   return (
     <Card>
       <CardBody>
@@ -152,12 +148,10 @@ const DividerVerticalTemplate: ComponentStory<typeof DividerComponent> = () => {
   );
 };
 
-export const DividerVertical: ComponentStory<
-  typeof DividerComponent
-> = DividerVerticalTemplate.bind({});
+export const DividerVertical: StoryFn<typeof DividerComponent> = DividerVerticalTemplate.bind({});
 DividerVertical.storyName = 'Vertical';
 
-const DividerWithTextTemplate: ComponentStory<typeof DividerComponent> = () => {
+const DividerWithTextTemplate: StoryFn<typeof DividerComponent> = () => {
   return (
     <Card>
       <CardBody>
@@ -194,7 +188,5 @@ const DividerWithTextTemplate: ComponentStory<typeof DividerComponent> = () => {
   );
 };
 
-export const DividerWithText: ComponentStory<
-  typeof DividerComponent
-> = DividerWithTextTemplate.bind({});
+export const DividerWithText: StoryFn<typeof DividerComponent> = DividerWithTextTemplate.bind({});
 DividerWithText.storyName = 'Divider with Text columns';

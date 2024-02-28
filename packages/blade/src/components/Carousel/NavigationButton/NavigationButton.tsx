@@ -3,7 +3,8 @@ import React from 'react';
 import type { NavigationButtonProps } from './types';
 import { StyledNavigationButton } from './StyledNavigationButton';
 import { ChevronLeftIcon, ChevronRightIcon } from '~components/Icons';
-import { isReactNative, useTheme } from '~utils';
+import { useTheme } from '~components/BladeProvider';
+import { isReactNative } from '~utils';
 import { metaAttribute } from '~utils/metaAttribute';
 import { makeAccessible } from '~utils/makeAccessible';
 
@@ -20,8 +21,8 @@ const NavigationButton = ({ type, variant, onClick }: NavigationButtonProps): Re
 
     // on react native we cannot rely on currentColor thus need to manually pass iconColor
     const iconColor = {
-      filled: 'action.icon.tertiary.default',
-      stroked: 'surface.action.icon.active.highContrast',
+      filled: 'interactive.icon.staticBlack.muted',
+      stroked: 'interactive.icon.gray.normal',
     } as const;
 
     return iconColor[variant];

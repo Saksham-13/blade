@@ -8,7 +8,7 @@ import type { Platform } from '~utils';
 
 /**
  * @template TokenType token type generic
- * @description Tokenises objects to dot notation strings, eg: `surface.text.normal.lowContrast`
+ * @description Tokenises objects to dot notation strings, eg: `surface.text.gray.normal`
  */
 type DotNotationColorStringToken<TokenType> = {
   [K in keyof TokenType]: `${Extract<K, number | string>}.${TokenType[K] extends Record<
@@ -50,8 +50,8 @@ type KeysRequired<T> = AllowUndefinedValue<Required<T>>;
  *
  * This covers scenarios like
  * ```jsx
- * <Title>Hi</Title>
- * <Title>{dynamicVariable} something</Title>
+ * <Heading>Hi</Heading>
+ * <Heading>{dynamicVariable} something</Heading>
  * ```
  *
  *
@@ -74,10 +74,10 @@ type StringChildrenType = React.ReactText | React.ReactText[];
  * ### Usage
  *
  * ```ts
- * type ThemeName = 'paymentTheme' | 'bankingTheme' | StringWithAutocomplete;
+ * type ThemeName = 'themeOne' | 'themeTwo' | StringWithAutocomplete;
  * ```
  *
- * This will show paymentTheme and bankingTheme in autocomplete but also allow any other string as value.
+ * This will show themeOne and themeTwo in autocomplete but also allow any other string as value.
  *
  * More details - https://github.com/razorpay/blade/pull/1031/commits/86b6ee0facf45e7556739efcbfa5396b11b1b3c9#r1121298293
  * Related TS Issue - https://github.com/microsoft/TypeScript/issues/29729
@@ -86,6 +86,11 @@ type StringChildrenType = React.ReactText | React.ReactText[];
 type StringWithAutocomplete = string & Record<never, never>;
 
 type TestID = {
+  /**
+   * Test id that can be used to select element in testing environments
+   *
+   * Checkout https://testing-library.com/docs/queries/bytestid/
+   */
   testID?: string;
 };
 

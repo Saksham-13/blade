@@ -1,7 +1,7 @@
-import getIn from 'lodash/get';
 import styled from 'styled-components';
 import getStyledBaseButtonStyles from './getStyledBaseButtonStyles';
 import type { StyledBaseButtonProps } from './types';
+import getIn from '~utils/lodashButBetter/get';
 import { useStyledProps } from '~components/Box/styledProps';
 import { makeMotionTime } from '~utils/makeMotionTime';
 import { omitPropsFromHTML } from '~utils/omitPropsFromHTML';
@@ -32,9 +32,9 @@ const StyledBaseButton = styled.button
       }),
     },
     '&:active': {
-      backgroundColor: props.activeBackgroundColor,
+      backgroundColor: props.focusBackgroundColor,
       ...(props.variant !== 'tertiary' && {
-        borderColor: props.activeBorderColor,
+        borderColor: props.focusBorderColor,
       }),
     },
     '&:focus-visible': {
@@ -42,11 +42,11 @@ const StyledBaseButton = styled.button
       ...(props.variant !== 'tertiary' && {
         borderColor: props.focusBorderColor,
       }),
-      outline: `1px solid ${props.theme.colors.surface.background.level1.lowContrast}`,
+      outline: `1px solid ${props.theme.colors.surface.background.primary.subtle}`,
       boxShadow: `0px 0px 0px 4px ${props.focusRingColor}`,
     },
     '*': {
-      transitionProperty: 'color, fill',
+      transitionProperty: 'color, fill, opacity',
       transitionDuration: castWebType(
         makeMotionTime(getIn(props.theme.motion, props.motionDuration)),
       ),

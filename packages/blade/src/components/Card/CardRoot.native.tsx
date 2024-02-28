@@ -5,12 +5,15 @@ import styled from 'styled-components';
 import type { CardRootProps } from './types';
 import { CARD_SCALE_DOWN_VALUE } from './constants';
 import BaseBox from '~components/Box/BaseBox';
-import { castNativeType, makeMotionTime, useTheme } from '~utils';
+import { castNativeType, makeMotionTime } from '~utils';
+import { useTheme } from '~components/BladeProvider';
 import { logger } from '~utils/logger';
 import { makeAccessible } from '~utils/makeAccessible/makeAccessible.native';
 
 const StyledCardRoot = styled(BaseBox)<CardRootProps>(({ isSelected, ...props }) => {
-  const selectedColor = isSelected ? props.theme.colors.brand.primary[500] : 'transparent';
+  const selectedColor = isSelected
+    ? props.theme.colors.surface.border.primary.normal
+    : 'transparent';
   return {
     border: `${props.theme.border.width.thicker}px solid ${selectedColor}`,
   };
@@ -70,9 +73,9 @@ const CardRoot = ({
           selected: isSelected,
         })}
         style={styles}
-        onPressIn={() => {
+        onPressIn={(event) => {
           if (onClick) {
-            onClick();
+            onClick(event);
           }
           setIsPressed(true);
         }}

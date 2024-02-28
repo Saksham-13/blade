@@ -1,4 +1,3 @@
-import getIn from 'lodash/get';
 import { Linking, Pressable } from 'react-native';
 import Animated, { useAnimatedStyle, useSharedValue, withTiming } from 'react-native-reanimated';
 import styled from 'styled-components/native';
@@ -6,6 +5,7 @@ import React from 'react';
 import type { TextInput, GestureResponderEvent } from 'react-native';
 import getStyledBaseButtonStyles from './getStyledBaseButtonStyles';
 import type { StyledBaseButtonProps } from './types';
+import getIn from '~utils/lodashButBetter/get';
 import { useStyledProps } from '~components/Box/styledProps';
 import { useTheme } from '~components/BladeProvider';
 import { assignWithoutSideEffects } from '~utils/assignWithoutSideEffects';
@@ -60,11 +60,9 @@ const _StyledBaseButton: React.ForwardRefRenderFunction<TextInput, StyledBaseBut
     defaultBackgroundColor,
     defaultBorderColor,
     hoverBackgroundColor,
-    activeBackgroundColor,
     focusBackgroundColor,
     focusRingColor,
     hoverBorderColor,
-    activeBorderColor,
     focusBorderColor,
     borderWidth,
     borderRadius,
@@ -86,17 +84,15 @@ const _StyledBaseButton: React.ForwardRefRenderFunction<TextInput, StyledBaseBut
   const isPressed = useSharedValue(false);
   const duration = getIn(theme.motion, motionDuration);
   const easing = getIn(theme.motion, motionEasing);
+
   const animatedStyles = useAnimatedStyle(() => {
     return {
-      backgroundColor: withTiming(
-        isPressed.value ? activeBackgroundColor : defaultBackgroundColor,
-        {
-          duration,
-          easing,
-        },
-      ),
+      backgroundColor: withTiming(isPressed.value ? focusBackgroundColor : defaultBackgroundColor, {
+        duration,
+        easing,
+      }),
       ...(variant !== 'tertiary' && {
-        borderColor: withTiming(isPressed.value ? activeBorderColor : defaultBorderColor, {
+        borderColor: withTiming(isPressed.value ? focusBorderColor : defaultBorderColor, {
           duration,
           easing,
         }),
@@ -138,11 +134,9 @@ const _StyledBaseButton: React.ForwardRefRenderFunction<TextInput, StyledBaseBut
       defaultBackgroundColor={defaultBackgroundColor}
       defaultBorderColor={defaultBorderColor}
       hoverBackgroundColor={hoverBackgroundColor}
-      activeBackgroundColor={activeBackgroundColor}
       focusBackgroundColor={focusBackgroundColor}
       focusRingColor={focusRingColor}
       hoverBorderColor={hoverBorderColor}
-      activeBorderColor={activeBorderColor}
       focusBorderColor={focusBorderColor}
       borderWidth={borderWidth}
       borderRadius={borderRadius}

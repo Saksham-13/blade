@@ -1,5 +1,5 @@
 /* eslint-disable react-native-a11y/has-valid-accessibility-descriptors */
-import type { ComponentStory } from '@storybook/react';
+import type { StoryFn } from '@storybook/react';
 import { Title } from '@storybook/addon-docs';
 import React from 'react';
 import { SelectInput } from './SelectInput';
@@ -52,6 +52,7 @@ export default {
     prefix: '',
     suffix: '',
   },
+  tags: ['autodocs'],
   argTypes: {
     defaultValue: {
       table: {
@@ -199,12 +200,7 @@ export default {
           componentDescription="The AutoComplete component is SelectInput-like component where you can type text and search through the list"
           componentName="AutoComplete"
           note="AutoComplete is meant to be used only inside the Dropdown component. Things will not work as expected if you are using this without Dropdown"
-          figmaURL={{
-            paymentTheme:
-              'https://www.figma.com/file/jubmQL9Z8V7881ayUD95ps/Blade---Payment-Light?node-id=13590-171090',
-            bankingTheme:
-              'https://www.figma.com/file/sAdplk2uYnI2ILnDKUxycW/Blade---Banking-Dark?node-id=13344-389834',
-          }}
+          figmaURL="https://www.figma.com/file/jubmQL9Z8V7881ayUD95ps/Blade-DSL?type=design&node-id=13590-171090&mode=design&t=jyVG8aXFc1Dlw2Se-4"
         >
           <Title>Usage</Title>
           <Sandbox showConsole>
@@ -243,7 +239,7 @@ export default {
   },
 };
 
-const AutoCompleteTemplate: ComponentStory<typeof AutoComplete> = ({ icon, ...args }) => {
+const AutoCompleteTemplate: StoryFn<typeof AutoComplete> = ({ icon, ...args }) => {
   return (
     <Box minHeight="150px" padding="spacing.5">
       <Dropdown>
@@ -262,10 +258,16 @@ const AutoCompleteTemplate: ComponentStory<typeof AutoComplete> = ({ icon, ...ar
 };
 
 export const Default = AutoCompleteTemplate.bind({});
-// Need to do this because of storybook's weird naming convention, More details here: https://storybook.js.org/docs/react/writing-stories/naming-components-and-hierarchy#single-story-hoisting
 Default.args = {
   label: 'City',
   placeholder: 'Select City',
+};
+
+export const Disabled = AutoCompleteTemplate.bind({});
+Disabled.args = {
+  label: 'City',
+  placeholder: 'Select City',
+  isDisabled: true,
 };
 
 export const InternalAutoCompleteUncontrolled = (): React.ReactElement => {
@@ -527,9 +529,11 @@ export const InternalWithValidations = (): React.ReactElement => {
   return (
     <Dropdown
       selectionType="single"
-      onDismiss={() => {
-        console.log('dismiss');
-        setIsDismissed(true);
+      onOpenChange={(isOpen) => {
+        if (!isOpen) {
+          console.log('dismiss');
+          setIsDismissed(true);
+        }
       }}
     >
       <AutoComplete

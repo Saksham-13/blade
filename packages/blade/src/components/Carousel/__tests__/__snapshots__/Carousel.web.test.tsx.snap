@@ -1,12 +1,12 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Carousel Snapshots should not render overlay on mobile devices 1`] = `
-.c9 {
+.c9.c9.c9.c9.c9 {
   border: none;
   cursor: pointer;
   padding: 0px;
   border-radius: 9999px;
-  background-color: hsla(214,18%,69%,1);
+  background-color: hsla(211,22%,56%,1);
   width: 18px;
   height: 6px;
   -webkit-transition-property: width;
@@ -17,23 +17,29 @@ exports[`Carousel Snapshots should not render overlay on mobile devices 1`] = `
   transition-timing-function: cubic-bezier(0.3,0,0.2,1);
 }
 
-.c9:before {
+.c9.c9.c9.c9.c9:before {
   content: "";
   padding: 10px;
   padding-top: 20px;
 }
 
-.c9:focus-visible {
-  outline: none;
-  box-shadow: 0px 0px 0px 4px hsla(218,89%,51%,0.18);
+.c9.c9.c9.c9.c9:focus-visible {
+  outline: 4px solid hsla(227,100%,59%,0.18);
+  outline-offset: 1px;
+  -webkit-transition-property: outline-width;
+  transition-property: outline-width;
+  -webkit-transition-duration: 70ms;
+  transition-duration: 70ms;
+  -webkit-transition-timing-function: cubic-bezier(0.3,0,0.2,1);
+  transition-timing-function: cubic-bezier(0.3,0,0.2,1);
 }
 
-.c10 {
+.c10.c10.c10.c10.c10 {
   border: none;
   cursor: pointer;
   padding: 0px;
   border-radius: 9999px;
-  background-color: hsla(214,18%,69%,0.64);
+  background-color: hsla(211,20%,52%,0.32);
   width: 6px;
   height: 6px;
   -webkit-transition-property: width;
@@ -44,18 +50,24 @@ exports[`Carousel Snapshots should not render overlay on mobile devices 1`] = `
   transition-timing-function: cubic-bezier(0.3,0,0.2,1);
 }
 
-.c10:before {
+.c10.c10.c10.c10.c10:before {
   content: "";
   padding: 10px;
   padding-top: 20px;
 }
 
-.c10:focus-visible {
-  outline: none;
-  box-shadow: 0px 0px 0px 4px hsla(218,89%,51%,0.18);
+.c10.c10.c10.c10.c10:focus-visible {
+  outline: 4px solid hsla(227,100%,59%,0.18);
+  outline-offset: 1px;
+  -webkit-transition-property: outline-width;
+  transition-property: outline-width;
+  -webkit-transition-duration: 70ms;
+  transition-duration: 70ms;
+  -webkit-transition-timing-function: cubic-bezier(0.3,0,0.2,1);
+  transition-timing-function: cubic-bezier(0.3,0,0.2,1);
 }
 
-.c0 {
+.c0.c0.c0.c0.c0 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -69,7 +81,7 @@ exports[`Carousel Snapshots should not render overlay on mobile devices 1`] = `
   align-items: center;
 }
 
-.c1 {
+.c1.c1.c1.c1.c1 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -86,7 +98,7 @@ exports[`Carousel Snapshots should not render overlay on mobile devices 1`] = `
   gap: 12px;
 }
 
-.c2 {
+.c2.c2.c2.c2.c2 {
   -webkit-align-items: start;
   -webkit-box-align: start;
   -ms-flex-align: start;
@@ -94,11 +106,11 @@ exports[`Carousel Snapshots should not render overlay on mobile devices 1`] = `
   gap: 12px;
 }
 
-.c5 {
+.c5.c5.c5.c5.c5 {
   min-width: 0px;
 }
 
-.c6 {
+.c6.c6.c6.c6.c6 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -111,7 +123,7 @@ exports[`Carousel Snapshots should not render overlay on mobile devices 1`] = `
   gap: 12px;
 }
 
-.c8 {
+.c8.c8.c8.c8.c8 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -122,16 +134,16 @@ exports[`Carousel Snapshots should not render overlay on mobile devices 1`] = `
   gap: 4px;
 }
 
-.c7 {
+.c7.c7.c7.c7.c7 {
   cursor: pointer;
   background: transparent;
   border: none;
   border-style: solid;
   border-width: 1px;
   border-radius: 9999px;
-  border-color: hsla(216,44%,23%,0);
-  background-color: hsla(216,15%,54%,0.09);
-  color: hsla(216,33%,29%,1);
+  border-color: hsla(0,0%,100%,0);
+  background-color: hsla(0,0%,100%,1);
+  color: hsla(0,0%,0%,0.72);
   padding: 8px;
   display: -webkit-box;
   display: -webkit-flex;
@@ -154,30 +166,33 @@ exports[`Carousel Snapshots should not render overlay on mobile devices 1`] = `
   transition-duration: 150ms;
   -webkit-transition-timing-function: cubic-bezier(0.3,0,0.2,1);
   transition-timing-function: cubic-bezier(0.3,0,0.2,1);
-  box-shadow: 0 12px 16px -4px hsla(217,56%,17%,0.08),0 4px 6px -2px hsla(217,56%,17%,0.03);
+  box-shadow: 0px 8px 24px 0px hsla(217,56%,17%,0.12);
 }
 
-.c7:hover {
-  color: hsla(216,33%,29%,1);
-  border-color: hsla(216,19%,89%,1);
-  background-color: hsla(216,15%,54%,0.18);
+.c7.c7.c7.c7.c7:hover {
+  color: hsla(0,0%,0%,0.72);
+  background-color: hsla(0,0%,100%,0.8);
 }
 
-.c7:focus-visible {
-  outline: none;
-  box-shadow: 0px 0px 0px 4px hsla(218,89%,51%,0.18);
-  color: hsla(216,33%,29%,1);
-  border-color: hsla(216,19%,89%,1);
-  background-color: hsla(216,15%,54%,0.32);
+.c7.c7.c7.c7.c7:focus-visible {
+  outline: 4px solid hsla(227,100%,59%,0.18);
+  outline-offset: 1px;
+  -webkit-transition-property: outline-width;
+  transition-property: outline-width;
+  -webkit-transition-duration: 70ms;
+  transition-duration: 70ms;
+  -webkit-transition-timing-function: cubic-bezier(0.3,0,0.2,1);
+  transition-timing-function: cubic-bezier(0.3,0,0.2,1);
+  color: hsla(0,0%,0%,0.72);
+  background-color: hsla(0,0%,100%,0.8);
 }
 
-.c7:active {
-  color: hsla(216,33%,29%,1);
-  border-color: hsla(216,19%,89%,1);
-  background-color: hsla(216,15%,54%,0.32);
+.c7.c7.c7.c7.c7:active {
+  color: hsla(0,0%,0%,0.72);
+  background-color: hsla(0,0%,100%,0.8);
 }
 
-.c3 {
+.c3.c3.c3.c3.c3 {
   width: 100%;
   overflow-x: scroll;
   display: -webkit-box;
@@ -209,11 +224,11 @@ exports[`Carousel Snapshots should not render overlay on mobile devices 1`] = `
   -ms-scroll-snap-points-x: repeat(100%);
 }
 
-.c3::-webkit-scrollbar {
+.c3.c3.c3.c3.c3::-webkit-scrollbar {
   display: none;
 }
 
-.c3::before {
+.c3.c3.c3.c3.c3::before {
   content: '';
   position: absolute;
   top: 0;
@@ -225,13 +240,13 @@ exports[`Carousel Snapshots should not render overlay on mobile devices 1`] = `
   transition-timing-function: cubic-bezier(0.3,0,0.2,1);
   -webkit-transition-property: opacity;
   transition-property: opacity;
-  background: linear-gradient(to right,hsla(220,30%,96%,1),hsla(0,0%,100%,0));
+  background: linear-gradient(to right,hsla(213,47%,96%,1),hsla(0,0%,100%,0));
   left: -1px;
   opacity: 1;
   pointer-events: none;
 }
 
-.c3::after {
+.c3.c3.c3.c3.c3::after {
   content: '';
   position: absolute;
   top: 0;
@@ -243,13 +258,13 @@ exports[`Carousel Snapshots should not render overlay on mobile devices 1`] = `
   transition-timing-function: cubic-bezier(0.3,0,0.2,1);
   -webkit-transition-property: opacity;
   transition-property: opacity;
-  background: linear-gradient(to left,hsla(220,30%,96%,1),hsla(0,0%,100%,0));
+  background: linear-gradient(to left,hsla(213,47%,96%,1),hsla(0,0%,100%,0));
   right: -1px;
   opacity: 1;
   pointer-events: none;
 }
 
-.c4 {
+.c4.c4.c4.c4.c4 {
   -webkit-box-flex: 0;
   -webkit-flex-grow: 0;
   -ms-flex-positive: 0;
@@ -266,7 +281,7 @@ exports[`Carousel Snapshots should not render overlay on mobile devices 1`] = `
 }
 
 @media screen and (min-width:768px) {
-  .c2 {
+  .c2.c2.c2.c2.c2 {
     gap: 16px;
   }
 }
@@ -293,7 +308,7 @@ exports[`Carousel Snapshots should not render overlay on mobile devices 1`] = `
           class=" c4"
           data-blade-component="base-box"
           data-slide-index="0"
-          id="carousel-39-carousel-item-0"
+          id="carousel-15-carousel-item-0"
           role="tabpanel"
         >
           <div>
@@ -310,7 +325,7 @@ exports[`Carousel Snapshots should not render overlay on mobile devices 1`] = `
           class=" c4"
           data-blade-component="base-box"
           data-slide-index="1"
-          id="carousel-39-carousel-item-1"
+          id="carousel-15-carousel-item-1"
           role="tabpanel"
         >
           <div>
@@ -361,7 +376,7 @@ exports[`Carousel Snapshots should not render overlay on mobile devices 1`] = `
         role="tablist"
       >
         <button
-          aria-controls="carousel-39-carousel-item-0"
+          aria-controls="carousel-15-carousel-item-0"
           aria-label="Slide 1"
           aria-selected="true"
           class="c9"
@@ -369,7 +384,7 @@ exports[`Carousel Snapshots should not render overlay on mobile devices 1`] = `
           role="tab"
         />
         <button
-          aria-controls="carousel-39-carousel-item-1"
+          aria-controls="carousel-15-carousel-item-1"
           aria-label="Slide 2"
           aria-selected="false"
           class="c10"
@@ -406,12 +421,12 @@ exports[`Carousel Snapshots should not render overlay on mobile devices 1`] = `
 `;
 
 exports[`Carousel Snapshots should render 1`] = `
-.c8 {
+.c8.c8.c8.c8.c8 {
   border: none;
   cursor: pointer;
   padding: 0px;
   border-radius: 9999px;
-  background-color: hsla(214,18%,69%,1);
+  background-color: hsla(211,22%,56%,1);
   width: 18px;
   height: 6px;
   -webkit-transition-property: width;
@@ -422,23 +437,29 @@ exports[`Carousel Snapshots should render 1`] = `
   transition-timing-function: cubic-bezier(0.3,0,0.2,1);
 }
 
-.c8:before {
+.c8.c8.c8.c8.c8:before {
   content: "";
   padding: 10px;
   padding-top: 20px;
 }
 
-.c8:focus-visible {
-  outline: none;
-  box-shadow: 0px 0px 0px 4px hsla(218,89%,51%,0.18);
+.c8.c8.c8.c8.c8:focus-visible {
+  outline: 4px solid hsla(227,100%,59%,0.18);
+  outline-offset: 1px;
+  -webkit-transition-property: outline-width;
+  transition-property: outline-width;
+  -webkit-transition-duration: 70ms;
+  transition-duration: 70ms;
+  -webkit-transition-timing-function: cubic-bezier(0.3,0,0.2,1);
+  transition-timing-function: cubic-bezier(0.3,0,0.2,1);
 }
 
-.c9 {
+.c9.c9.c9.c9.c9 {
   border: none;
   cursor: pointer;
   padding: 0px;
   border-radius: 9999px;
-  background-color: hsla(214,18%,69%,0.64);
+  background-color: hsla(211,20%,52%,0.32);
   width: 6px;
   height: 6px;
   -webkit-transition-property: width;
@@ -449,18 +470,24 @@ exports[`Carousel Snapshots should render 1`] = `
   transition-timing-function: cubic-bezier(0.3,0,0.2,1);
 }
 
-.c9:before {
+.c9.c9.c9.c9.c9:before {
   content: "";
   padding: 10px;
   padding-top: 20px;
 }
 
-.c9:focus-visible {
-  outline: none;
-  box-shadow: 0px 0px 0px 4px hsla(218,89%,51%,0.18);
+.c9.c9.c9.c9.c9:focus-visible {
+  outline: 4px solid hsla(227,100%,59%,0.18);
+  outline-offset: 1px;
+  -webkit-transition-property: outline-width;
+  transition-property: outline-width;
+  -webkit-transition-duration: 70ms;
+  transition-duration: 70ms;
+  -webkit-transition-timing-function: cubic-bezier(0.3,0,0.2,1);
+  transition-timing-function: cubic-bezier(0.3,0,0.2,1);
 }
 
-.c0 {
+.c0.c0.c0.c0.c0 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -474,7 +501,7 @@ exports[`Carousel Snapshots should render 1`] = `
   align-items: center;
 }
 
-.c1 {
+.c1.c1.c1.c1.c1 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -491,7 +518,7 @@ exports[`Carousel Snapshots should render 1`] = `
   gap: 12px;
 }
 
-.c2 {
+.c2.c2.c2.c2.c2 {
   -webkit-align-items: start;
   -webkit-box-align: start;
   -ms-flex-align: start;
@@ -499,7 +526,7 @@ exports[`Carousel Snapshots should render 1`] = `
   gap: 12px;
 }
 
-.c5 {
+.c5.c5.c5.c5.c5 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -512,7 +539,7 @@ exports[`Carousel Snapshots should render 1`] = `
   gap: 12px;
 }
 
-.c7 {
+.c7.c7.c7.c7.c7 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -523,16 +550,16 @@ exports[`Carousel Snapshots should render 1`] = `
   gap: 4px;
 }
 
-.c6 {
+.c6.c6.c6.c6.c6 {
   cursor: pointer;
   background: transparent;
   border: none;
   border-style: solid;
   border-width: 1px;
   border-radius: 9999px;
-  border-color: hsla(216,44%,23%,0);
-  background-color: hsla(216,15%,54%,0.09);
-  color: hsla(216,33%,29%,1);
+  border-color: hsla(0,0%,100%,0);
+  background-color: hsla(0,0%,100%,1);
+  color: hsla(0,0%,0%,0.72);
   padding: 8px;
   display: -webkit-box;
   display: -webkit-flex;
@@ -555,30 +582,33 @@ exports[`Carousel Snapshots should render 1`] = `
   transition-duration: 150ms;
   -webkit-transition-timing-function: cubic-bezier(0.3,0,0.2,1);
   transition-timing-function: cubic-bezier(0.3,0,0.2,1);
-  box-shadow: 0 12px 16px -4px hsla(217,56%,17%,0.08),0 4px 6px -2px hsla(217,56%,17%,0.03);
+  box-shadow: 0px 8px 24px 0px hsla(217,56%,17%,0.12);
 }
 
-.c6:hover {
-  color: hsla(216,33%,29%,1);
-  border-color: hsla(216,19%,89%,1);
-  background-color: hsla(216,15%,54%,0.18);
+.c6.c6.c6.c6.c6:hover {
+  color: hsla(0,0%,0%,0.72);
+  background-color: hsla(0,0%,100%,0.8);
 }
 
-.c6:focus-visible {
-  outline: none;
-  box-shadow: 0px 0px 0px 4px hsla(218,89%,51%,0.18);
-  color: hsla(216,33%,29%,1);
-  border-color: hsla(216,19%,89%,1);
-  background-color: hsla(216,15%,54%,0.32);
+.c6.c6.c6.c6.c6:focus-visible {
+  outline: 4px solid hsla(227,100%,59%,0.18);
+  outline-offset: 1px;
+  -webkit-transition-property: outline-width;
+  transition-property: outline-width;
+  -webkit-transition-duration: 70ms;
+  transition-duration: 70ms;
+  -webkit-transition-timing-function: cubic-bezier(0.3,0,0.2,1);
+  transition-timing-function: cubic-bezier(0.3,0,0.2,1);
+  color: hsla(0,0%,0%,0.72);
+  background-color: hsla(0,0%,100%,0.8);
 }
 
-.c6:active {
-  color: hsla(216,33%,29%,1);
-  border-color: hsla(216,19%,89%,1);
-  background-color: hsla(216,15%,54%,0.32);
+.c6.c6.c6.c6.c6:active {
+  color: hsla(0,0%,0%,0.72);
+  background-color: hsla(0,0%,100%,0.8);
 }
 
-.c3 {
+.c3.c3.c3.c3.c3 {
   width: 100%;
   overflow-x: scroll;
   display: -webkit-box;
@@ -610,11 +640,11 @@ exports[`Carousel Snapshots should render 1`] = `
   -ms-scroll-snap-points-x: repeat(100%);
 }
 
-.c3::-webkit-scrollbar {
+.c3.c3.c3.c3.c3::-webkit-scrollbar {
   display: none;
 }
 
-.c4 {
+.c4.c4.c4.c4.c4 {
   -webkit-box-flex: 0;
   -webkit-flex-grow: 0;
   -ms-flex-positive: 0;
@@ -631,7 +661,7 @@ exports[`Carousel Snapshots should render 1`] = `
 }
 
 @media screen and (min-width:768px) {
-  .c2 {
+  .c2.c2.c2.c2.c2 {
     gap: 16px;
   }
 }
@@ -658,7 +688,7 @@ exports[`Carousel Snapshots should render 1`] = `
           class=" c4"
           data-blade-component="base-box"
           data-slide-index="0"
-          id="carousel-34-carousel-item-0"
+          id="carousel-5-carousel-item-0"
           role="tabpanel"
         >
           <div>
@@ -675,7 +705,7 @@ exports[`Carousel Snapshots should render 1`] = `
           class=" c4"
           data-blade-component="base-box"
           data-slide-index="1"
-          id="carousel-34-carousel-item-1"
+          id="carousel-5-carousel-item-1"
           role="tabpanel"
         >
           <div>
@@ -722,7 +752,7 @@ exports[`Carousel Snapshots should render 1`] = `
         role="tablist"
       >
         <button
-          aria-controls="carousel-34-carousel-item-0"
+          aria-controls="carousel-5-carousel-item-0"
           aria-label="Slide 1"
           aria-selected="true"
           class="c8"
@@ -730,7 +760,7 @@ exports[`Carousel Snapshots should render 1`] = `
           role="tab"
         />
         <button
-          aria-controls="carousel-34-carousel-item-1"
+          aria-controls="carousel-5-carousel-item-1"
           aria-label="Slide 2"
           aria-selected="false"
           class="c9"
@@ -767,12 +797,12 @@ exports[`Carousel Snapshots should render 1`] = `
 `;
 
 exports[`Carousel Snapshots should render with navigationButtonPosition=side 1`] = `
-.c8 {
+.c8.c8.c8.c8.c8 {
   border: none;
   cursor: pointer;
   padding: 0px;
   border-radius: 9999px;
-  background-color: hsla(214,18%,69%,1);
+  background-color: hsla(211,22%,56%,1);
   width: 18px;
   height: 6px;
   -webkit-transition-property: width;
@@ -783,23 +813,29 @@ exports[`Carousel Snapshots should render with navigationButtonPosition=side 1`]
   transition-timing-function: cubic-bezier(0.3,0,0.2,1);
 }
 
-.c8:before {
+.c8.c8.c8.c8.c8:before {
   content: "";
   padding: 10px;
   padding-top: 20px;
 }
 
-.c8:focus-visible {
-  outline: none;
-  box-shadow: 0px 0px 0px 4px hsla(218,89%,51%,0.18);
+.c8.c8.c8.c8.c8:focus-visible {
+  outline: 4px solid hsla(227,100%,59%,0.18);
+  outline-offset: 1px;
+  -webkit-transition-property: outline-width;
+  transition-property: outline-width;
+  -webkit-transition-duration: 70ms;
+  transition-duration: 70ms;
+  -webkit-transition-timing-function: cubic-bezier(0.3,0,0.2,1);
+  transition-timing-function: cubic-bezier(0.3,0,0.2,1);
 }
 
-.c9 {
+.c9.c9.c9.c9.c9 {
   border: none;
   cursor: pointer;
   padding: 0px;
   border-radius: 9999px;
-  background-color: hsla(214,18%,69%,0.64);
+  background-color: hsla(211,20%,52%,0.32);
   width: 6px;
   height: 6px;
   -webkit-transition-property: width;
@@ -810,18 +846,24 @@ exports[`Carousel Snapshots should render with navigationButtonPosition=side 1`]
   transition-timing-function: cubic-bezier(0.3,0,0.2,1);
 }
 
-.c9:before {
+.c9.c9.c9.c9.c9:before {
   content: "";
   padding: 10px;
   padding-top: 20px;
 }
 
-.c9:focus-visible {
-  outline: none;
-  box-shadow: 0px 0px 0px 4px hsla(218,89%,51%,0.18);
+.c9.c9.c9.c9.c9:focus-visible {
+  outline: 4px solid hsla(227,100%,59%,0.18);
+  outline-offset: 1px;
+  -webkit-transition-property: outline-width;
+  transition-property: outline-width;
+  -webkit-transition-duration: 70ms;
+  transition-duration: 70ms;
+  -webkit-transition-timing-function: cubic-bezier(0.3,0,0.2,1);
+  transition-timing-function: cubic-bezier(0.3,0,0.2,1);
 }
 
-.c0 {
+.c0.c0.c0.c0.c0 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -835,7 +877,7 @@ exports[`Carousel Snapshots should render with navigationButtonPosition=side 1`]
   align-items: center;
 }
 
-.c1 {
+.c1.c1.c1.c1.c1 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -852,7 +894,7 @@ exports[`Carousel Snapshots should render with navigationButtonPosition=side 1`]
   gap: 12px;
 }
 
-.c3 {
+.c3.c3.c3.c3.c3 {
   -webkit-align-items: start;
   -webkit-box-align: start;
   -ms-flex-align: start;
@@ -860,11 +902,11 @@ exports[`Carousel Snapshots should render with navigationButtonPosition=side 1`]
   gap: 12px;
 }
 
-.c6 {
+.c6.c6.c6.c6.c6 {
   margin-top: 24px;
 }
 
-.c7 {
+.c7.c7.c7.c7.c7 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -875,16 +917,16 @@ exports[`Carousel Snapshots should render with navigationButtonPosition=side 1`]
   gap: 4px;
 }
 
-.c2 {
+.c2.c2.c2.c2.c2 {
   cursor: pointer;
   background: transparent;
   border: none;
   border-style: solid;
   border-width: 1px;
   border-radius: 9999px;
-  border-color: hsla(216,44%,23%,0);
-  background-color: hsla(216,15%,54%,0.09);
-  color: hsla(216,33%,29%,1);
+  border-color: hsla(0,0%,100%,0);
+  background-color: hsla(0,0%,100%,1);
+  color: hsla(0,0%,0%,0.72);
   padding: 8px;
   display: -webkit-box;
   display: -webkit-flex;
@@ -907,30 +949,33 @@ exports[`Carousel Snapshots should render with navigationButtonPosition=side 1`]
   transition-duration: 150ms;
   -webkit-transition-timing-function: cubic-bezier(0.3,0,0.2,1);
   transition-timing-function: cubic-bezier(0.3,0,0.2,1);
-  box-shadow: 0 12px 16px -4px hsla(217,56%,17%,0.08),0 4px 6px -2px hsla(217,56%,17%,0.03);
+  box-shadow: 0px 8px 24px 0px hsla(217,56%,17%,0.12);
 }
 
-.c2:hover {
-  color: hsla(216,33%,29%,1);
-  border-color: hsla(216,19%,89%,1);
-  background-color: hsla(216,15%,54%,0.18);
+.c2.c2.c2.c2.c2:hover {
+  color: hsla(0,0%,0%,0.72);
+  background-color: hsla(0,0%,100%,0.8);
 }
 
-.c2:focus-visible {
-  outline: none;
-  box-shadow: 0px 0px 0px 4px hsla(218,89%,51%,0.18);
-  color: hsla(216,33%,29%,1);
-  border-color: hsla(216,19%,89%,1);
-  background-color: hsla(216,15%,54%,0.32);
+.c2.c2.c2.c2.c2:focus-visible {
+  outline: 4px solid hsla(227,100%,59%,0.18);
+  outline-offset: 1px;
+  -webkit-transition-property: outline-width;
+  transition-property: outline-width;
+  -webkit-transition-duration: 70ms;
+  transition-duration: 70ms;
+  -webkit-transition-timing-function: cubic-bezier(0.3,0,0.2,1);
+  transition-timing-function: cubic-bezier(0.3,0,0.2,1);
+  color: hsla(0,0%,0%,0.72);
+  background-color: hsla(0,0%,100%,0.8);
 }
 
-.c2:active {
-  color: hsla(216,33%,29%,1);
-  border-color: hsla(216,19%,89%,1);
-  background-color: hsla(216,15%,54%,0.32);
+.c2.c2.c2.c2.c2:active {
+  color: hsla(0,0%,0%,0.72);
+  background-color: hsla(0,0%,100%,0.8);
 }
 
-.c4 {
+.c4.c4.c4.c4.c4 {
   width: 100%;
   overflow-x: scroll;
   display: -webkit-box;
@@ -962,11 +1007,11 @@ exports[`Carousel Snapshots should render with navigationButtonPosition=side 1`]
   -ms-scroll-snap-points-x: repeat(100%);
 }
 
-.c4::-webkit-scrollbar {
+.c4.c4.c4.c4.c4::-webkit-scrollbar {
   display: none;
 }
 
-.c5 {
+.c5.c5.c5.c5.c5 {
   -webkit-box-flex: 0;
   -webkit-flex-grow: 0;
   -ms-flex-positive: 0;
@@ -983,7 +1028,7 @@ exports[`Carousel Snapshots should render with navigationButtonPosition=side 1`]
 }
 
 @media screen and (min-width:768px) {
-  .c3 {
+  .c3.c3.c3.c3.c3 {
     gap: 16px;
   }
 }
@@ -1033,7 +1078,7 @@ exports[`Carousel Snapshots should render with navigationButtonPosition=side 1`]
           class=" c5"
           data-blade-component="base-box"
           data-slide-index="0"
-          id="carousel-38-carousel-item-0"
+          id="carousel-13-carousel-item-0"
           role="tabpanel"
         >
           <div>
@@ -1050,7 +1095,7 @@ exports[`Carousel Snapshots should render with navigationButtonPosition=side 1`]
           class=" c5"
           data-blade-component="base-box"
           data-slide-index="1"
-          id="carousel-38-carousel-item-1"
+          id="carousel-13-carousel-item-1"
           role="tabpanel"
         >
           <div>
@@ -1097,7 +1142,7 @@ exports[`Carousel Snapshots should render with navigationButtonPosition=side 1`]
         role="tablist"
       >
         <button
-          aria-controls="carousel-38-carousel-item-0"
+          aria-controls="carousel-13-carousel-item-0"
           aria-label="Slide 1"
           aria-selected="true"
           class="c8"
@@ -1105,7 +1150,7 @@ exports[`Carousel Snapshots should render with navigationButtonPosition=side 1`]
           role="tab"
         />
         <button
-          aria-controls="carousel-38-carousel-item-1"
+          aria-controls="carousel-13-carousel-item-1"
           aria-label="Slide 2"
           aria-selected="false"
           class="c9"
@@ -1119,12 +1164,12 @@ exports[`Carousel Snapshots should render with navigationButtonPosition=side 1`]
 `;
 
 exports[`Carousel Snapshots should render with shouldAddStartEndSpacing 1`] = `
-.c10 {
+.c10.c10.c10.c10.c10 {
   border: none;
   cursor: pointer;
   padding: 0px;
   border-radius: 9999px;
-  background-color: hsla(214,18%,69%,1);
+  background-color: hsla(211,22%,56%,1);
   width: 18px;
   height: 6px;
   -webkit-transition-property: width;
@@ -1135,23 +1180,29 @@ exports[`Carousel Snapshots should render with shouldAddStartEndSpacing 1`] = `
   transition-timing-function: cubic-bezier(0.3,0,0.2,1);
 }
 
-.c10:before {
+.c10.c10.c10.c10.c10:before {
   content: "";
   padding: 10px;
   padding-top: 20px;
 }
 
-.c10:focus-visible {
-  outline: none;
-  box-shadow: 0px 0px 0px 4px hsla(218,89%,51%,0.18);
+.c10.c10.c10.c10.c10:focus-visible {
+  outline: 4px solid hsla(227,100%,59%,0.18);
+  outline-offset: 1px;
+  -webkit-transition-property: outline-width;
+  transition-property: outline-width;
+  -webkit-transition-duration: 70ms;
+  transition-duration: 70ms;
+  -webkit-transition-timing-function: cubic-bezier(0.3,0,0.2,1);
+  transition-timing-function: cubic-bezier(0.3,0,0.2,1);
 }
 
-.c11 {
+.c11.c11.c11.c11.c11 {
   border: none;
   cursor: pointer;
   padding: 0px;
   border-radius: 9999px;
-  background-color: hsla(214,18%,69%,0.64);
+  background-color: hsla(211,20%,52%,0.32);
   width: 6px;
   height: 6px;
   -webkit-transition-property: width;
@@ -1162,18 +1213,24 @@ exports[`Carousel Snapshots should render with shouldAddStartEndSpacing 1`] = `
   transition-timing-function: cubic-bezier(0.3,0,0.2,1);
 }
 
-.c11:before {
+.c11.c11.c11.c11.c11:before {
   content: "";
   padding: 10px;
   padding-top: 20px;
 }
 
-.c11:focus-visible {
-  outline: none;
-  box-shadow: 0px 0px 0px 4px hsla(218,89%,51%,0.18);
+.c11.c11.c11.c11.c11:focus-visible {
+  outline: 4px solid hsla(227,100%,59%,0.18);
+  outline-offset: 1px;
+  -webkit-transition-property: outline-width;
+  transition-property: outline-width;
+  -webkit-transition-duration: 70ms;
+  transition-duration: 70ms;
+  -webkit-transition-timing-function: cubic-bezier(0.3,0,0.2,1);
+  transition-timing-function: cubic-bezier(0.3,0,0.2,1);
 }
 
-.c0 {
+.c0.c0.c0.c0.c0 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -1187,7 +1244,7 @@ exports[`Carousel Snapshots should render with shouldAddStartEndSpacing 1`] = `
   align-items: center;
 }
 
-.c1 {
+.c1.c1.c1.c1.c1 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -1204,7 +1261,7 @@ exports[`Carousel Snapshots should render with shouldAddStartEndSpacing 1`] = `
   gap: 12px;
 }
 
-.c2 {
+.c2.c2.c2.c2.c2 {
   -webkit-align-items: start;
   -webkit-box-align: start;
   -ms-flex-align: start;
@@ -1212,15 +1269,15 @@ exports[`Carousel Snapshots should render with shouldAddStartEndSpacing 1`] = `
   gap: 12px;
 }
 
-.c4 {
+.c4.c4.c4.c4.c4 {
   max-width: 90%;
 }
 
-.c6 {
+.c6.c6.c6.c6.c6 {
   min-width: 0px;
 }
 
-.c7 {
+.c7.c7.c7.c7.c7 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -1233,7 +1290,7 @@ exports[`Carousel Snapshots should render with shouldAddStartEndSpacing 1`] = `
   gap: 12px;
 }
 
-.c9 {
+.c9.c9.c9.c9.c9 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -1244,16 +1301,16 @@ exports[`Carousel Snapshots should render with shouldAddStartEndSpacing 1`] = `
   gap: 4px;
 }
 
-.c8 {
+.c8.c8.c8.c8.c8 {
   cursor: pointer;
   background: transparent;
   border: none;
   border-style: solid;
   border-width: 1px;
   border-radius: 9999px;
-  border-color: hsla(216,44%,23%,0);
-  background-color: hsla(216,15%,54%,0.09);
-  color: hsla(216,33%,29%,1);
+  border-color: hsla(0,0%,100%,0);
+  background-color: hsla(0,0%,100%,1);
+  color: hsla(0,0%,0%,0.72);
   padding: 8px;
   display: -webkit-box;
   display: -webkit-flex;
@@ -1276,30 +1333,33 @@ exports[`Carousel Snapshots should render with shouldAddStartEndSpacing 1`] = `
   transition-duration: 150ms;
   -webkit-transition-timing-function: cubic-bezier(0.3,0,0.2,1);
   transition-timing-function: cubic-bezier(0.3,0,0.2,1);
-  box-shadow: 0 12px 16px -4px hsla(217,56%,17%,0.08),0 4px 6px -2px hsla(217,56%,17%,0.03);
+  box-shadow: 0px 8px 24px 0px hsla(217,56%,17%,0.12);
 }
 
-.c8:hover {
-  color: hsla(216,33%,29%,1);
-  border-color: hsla(216,19%,89%,1);
-  background-color: hsla(216,15%,54%,0.18);
+.c8.c8.c8.c8.c8:hover {
+  color: hsla(0,0%,0%,0.72);
+  background-color: hsla(0,0%,100%,0.8);
 }
 
-.c8:focus-visible {
-  outline: none;
-  box-shadow: 0px 0px 0px 4px hsla(218,89%,51%,0.18);
-  color: hsla(216,33%,29%,1);
-  border-color: hsla(216,19%,89%,1);
-  background-color: hsla(216,15%,54%,0.32);
+.c8.c8.c8.c8.c8:focus-visible {
+  outline: 4px solid hsla(227,100%,59%,0.18);
+  outline-offset: 1px;
+  -webkit-transition-property: outline-width;
+  transition-property: outline-width;
+  -webkit-transition-duration: 70ms;
+  transition-duration: 70ms;
+  -webkit-transition-timing-function: cubic-bezier(0.3,0,0.2,1);
+  transition-timing-function: cubic-bezier(0.3,0,0.2,1);
+  color: hsla(0,0%,0%,0.72);
+  background-color: hsla(0,0%,100%,0.8);
 }
 
-.c8:active {
-  color: hsla(216,33%,29%,1);
-  border-color: hsla(216,19%,89%,1);
-  background-color: hsla(216,15%,54%,0.32);
+.c8.c8.c8.c8.c8:active {
+  color: hsla(0,0%,0%,0.72);
+  background-color: hsla(0,0%,100%,0.8);
 }
 
-.c3 {
+.c3.c3.c3.c3.c3 {
   width: 100%;
   overflow-x: scroll;
   display: -webkit-box;
@@ -1331,11 +1391,11 @@ exports[`Carousel Snapshots should render with shouldAddStartEndSpacing 1`] = `
   -ms-scroll-snap-points-x: repeat(100%);
 }
 
-.c3::-webkit-scrollbar {
+.c3.c3.c3.c3.c3::-webkit-scrollbar {
   display: none;
 }
 
-.c5 {
+.c5.c5.c5.c5.c5 {
   -webkit-box-flex: 0;
   -webkit-flex-grow: 0;
   -ms-flex-positive: 0;
@@ -1352,13 +1412,13 @@ exports[`Carousel Snapshots should render with shouldAddStartEndSpacing 1`] = `
 }
 
 @media screen and (min-width:768px) {
-  .c2 {
+  .c2.c2.c2.c2.c2 {
     gap: 16px;
   }
 }
 
 @media screen and (min-width:768px) {
-  .c4 {
+  .c4.c4.c4.c4.c4 {
     max-width: 300px;
   }
 }
@@ -1385,7 +1445,7 @@ exports[`Carousel Snapshots should render with shouldAddStartEndSpacing 1`] = `
           class="c4 c5"
           data-blade-component="base-box"
           data-slide-index="0"
-          id="carousel-36-carousel-item-0"
+          id="carousel-9-carousel-item-0"
           role="tabpanel"
         >
           <div>
@@ -1402,7 +1462,7 @@ exports[`Carousel Snapshots should render with shouldAddStartEndSpacing 1`] = `
           class="c4 c5"
           data-blade-component="base-box"
           data-slide-index="1"
-          id="carousel-36-carousel-item-1"
+          id="carousel-9-carousel-item-1"
           role="tabpanel"
         >
           <div>
@@ -1419,7 +1479,7 @@ exports[`Carousel Snapshots should render with shouldAddStartEndSpacing 1`] = `
           class="c4 c5"
           data-blade-component="base-box"
           data-slide-index="2"
-          id="carousel-36-carousel-item-2"
+          id="carousel-9-carousel-item-2"
           role="tabpanel"
         >
           <div>
@@ -1470,7 +1530,7 @@ exports[`Carousel Snapshots should render with shouldAddStartEndSpacing 1`] = `
         role="tablist"
       >
         <button
-          aria-controls="carousel-36-carousel-item-0"
+          aria-controls="carousel-9-carousel-item-0"
           aria-label="Slide 1"
           aria-selected="true"
           class="c10"
@@ -1478,7 +1538,7 @@ exports[`Carousel Snapshots should render with shouldAddStartEndSpacing 1`] = `
           role="tab"
         />
         <button
-          aria-controls="carousel-36-carousel-item-1"
+          aria-controls="carousel-9-carousel-item-1"
           aria-label="Slide 2"
           aria-selected="false"
           class="c11"
@@ -1486,7 +1546,7 @@ exports[`Carousel Snapshots should render with shouldAddStartEndSpacing 1`] = `
           role="tab"
         />
         <button
-          aria-controls="carousel-36-carousel-item-2"
+          aria-controls="carousel-9-carousel-item-2"
           aria-label="Slide 3"
           aria-selected="false"
           class="c11"
@@ -1523,12 +1583,12 @@ exports[`Carousel Snapshots should render with shouldAddStartEndSpacing 1`] = `
 `;
 
 exports[`Carousel Snapshots should render with showOverlay 1`] = `
-.c9 {
+.c9.c9.c9.c9.c9 {
   border: none;
   cursor: pointer;
   padding: 0px;
   border-radius: 9999px;
-  background-color: hsla(214,18%,69%,1);
+  background-color: hsla(211,22%,56%,1);
   width: 18px;
   height: 6px;
   -webkit-transition-property: width;
@@ -1539,23 +1599,29 @@ exports[`Carousel Snapshots should render with showOverlay 1`] = `
   transition-timing-function: cubic-bezier(0.3,0,0.2,1);
 }
 
-.c9:before {
+.c9.c9.c9.c9.c9:before {
   content: "";
   padding: 10px;
   padding-top: 20px;
 }
 
-.c9:focus-visible {
-  outline: none;
-  box-shadow: 0px 0px 0px 4px hsla(218,89%,51%,0.18);
+.c9.c9.c9.c9.c9:focus-visible {
+  outline: 4px solid hsla(227,100%,59%,0.18);
+  outline-offset: 1px;
+  -webkit-transition-property: outline-width;
+  transition-property: outline-width;
+  -webkit-transition-duration: 70ms;
+  transition-duration: 70ms;
+  -webkit-transition-timing-function: cubic-bezier(0.3,0,0.2,1);
+  transition-timing-function: cubic-bezier(0.3,0,0.2,1);
 }
 
-.c10 {
+.c10.c10.c10.c10.c10 {
   border: none;
   cursor: pointer;
   padding: 0px;
   border-radius: 9999px;
-  background-color: hsla(214,18%,69%,0.64);
+  background-color: hsla(211,20%,52%,0.32);
   width: 6px;
   height: 6px;
   -webkit-transition-property: width;
@@ -1566,18 +1632,24 @@ exports[`Carousel Snapshots should render with showOverlay 1`] = `
   transition-timing-function: cubic-bezier(0.3,0,0.2,1);
 }
 
-.c10:before {
+.c10.c10.c10.c10.c10:before {
   content: "";
   padding: 10px;
   padding-top: 20px;
 }
 
-.c10:focus-visible {
-  outline: none;
-  box-shadow: 0px 0px 0px 4px hsla(218,89%,51%,0.18);
+.c10.c10.c10.c10.c10:focus-visible {
+  outline: 4px solid hsla(227,100%,59%,0.18);
+  outline-offset: 1px;
+  -webkit-transition-property: outline-width;
+  transition-property: outline-width;
+  -webkit-transition-duration: 70ms;
+  transition-duration: 70ms;
+  -webkit-transition-timing-function: cubic-bezier(0.3,0,0.2,1);
+  transition-timing-function: cubic-bezier(0.3,0,0.2,1);
 }
 
-.c0 {
+.c0.c0.c0.c0.c0 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -1591,7 +1663,7 @@ exports[`Carousel Snapshots should render with showOverlay 1`] = `
   align-items: center;
 }
 
-.c1 {
+.c1.c1.c1.c1.c1 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -1608,7 +1680,7 @@ exports[`Carousel Snapshots should render with showOverlay 1`] = `
   gap: 12px;
 }
 
-.c2 {
+.c2.c2.c2.c2.c2 {
   -webkit-align-items: start;
   -webkit-box-align: start;
   -ms-flex-align: start;
@@ -1616,11 +1688,11 @@ exports[`Carousel Snapshots should render with showOverlay 1`] = `
   gap: 12px;
 }
 
-.c5 {
+.c5.c5.c5.c5.c5 {
   min-width: 0px;
 }
 
-.c6 {
+.c6.c6.c6.c6.c6 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -1633,7 +1705,7 @@ exports[`Carousel Snapshots should render with showOverlay 1`] = `
   gap: 12px;
 }
 
-.c8 {
+.c8.c8.c8.c8.c8 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -1644,16 +1716,16 @@ exports[`Carousel Snapshots should render with showOverlay 1`] = `
   gap: 4px;
 }
 
-.c7 {
+.c7.c7.c7.c7.c7 {
   cursor: pointer;
   background: transparent;
   border: none;
   border-style: solid;
   border-width: 1px;
   border-radius: 9999px;
-  border-color: hsla(216,44%,23%,0);
-  background-color: hsla(216,15%,54%,0.09);
-  color: hsla(216,33%,29%,1);
+  border-color: hsla(0,0%,100%,0);
+  background-color: hsla(0,0%,100%,1);
+  color: hsla(0,0%,0%,0.72);
   padding: 8px;
   display: -webkit-box;
   display: -webkit-flex;
@@ -1676,30 +1748,33 @@ exports[`Carousel Snapshots should render with showOverlay 1`] = `
   transition-duration: 150ms;
   -webkit-transition-timing-function: cubic-bezier(0.3,0,0.2,1);
   transition-timing-function: cubic-bezier(0.3,0,0.2,1);
-  box-shadow: 0 12px 16px -4px hsla(217,56%,17%,0.08),0 4px 6px -2px hsla(217,56%,17%,0.03);
+  box-shadow: 0px 8px 24px 0px hsla(217,56%,17%,0.12);
 }
 
-.c7:hover {
-  color: hsla(216,33%,29%,1);
-  border-color: hsla(216,19%,89%,1);
-  background-color: hsla(216,15%,54%,0.18);
+.c7.c7.c7.c7.c7:hover {
+  color: hsla(0,0%,0%,0.72);
+  background-color: hsla(0,0%,100%,0.8);
 }
 
-.c7:focus-visible {
-  outline: none;
-  box-shadow: 0px 0px 0px 4px hsla(218,89%,51%,0.18);
-  color: hsla(216,33%,29%,1);
-  border-color: hsla(216,19%,89%,1);
-  background-color: hsla(216,15%,54%,0.32);
+.c7.c7.c7.c7.c7:focus-visible {
+  outline: 4px solid hsla(227,100%,59%,0.18);
+  outline-offset: 1px;
+  -webkit-transition-property: outline-width;
+  transition-property: outline-width;
+  -webkit-transition-duration: 70ms;
+  transition-duration: 70ms;
+  -webkit-transition-timing-function: cubic-bezier(0.3,0,0.2,1);
+  transition-timing-function: cubic-bezier(0.3,0,0.2,1);
+  color: hsla(0,0%,0%,0.72);
+  background-color: hsla(0,0%,100%,0.8);
 }
 
-.c7:active {
-  color: hsla(216,33%,29%,1);
-  border-color: hsla(216,19%,89%,1);
-  background-color: hsla(216,15%,54%,0.32);
+.c7.c7.c7.c7.c7:active {
+  color: hsla(0,0%,0%,0.72);
+  background-color: hsla(0,0%,100%,0.8);
 }
 
-.c3 {
+.c3.c3.c3.c3.c3 {
   width: 100%;
   overflow-x: scroll;
   display: -webkit-box;
@@ -1731,11 +1806,11 @@ exports[`Carousel Snapshots should render with showOverlay 1`] = `
   -ms-scroll-snap-points-x: repeat(100%);
 }
 
-.c3::-webkit-scrollbar {
+.c3.c3.c3.c3.c3::-webkit-scrollbar {
   display: none;
 }
 
-.c3::before {
+.c3.c3.c3.c3.c3::before {
   content: '';
   position: absolute;
   top: 0;
@@ -1747,13 +1822,13 @@ exports[`Carousel Snapshots should render with showOverlay 1`] = `
   transition-timing-function: cubic-bezier(0.3,0,0.2,1);
   -webkit-transition-property: opacity;
   transition-property: opacity;
-  background: linear-gradient(to right,hsla(220,30%,96%,1),hsla(0,0%,100%,0));
+  background: linear-gradient(to right,hsla(213,47%,96%,1),hsla(0,0%,100%,0));
   left: -1px;
   opacity: 1;
   pointer-events: none;
 }
 
-.c3::after {
+.c3.c3.c3.c3.c3::after {
   content: '';
   position: absolute;
   top: 0;
@@ -1765,13 +1840,13 @@ exports[`Carousel Snapshots should render with showOverlay 1`] = `
   transition-timing-function: cubic-bezier(0.3,0,0.2,1);
   -webkit-transition-property: opacity;
   transition-property: opacity;
-  background: linear-gradient(to left,hsla(220,30%,96%,1),hsla(0,0%,100%,0));
+  background: linear-gradient(to left,hsla(213,47%,96%,1),hsla(0,0%,100%,0));
   right: -1px;
   opacity: 1;
   pointer-events: none;
 }
 
-.c4 {
+.c4.c4.c4.c4.c4 {
   -webkit-box-flex: 0;
   -webkit-flex-grow: 0;
   -ms-flex-positive: 0;
@@ -1788,7 +1863,7 @@ exports[`Carousel Snapshots should render with showOverlay 1`] = `
 }
 
 @media screen and (min-width:768px) {
-  .c2 {
+  .c2.c2.c2.c2.c2 {
     gap: 16px;
   }
 }
@@ -1815,7 +1890,7 @@ exports[`Carousel Snapshots should render with showOverlay 1`] = `
           class=" c4"
           data-blade-component="base-box"
           data-slide-index="0"
-          id="carousel-37-carousel-item-0"
+          id="carousel-11-carousel-item-0"
           role="tabpanel"
         >
           <div>
@@ -1832,7 +1907,7 @@ exports[`Carousel Snapshots should render with showOverlay 1`] = `
           class=" c4"
           data-blade-component="base-box"
           data-slide-index="1"
-          id="carousel-37-carousel-item-1"
+          id="carousel-11-carousel-item-1"
           role="tabpanel"
         >
           <div>
@@ -1849,7 +1924,7 @@ exports[`Carousel Snapshots should render with showOverlay 1`] = `
           class=" c4"
           data-blade-component="base-box"
           data-slide-index="2"
-          id="carousel-37-carousel-item-2"
+          id="carousel-11-carousel-item-2"
           role="tabpanel"
         >
           <div>
@@ -1900,7 +1975,7 @@ exports[`Carousel Snapshots should render with showOverlay 1`] = `
         role="tablist"
       >
         <button
-          aria-controls="carousel-37-carousel-item-0"
+          aria-controls="carousel-11-carousel-item-0"
           aria-label="Slide 1"
           aria-selected="true"
           class="c9"
@@ -1908,7 +1983,7 @@ exports[`Carousel Snapshots should render with showOverlay 1`] = `
           role="tab"
         />
         <button
-          aria-controls="carousel-37-carousel-item-1"
+          aria-controls="carousel-11-carousel-item-1"
           aria-label="Slide 2"
           aria-selected="false"
           class="c10"
@@ -1916,7 +1991,7 @@ exports[`Carousel Snapshots should render with showOverlay 1`] = `
           role="tab"
         />
         <button
-          aria-controls="carousel-37-carousel-item-2"
+          aria-controls="carousel-11-carousel-item-2"
           aria-label="Slide 3"
           aria-selected="false"
           class="c10"
@@ -1953,12 +2028,12 @@ exports[`Carousel Snapshots should render with showOverlay 1`] = `
 `;
 
 exports[`Carousel Snapshots should render with visibleItems 1`] = `
-.c8 {
+.c8.c8.c8.c8.c8 {
   border: none;
   cursor: pointer;
   padding: 0px;
   border-radius: 9999px;
-  background-color: hsla(214,18%,69%,1);
+  background-color: hsla(211,22%,56%,1);
   width: 18px;
   height: 6px;
   -webkit-transition-property: width;
@@ -1969,23 +2044,29 @@ exports[`Carousel Snapshots should render with visibleItems 1`] = `
   transition-timing-function: cubic-bezier(0.3,0,0.2,1);
 }
 
-.c8:before {
+.c8.c8.c8.c8.c8:before {
   content: "";
   padding: 10px;
   padding-top: 20px;
 }
 
-.c8:focus-visible {
-  outline: none;
-  box-shadow: 0px 0px 0px 4px hsla(218,89%,51%,0.18);
+.c8.c8.c8.c8.c8:focus-visible {
+  outline: 4px solid hsla(227,100%,59%,0.18);
+  outline-offset: 1px;
+  -webkit-transition-property: outline-width;
+  transition-property: outline-width;
+  -webkit-transition-duration: 70ms;
+  transition-duration: 70ms;
+  -webkit-transition-timing-function: cubic-bezier(0.3,0,0.2,1);
+  transition-timing-function: cubic-bezier(0.3,0,0.2,1);
 }
 
-.c9 {
+.c9.c9.c9.c9.c9 {
   border: none;
   cursor: pointer;
   padding: 0px;
   border-radius: 9999px;
-  background-color: hsla(214,18%,69%,0.64);
+  background-color: hsla(211,20%,52%,0.32);
   width: 6px;
   height: 6px;
   -webkit-transition-property: width;
@@ -1996,18 +2077,24 @@ exports[`Carousel Snapshots should render with visibleItems 1`] = `
   transition-timing-function: cubic-bezier(0.3,0,0.2,1);
 }
 
-.c9:before {
+.c9.c9.c9.c9.c9:before {
   content: "";
   padding: 10px;
   padding-top: 20px;
 }
 
-.c9:focus-visible {
-  outline: none;
-  box-shadow: 0px 0px 0px 4px hsla(218,89%,51%,0.18);
+.c9.c9.c9.c9.c9:focus-visible {
+  outline: 4px solid hsla(227,100%,59%,0.18);
+  outline-offset: 1px;
+  -webkit-transition-property: outline-width;
+  transition-property: outline-width;
+  -webkit-transition-duration: 70ms;
+  transition-duration: 70ms;
+  -webkit-transition-timing-function: cubic-bezier(0.3,0,0.2,1);
+  transition-timing-function: cubic-bezier(0.3,0,0.2,1);
 }
 
-.c0 {
+.c0.c0.c0.c0.c0 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -2021,7 +2108,7 @@ exports[`Carousel Snapshots should render with visibleItems 1`] = `
   align-items: center;
 }
 
-.c1 {
+.c1.c1.c1.c1.c1 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -2038,7 +2125,7 @@ exports[`Carousel Snapshots should render with visibleItems 1`] = `
   gap: 12px;
 }
 
-.c2 {
+.c2.c2.c2.c2.c2 {
   -webkit-align-items: start;
   -webkit-box-align: start;
   -ms-flex-align: start;
@@ -2046,7 +2133,7 @@ exports[`Carousel Snapshots should render with visibleItems 1`] = `
   gap: 12px;
 }
 
-.c5 {
+.c5.c5.c5.c5.c5 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -2059,7 +2146,7 @@ exports[`Carousel Snapshots should render with visibleItems 1`] = `
   gap: 12px;
 }
 
-.c7 {
+.c7.c7.c7.c7.c7 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -2070,16 +2157,16 @@ exports[`Carousel Snapshots should render with visibleItems 1`] = `
   gap: 4px;
 }
 
-.c6 {
+.c6.c6.c6.c6.c6 {
   cursor: pointer;
   background: transparent;
   border: none;
   border-style: solid;
   border-width: 1px;
   border-radius: 9999px;
-  border-color: hsla(216,44%,23%,0);
-  background-color: hsla(216,15%,54%,0.09);
-  color: hsla(216,33%,29%,1);
+  border-color: hsla(0,0%,100%,0);
+  background-color: hsla(0,0%,100%,1);
+  color: hsla(0,0%,0%,0.72);
   padding: 8px;
   display: -webkit-box;
   display: -webkit-flex;
@@ -2102,30 +2189,33 @@ exports[`Carousel Snapshots should render with visibleItems 1`] = `
   transition-duration: 150ms;
   -webkit-transition-timing-function: cubic-bezier(0.3,0,0.2,1);
   transition-timing-function: cubic-bezier(0.3,0,0.2,1);
-  box-shadow: 0 12px 16px -4px hsla(217,56%,17%,0.08),0 4px 6px -2px hsla(217,56%,17%,0.03);
+  box-shadow: 0px 8px 24px 0px hsla(217,56%,17%,0.12);
 }
 
-.c6:hover {
-  color: hsla(216,33%,29%,1);
-  border-color: hsla(216,19%,89%,1);
-  background-color: hsla(216,15%,54%,0.18);
+.c6.c6.c6.c6.c6:hover {
+  color: hsla(0,0%,0%,0.72);
+  background-color: hsla(0,0%,100%,0.8);
 }
 
-.c6:focus-visible {
-  outline: none;
-  box-shadow: 0px 0px 0px 4px hsla(218,89%,51%,0.18);
-  color: hsla(216,33%,29%,1);
-  border-color: hsla(216,19%,89%,1);
-  background-color: hsla(216,15%,54%,0.32);
+.c6.c6.c6.c6.c6:focus-visible {
+  outline: 4px solid hsla(227,100%,59%,0.18);
+  outline-offset: 1px;
+  -webkit-transition-property: outline-width;
+  transition-property: outline-width;
+  -webkit-transition-duration: 70ms;
+  transition-duration: 70ms;
+  -webkit-transition-timing-function: cubic-bezier(0.3,0,0.2,1);
+  transition-timing-function: cubic-bezier(0.3,0,0.2,1);
+  color: hsla(0,0%,0%,0.72);
+  background-color: hsla(0,0%,100%,0.8);
 }
 
-.c6:active {
-  color: hsla(216,33%,29%,1);
-  border-color: hsla(216,19%,89%,1);
-  background-color: hsla(216,15%,54%,0.32);
+.c6.c6.c6.c6.c6:active {
+  color: hsla(0,0%,0%,0.72);
+  background-color: hsla(0,0%,100%,0.8);
 }
 
-.c3 {
+.c3.c3.c3.c3.c3 {
   width: 100%;
   overflow-x: scroll;
   display: -webkit-box;
@@ -2157,11 +2247,11 @@ exports[`Carousel Snapshots should render with visibleItems 1`] = `
   -ms-scroll-snap-points-x: repeat(100%);
 }
 
-.c3::-webkit-scrollbar {
+.c3.c3.c3.c3.c3::-webkit-scrollbar {
   display: none;
 }
 
-.c4 {
+.c4.c4.c4.c4.c4 {
   -webkit-box-flex: 0;
   -webkit-flex-grow: 0;
   -ms-flex-positive: 0;
@@ -2178,7 +2268,7 @@ exports[`Carousel Snapshots should render with visibleItems 1`] = `
 }
 
 @media screen and (min-width:768px) {
-  .c2 {
+  .c2.c2.c2.c2.c2 {
     gap: 16px;
   }
 }
@@ -2205,7 +2295,7 @@ exports[`Carousel Snapshots should render with visibleItems 1`] = `
           class=" c4"
           data-blade-component="base-box"
           data-slide-index="0"
-          id="carousel-35-carousel-item-0"
+          id="carousel-7-carousel-item-0"
           role="tabpanel"
         >
           <div>
@@ -2222,7 +2312,7 @@ exports[`Carousel Snapshots should render with visibleItems 1`] = `
           class=" c4"
           data-blade-component="base-box"
           data-slide-index="1"
-          id="carousel-35-carousel-item-1"
+          id="carousel-7-carousel-item-1"
           role="tabpanel"
         >
           <div>
@@ -2239,7 +2329,7 @@ exports[`Carousel Snapshots should render with visibleItems 1`] = `
           class=" c4"
           data-blade-component="base-box"
           data-slide-index="2"
-          id="carousel-35-carousel-item-2"
+          id="carousel-7-carousel-item-2"
           role="tabpanel"
         >
           <div>
@@ -2286,7 +2376,7 @@ exports[`Carousel Snapshots should render with visibleItems 1`] = `
         role="tablist"
       >
         <button
-          aria-controls="carousel-35-carousel-item-0"
+          aria-controls="carousel-7-carousel-item-0"
           aria-label="Slide 1"
           aria-selected="true"
           class="c8"
@@ -2294,7 +2384,7 @@ exports[`Carousel Snapshots should render with visibleItems 1`] = `
           role="tab"
         />
         <button
-          aria-controls="carousel-35-carousel-item-2"
+          aria-controls="carousel-7-carousel-item-2"
           aria-label="Slide 3"
           aria-selected="false"
           class="c9"

@@ -1,27 +1,19 @@
 import { Meta, DocsContainer } from '@storybook/addon-docs';
 import { useTheme, BladeProvider } from '../../src/components';
-import { paymentTheme, bankingTheme } from '../../src/tokens';
+import { bladeTheme } from '../../src/tokens';
 
 <Meta
   title="Tokens/Elevation"
   parameters={{
     docs: {
       container: ({ children, context }) => {
-        const getThemeTokens = () => {
-          if (context.globals.themeTokenName === 'paymentTheme') {
-            return paymentTheme;
-          }
-          if (context.globals.themeTokenName === 'bankingTheme') {
-            return bankingTheme;
-          }
-          return null;
-        };
+        const colorScheme = context.store.globals.globals.colorScheme;
         return (
           <DocsContainer context={context}>
             <BladeProvider
-              key={`${context.globals.themeTokenName}-${context.globals.colorScheme}`}
-              themeTokens={getThemeTokens()}
-              colorScheme={context.globals.colorScheme}
+              key={colorScheme}
+              themeTokens={bladeTheme}
+              colorScheme={colorScheme}
             >
               {children}
             </BladeProvider>
@@ -34,9 +26,8 @@ import { paymentTheme, bankingTheme } from '../../src/tokens';
 
 # 🪞 Elevation
 
-export const Border = () => {
+export const Elevation = () => {
   const { theme } = useTheme();
-  console.log(theme.colors.surface.text);
   return (
     <table>
       <tbody>
@@ -44,11 +35,11 @@ export const Border = () => {
           <tr
             key={key}
             style={{
-              backgroundColor: theme.colors.surface.background.level1.lowContrast,
+              backgroundColor: theme.colors.surface.background.gray.moderate,
             }}
           >
             <td
-              style={{ color: theme.colors.surface.text.normal.lowContrast }}
+              style={{ color: theme.colors.surface.text.gray.normal }}
             >{`theme.elevation.${key}`}</td>
             <td style={{ padding: '20px' }}>
               <div
@@ -68,4 +59,4 @@ export const Border = () => {
   );
 };
 
-<Border />
+<Elevation />

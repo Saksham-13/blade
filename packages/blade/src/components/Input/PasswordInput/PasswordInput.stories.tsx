@@ -1,4 +1,4 @@
-import type { ComponentStory, Meta } from '@storybook/react';
+import type { StoryFn, Meta } from '@storybook/react';
 import { Title } from '@storybook/addon-docs';
 import type { ReactElement } from 'react';
 import React, { useState } from 'react';
@@ -15,16 +15,12 @@ const Page = (): ReactElement => {
   return (
     <StoryPageWrapper
       componentName="PasswordInput"
+      apiDecisionLink="https://github.com/razorpay/blade/blob/master/packages/blade/src/components/Input/PasswordInput/_decisions/decisions.md"
       componentDescription="PasswordInput is an input field for entering passwords. The input is masked by default. On mobile devices the last typed letter is shown for a brief moment. The masking can be toggled using an optional reveal button."
-      figmaURL={{
-        paymentTheme:
-          'https://www.figma.com/file/jubmQL9Z8V7881ayUD95ps/Blade---Payment-Light?node-id=10953%3A110176',
-        bankingTheme:
-          'https://www.figma.com/file/sAdplk2uYnI2ILnDKUxycW/Blade---Banking-Dark?node-id=9995%3A180296',
-      }}
+      figmaURL="https://www.figma.com/file/jubmQL9Z8V7881ayUD95ps/Blade-DSL?type=design&node-id=10953-180381&mode=design&t=jyVG8aXFc1Dlw2Se-4"
     >
       <Title>Usage</Title>
-      <Sandbox showConsole>
+      <Sandbox>
         {`
           import { PasswordInput } from '@razorpay/blade/components';
 
@@ -59,6 +55,7 @@ const meta: Meta<PasswordInputProps> = {
     helpText: 'We recommend having at least 8 characters in your password',
     placeholder: 'Enter a strong password',
   },
+  tags: ['autodocs'],
   argTypes: {
     autoFocus: { table: { category: propsCategory.BASE_PROPS } },
     label: { table: { category: propsCategory.LABEL_PROPS } },
@@ -90,7 +87,7 @@ const meta: Meta<PasswordInputProps> = {
   },
 };
 
-const PasswordInputTemplate: ComponentStory<typeof PasswordInput> = ({ ...args }) => {
+const PasswordInputTemplate: StoryFn<typeof PasswordInput> = ({ ...args }) => {
   return <PasswordInput {...args} />;
 };
 
@@ -218,7 +215,7 @@ ControlledInput.parameters = {
   },
 };
 
-export const inputRef: ComponentStory<typeof PasswordInput> = () => {
+export const inputRef: StoryFn<typeof PasswordInput> = () => {
   // eslint-disable-next-line react-hooks/rules-of-hooks
   const inputRef = React.useRef<HTMLInputElement>(null);
 

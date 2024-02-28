@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import getIn from 'lodash/get';
 import React from 'react';
 import { useListContext } from './ListContext';
 import { UnorderedItemIcon } from './ListItemIcons';
@@ -13,6 +12,7 @@ import {
 } from './listTokens';
 import type { ListProps } from './List';
 import { getOrderedListItemBullet } from './getOrderedListItemBullet';
+import getIn from '~utils/lodashButBetter/get';
 import { Text } from '~components/Typography';
 import type { IconComponent } from '~components/Icons';
 import { useTheme } from '~components/BladeProvider';
@@ -158,7 +158,7 @@ const _ListItem = ({
             alignSelf="flex-start"
           >
             {ItemIcon ? (
-              <ItemIcon size={size} color="surface.text.subdued.lowContrast" />
+              <ItemIcon size={size} color="surface.icon.gray.muted" />
             ) : (
               <UnorderedItemIcon level={level} />
             )}
@@ -177,11 +177,15 @@ const _ListItem = ({
             borderRadius={variant === 'ordered-filled' ? 'max' : undefined}
             backgroundColor={
               variant === 'ordered-filled'
-                ? getIn(theme, 'colors.brand.gray.a100.lowContrast')
+                ? getIn(theme.colors, 'feedback.background.neutral.subtle')
                 : undefined
             }
           >
-            <Text variant="body" type="subtle" size={variant === 'ordered' ? size : 'xsmall'}>
+            <Text
+              variant="body"
+              color="surface.text.gray.muted"
+              size={variant === 'ordered' ? size : 'xsmall'}
+            >
               {`${getOrderedListItemBullet({
                 itemNumber: _itemNumber ?? 1,
                 level: level ?? 1,

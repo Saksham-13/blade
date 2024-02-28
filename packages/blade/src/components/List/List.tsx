@@ -1,10 +1,10 @@
-import getIn from 'lodash/get';
 import React, { useMemo } from 'react';
 import styled from 'styled-components';
 import { ListProvider, useListContext } from './ListContext';
 import { UnorderedList } from './UnorderedList';
 import { OrderedList } from './OrderedList';
 import type { ListItemProps } from './ListItem';
+import getIn from '~utils/lodashButBetter/get';
 import type { IconComponent } from '~components/Icons';
 import { metaAttribute, MetaConstants } from '~utils/metaAttribute';
 import type { DotNotationSpacingStringToken, TestID } from '~utils/types';
@@ -118,7 +118,6 @@ const _List = ({
     <ListProvider value={listContextValue}>
       <BaseBox {...getStyledProps(styledProps)}>
         <ListElement
-          marginTop={level ? undefined : 'spacing.3'}
           {...metaAttribute({ name: MetaConstants.List, testID })}
           {...makeAccessible({ role: 'list' })} // Role needed for react-native
         >

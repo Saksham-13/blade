@@ -1,9 +1,9 @@
-import type { ComponentStory, Meta } from '@storybook/react';
+import type { StoryFn, Meta } from '@storybook/react';
 import React from 'react';
 import type { ChipGroupProps } from './ChipGroup';
 import { ChipGroup as ChipGroupComponent } from './ChipGroup';
 import { Chip as ChipComponent } from './Chip';
-import { Heading, Text, Title, Code } from '~components/Typography';
+import { Heading, Text, Code } from '~components/Typography';
 import {
   PaymentLinksIcon,
   TagIcon,
@@ -16,11 +16,13 @@ import StoryPageWrapper from '~utils/storybook/StoryPageWrapper';
 import { Box } from '~components/Box';
 import { getStyledPropsArgTypes } from '~components/Box/BaseBox/storybookArgTypes';
 import iconMap from '~components/Icons/iconMap';
-import { Dropdown, DropdownButton, DropdownOverlay } from '~components/Dropdown';
-import { ActionList, ActionListItem } from '~components/ActionList';
+// import { Dropdown, DropdownButton, DropdownOverlay } from '~components/Dropdown';
+// import { ActionList, ActionListItem } from '~components/ActionList';
 import type { BladeElementRef } from '~utils/types';
 import { Button } from '~components/Button';
 import { Link } from '~components/Link';
+import { Dropdown, DropdownButton, DropdownOverlay } from '~components/Dropdown';
+import { ActionList, ActionListItem } from '~components/ActionList';
 
 const Page = (): React.ReactElement => {
   return (
@@ -28,12 +30,7 @@ const Page = (): React.ReactElement => {
       componentDescription="Chips represents a collection of selectable objects which enable users to make selections, filter content, and trigger relevant actions. Chips can have either single selection or multiple (based on context)."
       componentName="ChipGroup"
       imports={`import { Chip, ChipGroup } from '@razorpay/blade/components';\nimport type { ChipProps, ChipGroupProps } from '@razorpay/blade/components';`}
-      figmaURL={{
-        paymentTheme:
-          'https://www.figma.com/file/jubmQL9Z8V7881ayUD95ps/Blade---Payment-Light?type=design&node-id=52377%3A23885&mode=design&t=y7gUIBIzzNMRd3w6-1',
-        bankingTheme:
-          'https://www.figma.com/file/sAdplk2uYnI2ILnDKUxycW/Blade---Banking-Dark?type=design&node-id=18358%3A3135&mode=design&t=FzNrQV6ZZaLoxzcj-1',
-      }}
+      figmaURL="https://www.figma.com/file/jubmQL9Z8V7881ayUD95ps/Blade---Payment-Light?type=design&node-id=52377%3A23885&mode=design&t=y7gUIBIzzNMRd3w6-1"
       note={
         <Text>
           Chip is a combination of ChipGroup and Chip components. This story demonstrates only the
@@ -44,8 +41,8 @@ const Page = (): React.ReactElement => {
         </Text>
       }
     >
-      <Title>Usage</Title>
-      <Sandbox showConsole editorHeight={400} editorWidthPercentage={60}>
+      <Heading size="large">Usage</Heading>
+      <Sandbox showConsole editorHeight={400}>
         {`
           import { Box, Chip, ChipGroup, Text } from '@razorpay/blade/components';
 
@@ -83,6 +80,7 @@ export default {
     accessibilityLabel: 'Choose one business type from the options below',
     icon: undefined,
   },
+  tags: ['autodocs'],
   argTypes: {
     // ChipGroup props
     accessibilityLabel: {
@@ -171,28 +169,15 @@ export default {
         },
       },
     },
-    intent: {
-      description: `This prop is deprecated, use 'color' instead.`,
-      table: {
-        category: propsCategory.CHIP_GROUP,
-        type: {
-          summary: '"none" | "positive" | "negative"',
-        },
-      },
-      options: ['none', 'positive', 'negative'],
-      control: {
-        type: 'select',
-      },
-    },
     color: {
       description: `Sets the ChipGroups's visual color, it will propagate down to all the Chips`,
       table: {
         category: propsCategory.CHIP_GROUP,
         type: {
-          summary: '"default" | "positive" | "negative"',
+          summary: '"primary" | "positive" | "negative"',
         },
       },
-      options: ['default', 'positive', 'negative'],
+      options: ['primary', 'positive', 'negative'],
       control: {
         type: 'select',
       },
@@ -223,7 +208,7 @@ export default {
   },
 } as Meta<ChipGroupProps>;
 
-const ChipTemplate: ComponentStory<typeof ChipGroupComponent> = ({ children, ...args }) => {
+const ChipTemplate: StoryFn<typeof ChipGroupComponent> = ({ children, ...args }) => {
   const chipValues = ['Proprietorship', 'Public', 'Small Business'];
   return (
     <Box>
@@ -262,10 +247,7 @@ SingleSelection.argTypes = {
   },
 };
 
-const MultiSelectChipTemplate: ComponentStory<typeof ChipGroupComponent> = ({
-  children,
-  ...args
-}) => {
+const MultiSelectChipTemplate: StoryFn<typeof ChipGroupComponent> = ({ children, ...args }) => {
   const chipValues = [
     'Automated Payment Links',
     'Wallet on My App',
@@ -343,9 +325,7 @@ DefaultMultiSelected.argTypes = {
   },
 };
 
-const ControlledSingleSelectionTemplate: ComponentStory<typeof ChipGroupComponent> = ({
-  ...args
-}) => {
+const ControlledSingleSelectionTemplate: StoryFn<typeof ChipGroupComponent> = ({ ...args }) => {
   const chipValues = ['Proprietorship', 'Public', 'Small Business'];
   const [value, setValue] = React.useState('Proprietorship');
   return (
@@ -390,7 +370,7 @@ ControlledSingleSelection.args = {
   selectionType: 'single',
 };
 
-const ControlledMultiSelectionTemplate: ComponentStory<typeof ChipGroupComponent> = (args) => {
+const ControlledMultiSelectionTemplate: StoryFn<typeof ChipGroupComponent> = (args) => {
   const chipValues = [
     'Automated Payment Links',
     'Wallet on My App',
@@ -449,7 +429,7 @@ Disabled.args = {
   selectionType: 'single',
 };
 
-const ChipWithIconTemplate: ComponentStory<typeof ChipGroupComponent> = ({ children, ...args }) => {
+const ChipWithIconTemplate: StoryFn<typeof ChipGroupComponent> = ({ children, ...args }) => {
   return (
     <Box>
       <Text marginBottom="spacing.3" marginTop="spacing.3">
@@ -483,10 +463,10 @@ ChipWithIcon.parameters = {
   },
 };
 
-const ChipColorsTemplate: ComponentStory<typeof ChipGroupComponent> = (args) => {
+const ChipColorsTemplate: StoryFn<typeof ChipGroupComponent> = (args) => {
   return (
     <Box display="flex" flexDirection="column">
-      <Text size="large" weight="bold" marginBottom="spacing.3">
+      <Text size="large" weight="semibold" marginBottom="spacing.3">
         Is the result helpful?
       </Text>
 
@@ -502,22 +482,19 @@ const ChipColorsTemplate: ComponentStory<typeof ChipGroupComponent> = (args) => 
   );
 };
 
-export const ChipWithIntent = ChipColorsTemplate.bind({});
-ChipWithIntent.storyName = 'With Color';
-ChipWithIntent.args = {
+export const ChipWithColor = ChipColorsTemplate.bind({});
+ChipWithColor.storyName = 'With Color';
+ChipWithColor.args = {
   selectionType: 'single',
   accessibilityLabel: 'Is the result helpful? Please select either yer or no',
 };
-ChipWithIntent.parameters = {
+ChipWithColor.parameters = {
   controls: {
     exclude: ['icon'],
   },
 };
 
-const TextTransformationTemplate: ComponentStory<typeof ChipGroupComponent> = ({
-  children,
-  ...args
-}) => {
+const TextTransformationTemplate: StoryFn<typeof ChipGroupComponent> = ({ children, ...args }) => {
   const chipValues = ['Proprietorship', 'Public', 'Small Business'];
   return (
     <Box>
@@ -547,13 +524,13 @@ TextTransformationTemplate.args = {
   accessibilityLabel: 'Choose one business type from the options below',
 };
 
-const AllChipSizesTemplate: ComponentStory<typeof ChipGroupComponent> = ({ children, ...args }) => {
+const AllChipSizesTemplate: StoryFn<typeof ChipGroupComponent> = ({ children, ...args }) => {
   const sizes = ['xsmall', 'small', 'medium', 'large'];
   return (
     <Box>
       {sizes.map((size, index) => (
         <Box key={index}>
-          <Heading size="medium" marginBottom="spacing.3">
+          <Heading marginBottom="spacing.3" size="small">
             {size}
           </Heading>
           <Box marginBottom="spacing.3">
@@ -595,7 +572,7 @@ AllChipSizes.parameters = {
   },
 };
 
-export const chipRef: ComponentStory<typeof ChipGroupComponent> = (args) => {
+export const chipRef: StoryFn<typeof ChipGroupComponent> = (args) => {
   // eslint-disable-next-line react-hooks/rules-of-hooks
   const chipRef = React.useRef<BladeElementRef>(null);
   // eslint-disable-next-line react-hooks/rules-of-hooks

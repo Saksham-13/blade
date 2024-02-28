@@ -1,4 +1,4 @@
-import type { ComponentStory, Meta } from '@storybook/react';
+import type { StoryFn, Meta } from '@storybook/react';
 import { Title, Description } from '@storybook/addon-docs';
 import type { ReactElement } from 'react';
 import type { LinkProps } from './Link';
@@ -18,14 +18,9 @@ import {
 const Page = (): ReactElement => {
   return (
     <StoryPageWrapper
-      componentDescription="This is the Link component which can be used for showing external or internal Links to the user. The Link component can also be used as an inline button in certain cases with the `button` variant"
       componentName="Link"
-      figmaURL={{
-        paymentTheme:
-          'https://www.figma.com/file/jubmQL9Z8V7881ayUD95ps/Blade---Payment-Light?node-id=12699%3A147155',
-        bankingTheme:
-          'https://www.figma.com/file/sAdplk2uYnI2ILnDKUxycW/Blade---Banking-Dark?node-id=10564%3A195587',
-      }}
+      componentDescription="This is the Link component which can be used for showing external or internal Links to the user. The Link component can also be used as an inline button in certain cases with the `button` variant"
+      figmaURL="https://www.figma.com/file/jubmQL9Z8V7881ayUD95ps/Blade-DSL?type=design&node-id=59519-143186&mode=design&t=Qm80tBqhFBFB5BvZ-4"
     >
       <Title>Usage</Title>
       <Sandbox>
@@ -58,6 +53,7 @@ export default {
   args: {
     children: 'Learn More',
   },
+  tags: ['autodocs'],
   argTypes: {
     icon: {
       name: 'icon',
@@ -75,10 +71,7 @@ export default {
   },
 } as Meta<LinkProps>;
 
-const LinkTemplate: ComponentStory<typeof LinkComponent> = ({
-  children = 'Learn More',
-  ...args
-}) => {
+const LinkTemplate: StoryFn<typeof LinkComponent> = ({ children = 'Learn More', ...args }) => {
   return <LinkComponent {...args}>{children}</LinkComponent>;
 };
 
@@ -96,11 +89,7 @@ Default.args = {
   rel: 'noreferrer noopener',
 };
 
-const LinkInlineTemplate: ComponentStory<typeof LinkComponent> = ({
-  icon,
-  children = '',
-  ...args
-}) => {
+const LinkInlineTemplate: StoryFn<typeof LinkComponent> = ({ icon, children = '', ...args }) => {
   return (
     <Text>
       Find more details at the <LinkComponent {...args}>{children}</LinkComponent>
@@ -138,7 +127,7 @@ LinkButton.parameters = {
   },
 };
 
-const LinkButtonInlineTemplate: ComponentStory<typeof LinkComponent> = ({
+const LinkButtonInlineTemplate: StoryFn<typeof LinkComponent> = ({
   icon,
   children = '',
   ...args
@@ -165,19 +154,15 @@ LinkButtonInline.parameters = {
   },
 };
 
-const LinkColorsTemplate: ComponentStory<typeof LinkComponent> = ({
-  icon,
-  children = '',
-  ...args
-}) => {
+const LinkColorsTemplate: StoryFn<typeof LinkComponent> = ({ icon, children = '', ...args }) => {
   return (
     <BaseBox display="flex" flexDirection="column" gap="spacing.2">
       <BaseBox padding="spacing.2">
-        <LinkComponent {...args} color="default">
+        <LinkComponent {...args} color="primary">
           {children}
         </LinkComponent>
       </BaseBox>
-      <BaseBox padding="spacing.2" backgroundColor="brand.gray.700.lowContrast">
+      <BaseBox padding="spacing.2" backgroundColor="surface.background.cloud.intense">
         <LinkComponent {...args} color="white">
           {children}
         </LinkComponent>
@@ -213,7 +198,7 @@ DisabledLinkButton.parameters = {
   },
 };
 
-export const LinkSizes: ComponentStory<typeof LinkComponent> = () => {
+export const LinkSizes: StoryFn<typeof LinkComponent> = () => {
   const href = 'https://www.youtube.com/watch?v=dQw4w9WgXcQ';
   const onClick = (): void => console.log('Never gonna give you up');
 
@@ -294,7 +279,7 @@ LinkSizes.parameters = {
   },
 };
 
-const LinkWithVariantTemplate: ComponentStory<typeof LinkComponent> = ({
+const LinkWithVariantTemplate: StoryFn<typeof LinkComponent> = ({
   children = 'Link',
   icon,
   iconPosition,

@@ -1,5 +1,5 @@
 /* eslint-disable react-native-a11y/has-valid-accessibility-descriptors */
-import type { ComponentStory } from '@storybook/react';
+import type { StoryFn } from '@storybook/react';
 import { Title } from '@storybook/addon-docs';
 import React from 'react';
 import { SelectInput } from './SelectInput';
@@ -50,6 +50,7 @@ export default {
     prefix: '',
     suffix: '',
   },
+  tags: ['autodocs'],
   argTypes: {
     defaultValue: {
       table: {
@@ -176,13 +177,9 @@ export default {
         <StoryPageWrapper
           componentDescription="The SelectInput component is a component that can be used inside Dropdown component to create a Select Menu"
           componentName="SelectInput"
+          apiDecisionLink="https://github.com/razorpay/blade/blob/master/packages/blade/src/components/Dropdown/_decisions/decisions.md"
           note="SelectInput is meant to be used only inside the Dropdown component. Things will not work as expected if you are using this without Dropdown"
-          figmaURL={{
-            paymentTheme:
-              'https://www.figma.com/file/jubmQL9Z8V7881ayUD95ps/Blade---Payment-Light?node-id=13590-171090',
-            bankingTheme:
-              'https://www.figma.com/file/sAdplk2uYnI2ILnDKUxycW/Blade---Banking-Dark?node-id=13344-389834',
-          }}
+          figmaURL="https://www.figma.com/file/jubmQL9Z8V7881ayUD95ps/Blade---Payment-Light?node-id=13590-171090'"
         >
           <Title>Usage</Title>
           <Sandbox showConsole>
@@ -218,7 +215,7 @@ export default {
   },
 };
 
-const SelectInputTemplate: ComponentStory<typeof SelectInput> = ({ icon, ...args }) => {
+const SelectInputTemplate: StoryFn<typeof SelectInput> = ({ icon, ...args }) => {
   return (
     <Box minHeight="150px" padding="spacing.5">
       <Dropdown>
@@ -227,6 +224,7 @@ const SelectInputTemplate: ComponentStory<typeof SelectInput> = ({ icon, ...args
           <ActionList>
             <ActionListItem title="Item 1" value="item-1" />
             <ActionListItem title="Item 2" value="item-2" />
+            <ActionListItem title="Item 3" value="item-3" />
           </ActionList>
         </DropdownOverlay>
       </Dropdown>
@@ -235,3 +233,8 @@ const SelectInputTemplate: ComponentStory<typeof SelectInput> = ({ icon, ...args
 };
 
 export const Default = SelectInputTemplate.bind({});
+export const Disabled = SelectInputTemplate.bind({});
+Disabled.args = {
+  isDisabled: true,
+  defaultValue: ['item-1', 'item-2'],
+};

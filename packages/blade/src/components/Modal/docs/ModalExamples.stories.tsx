@@ -1,13 +1,13 @@
 import React from 'react';
-import type { ComponentStory, Meta } from '@storybook/react';
+import type { StoryFn, Meta } from '@storybook/react';
 import { Modal } from '../Modal';
 import {
   BasicModalStory,
-  ModalStackingStory,
-  ModalWithHeaderFooterStory,
   ModalWithNoBodyPaddingStory,
   ModalWithScrollableBackgroundStory,
   ModalWithScrollableContentStory,
+  ModalWithHeaderFooterStory,
+  ModalStackingStory,
 } from './stories';
 import { Sandbox } from '~utils/storybook/Sandbox';
 
@@ -28,7 +28,7 @@ const ModalMeta: Meta = {
   },
 };
 
-const ModalTemplate: ComponentStory<typeof Modal> = () => {
+const ModalTemplate: StoryFn<typeof Modal> = () => {
   return (
     <Sandbox padding="spacing.0" editorHeight="90vh">
       {BasicModalStory}

@@ -25,13 +25,14 @@ import { useIsomorphicLayoutEffect } from '~utils/useIsomorphicLayoutEffect';
 import { assignWithoutSideEffects } from '~utils/assignWithoutSideEffects';
 import { makeSpace } from '~utils/makeSpace';
 import { getComponentId } from '~utils/isValidAllowedChildren';
+import { componentZIndices } from '~utils/componentZIndices';
 
 const BottomSheetSurface = styled(BaseBox)(({ theme }) => {
   return {
     // TODO: we do not have 16px radius token
     borderTopLeftRadius: makeSpace(theme.spacing[5]),
     borderTopRightRadius: makeSpace(theme.spacing[5]),
-    backgroundColor: theme.colors.surface.background.level2.lowContrast,
+    backgroundColor: theme.colors.popup.background.subtle,
     justifyContent: 'center',
     alignItems: 'center',
     position: 'relative',
@@ -51,13 +52,14 @@ const _BottomSheet = ({
   isOpen,
   onDismiss,
   initialFocusRef,
+  zIndex = componentZIndices.bottomSheet,
 }: BottomSheetProps): React.ReactElement => {
   const bottomSheetAndDropdownGlue = useBottomSheetAndDropdownGlue();
   const defaultInitialFocusRef = React.useRef<any>(null);
   const sheetRef = React.useRef<GorhomBottomSheet>(null);
-  const header = React.useRef<React.ReactNode>();
-  const footer = React.useRef<React.ReactNode>();
-  const body = React.useRef<React.ReactNode>();
+  const [header, setHeader] = React.useState<React.ReactNode>();
+  const [footer, setFooter] = React.useState<React.ReactNode>();
+  const [body, setBody] = React.useState<React.ReactNode>();
   const _isOpen = isOpen ?? bottomSheetAndDropdownGlue?.isOpen;
   const [headerHeight, setHeaderHeight] = React.useState(0);
   const [footerHeight, setFooterHeight] = React.useState(0);
@@ -77,7 +79,7 @@ const _BottomSheet = ({
     getTopOfTheStack,
   } = useBottomSheetStack();
   const currentStackIndex = getCurrentStackIndexById(id);
-  const zIndex = 100 - currentStackIndex;
+  const bottomSheetZIndex = zIndex - currentStackIndex;
 
   // if bottomSheet height is >35% & <50% then set initial snapPoint to 35%
   useIsomorphicLayoutEffect(() => {
@@ -135,41 +137,44 @@ const _BottomSheet = ({
     bottomSheetAndDropdownGlue.setDropdownHasBottomSheet(true);
   }, [bottomSheetAndDropdownGlue]);
 
-  React.useEffect(() => {
+  React.useLayoutEffect(() => {
     React.Children.forEach(children, (child) => {
       if (getComponentId(child) === ComponentIds.BottomSheetHeader) {
-        header.current = child;
+        setHeader(child);
       }
       if (getComponentId(child) === ComponentIds.BottomSheetFooter) {
-        footer.current = child;
+        setFooter(child);
       }
       if (getComponentId(child) === ComponentIds.BottomSheetBody) {
-        body.current = child;
+        setBody(child);
       }
     });
   }, [children]);
 
-  const renderFooter = React.useCallback((props): React.ReactElement => {
-    return (
-      <GorhomBottomSheetFooter {...props}>
-        <View
-          onLayout={(event) => {
-            // save footer height so that later we can offset the marginBottom from body content
-            // otherwise few elements gets hidden under the footer
-            setFooterHeight(event.nativeEvent.layout.height);
-          }}
-        >
-          {footer.current}
-        </View>
-      </GorhomBottomSheetFooter>
-    );
-  }, []);
+  const renderFooter = React.useCallback(
+    (props): React.ReactElement => {
+      return (
+        <GorhomBottomSheetFooter {...props}>
+          <View
+            onLayout={(event) => {
+              // save footer height so that later we can offset the marginBottom from body content
+              // otherwise few elements gets hidden under the footer
+              setFooterHeight(event.nativeEvent.layout.height);
+            }}
+          >
+            {footer}
+          </View>
+        </GorhomBottomSheetFooter>
+      );
+    },
+    [footer],
+  );
 
   const renderBackdrop = React.useCallback(
     (props): React.ReactElement => {
-      return <BottomSheetBackdrop {...props} zIndex={zIndex} />;
+      return <BottomSheetBackdrop {...props} zIndex={bottomSheetZIndex} />;
     },
-    [zIndex],
+    [bottomSheetZIndex],
   );
 
   const renderHandle = React.useCallback((): React.ReactElement => {
@@ -183,13 +188,13 @@ const _BottomSheet = ({
           setHeaderHeight(nativeEvent.layout.height);
         }}
       >
-        <BaseBox zIndex={zIndex}>
+        <BaseBox zIndex={bottomSheetZIndex}>
           <BottomSheetGrabHandle />
         </BaseBox>
-        {header.current}
+        {header}
       </BaseBox>
     );
-  }, [isHeaderEmpty, zIndex]);
+  }, [isHeaderEmpty, bottomSheetZIndex, header]);
 
   const isHeaderFloating = !hasBodyPadding && isHeaderEmpty;
   const contextValue = React.useMemo<BottomSheetContextProps>(
@@ -274,9 +279,11 @@ const _BottomSheet = ({
             enableOverDrag
             enableContentPanningGesture
             ref={sheetRef}
-            index={-1}
-            containerStyle={{ zIndex }}
-            animateOnMount={false}
+            // on initial render if _isOpen is true we want to render the sheet at initialSnapPoint
+            // otherwise we want to render it at -1 so that it is not visible
+            index={_isOpen ? initialSnapPoint.current : -1}
+            containerStyle={{ zIndex: bottomSheetZIndex }}
+            animateOnMount={true}
             handleComponent={renderHandle}
             backgroundComponent={BottomSheetSurface}
             footerComponent={renderFooter}
@@ -284,7 +291,7 @@ const _BottomSheet = ({
             onClose={close}
             snapPoints={_snapPoints}
           >
-            {body.current}
+            {body}
           </GorhomBottomSheet>
         </BottomSheetContext.Provider>
       </DropdownContext.Provider>

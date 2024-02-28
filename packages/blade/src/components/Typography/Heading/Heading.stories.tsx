@@ -1,4 +1,4 @@
-import type { ComponentStory, Meta } from '@storybook/react';
+import type { StoryFn, Meta } from '@storybook/react';
 import { Title } from '@storybook/addon-docs';
 import type { ReactElement } from 'react';
 import { Text } from '../Text';
@@ -17,12 +17,8 @@ const Page = (): ReactElement => {
     <StoryPageWrapper
       componentDescription="The Heading Component is usually used for headings of each major section of a page."
       componentName="Heading"
-      figmaURL={{
-        paymentTheme:
-          'https://www.figma.com/file/jubmQL9Z8V7881ayUD95ps/Blade---Payment-Light?node-id=11770%3A147140',
-        bankingTheme:
-          'https://www.figma.com/file/sAdplk2uYnI2ILnDKUxycW/Blade---Banking-Dark?node-id=10344%3A189907',
-      }}
+      apiDecisionLink="https://github.com/razorpay/blade/blob/master/packages/blade/src/components/Typography/_decisions/decisions.md"
+      figmaURL="https://www.figma.com/file/jubmQL9Z8V7881ayUD95ps/Blade---Payment-Light?node-id=11770%3A147140"
     >
       <Title>Usage</Title>
       <Sandbox>
@@ -51,17 +47,15 @@ const getHeadingArgTypes = (): Meta['argTypes'] => {
   };
 };
 
-const HeadingStoryMeta: Meta<HeadingProps<{ variant: 'regular' | 'subheading' }>> = {
+const HeadingStoryMeta: Meta<HeadingProps> = {
   title: 'Components/Typography/Heading',
   component: HeadingComponent,
   args: {
-    variant: 'regular',
-    type: 'normal',
     children: 'Get Started With Payment Gateway',
-    weight: 'bold',
-    contrast: 'low',
+    weight: 'semibold',
     as: undefined,
   },
+  tags: ['autodocs'],
   argTypes: getHeadingArgTypes(),
   parameters: {
     docs: {
@@ -70,7 +64,7 @@ const HeadingStoryMeta: Meta<HeadingProps<{ variant: 'regular' | 'subheading' }>
   },
 };
 
-const HeadingTemplate: ComponentStory<typeof HeadingComponent> = (args) => {
+const HeadingTemplate: StoryFn<typeof HeadingComponent> = (args) => {
   return <HeadingComponent {...args}>{args.children}</HeadingComponent>;
 };
 
@@ -78,22 +72,22 @@ export default HeadingStoryMeta;
 export const Heading = HeadingTemplate.bind({});
 export const WithColor = HeadingTemplate.bind({});
 WithColor.args = {
-  color: 'feedback.notice.action.text.primary.default.lowContrast',
+  color: 'surface.text.primary.normal',
 };
 
 const Sup = isReactNative() ? HeadingComponent : 'sup';
-const WithMixedColorsTemplate: ComponentStory<typeof HeadingComponent> = () => {
+const WithMixedColorsTemplate: StoryFn<typeof HeadingComponent> = () => {
   return (
     <Box>
       <HeadingComponent>
         Supercharge your business with the all‑powerful{' '}
-        <HeadingComponent as="span" color="brand.primary.600">
+        <HeadingComponent as="span" color="surface.text.primary.normal">
           Payment Gateway
         </HeadingComponent>
       </HeadingComponent>
       <HeadingComponent marginTop="spacing.5">
         Start accepting{' '}
-        <HeadingComponent as="span" color="feedback.text.information.lowContrast">
+        <HeadingComponent as="span" color="feedback.text.information.intense">
           payments
         </HeadingComponent>{' '}
         at just 2% <Sup>*</Sup>
@@ -104,17 +98,17 @@ const WithMixedColorsTemplate: ComponentStory<typeof HeadingComponent> = () => {
 
 export const WithMixedColors = WithMixedColorsTemplate.bind({});
 
-const AsPropTemplate: ComponentStory<typeof HeadingComponent> = (args) => {
+const AsPropTemplate: StoryFn<typeof HeadingComponent> = (args) => {
   return (
     <Box>
       <Text>
         By default{' '}
-        <Text as="span" weight="bold">
+        <Text as="span" weight="semibold">
           Heading
         </Text>{' '}
         component automatically renders the respective <Code size="medium">h*</Code> tag based on
         the{' '}
-        <Text as="span" weight="bold">
+        <Text as="span" weight="semibold">
           size prop
         </Text>{' '}
         passed

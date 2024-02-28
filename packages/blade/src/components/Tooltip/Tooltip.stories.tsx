@@ -1,6 +1,6 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
 /* eslint-disable @typescript-eslint/explicit-function-return-type */
-import type { ComponentStory, Meta } from '@storybook/react';
+import type { StoryFn, Meta } from '@storybook/react';
 import React from 'react';
 import { Title } from '@storybook/addon-docs';
 import type { TooltipProps } from './';
@@ -24,15 +24,10 @@ const Page = (): React.ReactElement => {
     <StoryPageWrapper
       componentName="Tooltip"
       componentDescription="The tooltip typically provides additional context about the element or its function. A tooltip is always triggered by a mouse hover on desktop and on tap on mobile."
-      figmaURL={{
-        paymentTheme:
-          'https://www.figma.com/file/jubmQL9Z8V7881ayUD95ps/Blade---Payment-Light?type=design&node-id=40636-559188&t=vaK9ZJskCpoIS07l-0',
-        bankingTheme:
-          'https://www.figma.com/file/sAdplk2uYnI2ILnDKUxycW/Blade---Banking-Dark?type=design&node-id=17121-718899&t=TtGMAUvsH8pUzTq9-0',
-      }}
+      figmaURL="https://www.figma.com/file/jubmQL9Z8V7881ayUD95ps/Blade-DSL?type=design&node-id=73273-256355&mode=design&t=Qm80tBqhFBFB5BvZ-4"
     >
       <Title>Usage</Title>
-      <Sandbox showConsole>
+      <Sandbox>
         {`
         import { Tooltip, Button } from '@razorpay/blade/components'
         
@@ -56,6 +51,7 @@ const Page = (): React.ReactElement => {
 export default {
   title: 'Components/Tooltip',
   component: TooltipComponent,
+  tags: ['autodocs'],
   args: {
     placement: 'bottom',
     content: 'Amount reversed to customer bank account',
@@ -78,7 +74,7 @@ const Center = ({ children }: { children: React.ReactNode }): React.ReactElement
   );
 };
 
-const TooltipTemplate: ComponentStory<typeof TooltipComponent> = (args) => {
+const TooltipTemplate: StoryFn<typeof TooltipComponent> = (args) => {
   return (
     <Center>
       <TooltipComponent {...args}>
@@ -111,15 +107,15 @@ const PlacementBox = React.forwardRef<
       width={isReactNative() ? '40%' : '100%'}
       flexShrink={0}
       padding="spacing.5"
-      backgroundColor="surface.background.level3.lowContrast"
+      backgroundColor="surface.background.gray.moderate"
       {...props}
     >
-      <Text contrast="low">{children}</Text>
+      <Text>{children}</Text>
     </Box>
   );
 });
 
-const PlacementTemplate: ComponentStory<typeof TooltipComponent> = () => {
+const PlacementTemplate: StoryFn<typeof TooltipComponent> = () => {
   const tooltipContent = 'Hello world';
 
   if (isReactNative()) {
@@ -196,7 +192,7 @@ const PlacementTemplate: ComponentStory<typeof TooltipComponent> = () => {
 export const Placement = PlacementTemplate.bind({});
 Placement.storyName = 'Placement';
 
-const NonInteractiveTriggerTemplate: ComponentStory<typeof TooltipComponent> = (args) => {
+const NonInteractiveTriggerTemplate: StoryFn<typeof TooltipComponent> = (args) => {
   return (
     <Box>
       <Text>
@@ -207,7 +203,7 @@ const NonInteractiveTriggerTemplate: ComponentStory<typeof TooltipComponent> = (
         <Text>Refunds</Text>
         <TooltipComponent {...args} placement="bottom-start">
           <TooltipInteractiveWrapper>
-            <InfoIcon marginTop="spacing.2" size="medium" color="surface.text.muted.lowContrast" />
+            <InfoIcon marginTop="spacing.2" size="medium" />
           </TooltipInteractiveWrapper>
         </TooltipComponent>
       </Box>
@@ -217,12 +213,12 @@ const NonInteractiveTriggerTemplate: ComponentStory<typeof TooltipComponent> = (
 
 export const NonInteractiveTrigger = NonInteractiveTriggerTemplate.bind({});
 
-const TooltipTriggersTemplate: ComponentStory<typeof TooltipComponent> = (args) => {
+const TooltipTriggersTemplate: StoryFn<typeof TooltipComponent> = (args) => {
   return (
     <Center>
       <Box display="flex" gap="spacing.11" alignItems="center" flexWrap="wrap">
         <TooltipComponent {...args} placement="top">
-          <Button>Button</Button>
+          <Button>button</Button>
         </TooltipComponent>
         <Box marginTop="spacing.8" />
         <TooltipComponent {...args} placement="top">
@@ -243,7 +239,7 @@ const TooltipTriggersTemplate: ComponentStory<typeof TooltipComponent> = (args) 
         <Box marginTop="spacing.8" />
         <TooltipComponent {...args} content="With non-interactive icon" placement="bottom">
           <TooltipInteractiveWrapper>
-            <InfoIcon size="large" color="surface.text.muted.lowContrast" />
+            <InfoIcon size="large" />
           </TooltipInteractiveWrapper>
         </TooltipComponent>
       </Box>
@@ -267,13 +263,11 @@ const CustomTrigger = React.forwardRef<
       padding="spacing.4"
       borderRadius="medium"
       backgroundColor={
-        isReactNative()
-          ? 'surface.background.level1.lowContrast'
-          : 'surface.background.level2.lowContrast'
+        isReactNative() ? 'surface.background.gray.subtle' : 'surface.background.gray.intense'
       }
       {...props}
     >
-      <Text contrast="low">{children}</Text>
+      <Text>{children}</Text>
     </BaseBox>
   );
 });
@@ -290,13 +284,13 @@ const CustomTriggerDocs = () => {
       </ListItem>
       <ListItem>
         Make sure that your component can receive focus{' '}
-        <ListItemText as="span" type="subdued">
+        <ListItemText as="span" color="surface.text.gray.muted">
           (eg: have tabIndex:0)
         </ListItemText>
       </ListItem>
       <ListItem>
         Forward event handlers to the custom trigger{' '}
-        <ListItemText as="span" type="subdued">
+        <ListItemText as="span" color="surface.text.gray.muted">
           (you can import the TooltipTriggerProps type from blade when using TypeScript)
         </ListItemText>
         <List>

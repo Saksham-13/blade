@@ -1,5 +1,4 @@
-import type { ComponentStory, Meta } from '@storybook/react';
-import capitalize from 'lodash/capitalize';
+import type { StoryFn, Meta } from '@storybook/react';
 import { Title } from '@storybook/addon-docs';
 import type { BadgeProps } from './Badge';
 import { Badge as BadgeComponent } from './Badge';
@@ -14,14 +13,9 @@ import { getStyledPropsArgTypes } from '~components/Box/BaseBox/storybookArgType
 const Page = (): React.ReactElement => {
   return (
     <StoryPageWrapper
-      figmaURL={{
-        paymentTheme:
-          'https://www.figma.com/file/jubmQL9Z8V7881ayUD95ps/Blade---Payment-Light?node-id=8110%3A417',
-        bankingTheme:
-          'https://www.figma.com/file/sAdplk2uYnI2ILnDKUxycW/Blade---Banking-Dark?node-id=9727%3A118573',
-      }}
       componentName="Badge"
       componentDescription="Badges are used to show small amount of color coded metadata, which are ideal for getting user attention."
+      figmaURL="https://www.figma.com/file/jubmQL9Z8V7881ayUD95ps/Blade-DSL?type=design&node-id=73237-214550&mode=design&t=JkDSnlo8KJOBJimR-4"
     >
       <Title>Usage</Title>
       <Sandbox>
@@ -30,7 +24,7 @@ const Page = (): React.ReactElement => {
         
         function App(): React.ReactElement {
           return (
-            <Badge variant="neutral" icon={InfoIcon}>
+            <Badge color="neutral" icon={InfoIcon}>
               Boop
             </Badge>
           )
@@ -46,11 +40,13 @@ const Page = (): React.ReactElement => {
 export default {
   title: 'Components/Badge',
   component: BadgeComponent,
+  tags: ['autodocs'],
   argTypes: {
     ...getStyledPropsArgTypes(),
     icon: {
       name: 'icon',
-      type: 'select',
+      // weird TS error
+      type: 'select' as 'string',
       options: Object.keys(iconMap),
       mapping: iconMap,
     },
@@ -62,30 +58,24 @@ export default {
   },
 } as Meta<BadgeProps>;
 
-const BadgeTemplate: ComponentStory<typeof BadgeComponent> = ({ children, ...args }) => {
+const BadgeTemplate: StoryFn<typeof BadgeComponent> = ({ children, ...args }) => {
   return <BadgeComponent {...args}>{children}</BadgeComponent>;
 };
 
 export const Badge = BadgeTemplate.bind({});
 Badge.args = {
   children: 'Label',
-  variant: 'neutral',
-  fontWeight: 'regular',
-  contrast: 'low',
+  color: 'neutral',
   size: 'small',
 };
 Badge.storyName = 'Default';
 
-const BadgesWithVariantTemplate: ComponentStory<typeof BadgeComponent> = ({ ...args }) => {
-  const variants = ['positive', 'negative', 'notice', 'information', 'neutral', 'blue'] as const;
-
-  const getLabel = (label: string): string => {
-    return args.fontWeight === 'bold' ? label.toUpperCase() : capitalize(label);
-  };
+const BadgesWithVariantTemplate: StoryFn<typeof BadgeComponent> = ({ ...args }) => {
+  const variants = ['positive', 'negative', 'notice', 'information', 'neutral', 'primary'] as const;
 
   return (
     <BaseBox display="flex" flexDirection="column">
-      <BladeText>Low Contrast</BladeText>
+      <BladeText>Subtle Emphasis</BladeText>
       <BaseBox
         display="flex"
         flexDirection="row"
@@ -96,17 +86,17 @@ const BadgesWithVariantTemplate: ComponentStory<typeof BadgeComponent> = ({ ...a
         {variants.map((variant) => (
           <BadgeComponent
             {...args}
-            variant={variant}
-            contrast="low"
+            color={variant}
             key={variant}
+            emphasis="subtle"
             marginRight="spacing.3"
             marginTop="spacing.2"
           >
-            {getLabel(variant)}
+            {variant}
           </BadgeComponent>
         ))}
       </BaseBox>
-      <BladeText>High Contrast</BladeText>
+      <BladeText>Intense Emphasis</BladeText>
       <BaseBox
         display="flex"
         flexDirection="row"
@@ -117,13 +107,13 @@ const BadgesWithVariantTemplate: ComponentStory<typeof BadgeComponent> = ({ ...a
         {variants.map((variant) => (
           <BadgeComponent
             {...args}
-            variant={variant}
-            contrast="high"
+            color={variant}
             key={variant}
+            emphasis="intense"
             marginRight="spacing.3"
             marginTop="spacing.2"
           >
-            {getLabel(variant)}
+            {variant}
           </BadgeComponent>
         ))}
       </BaseBox>
@@ -167,9 +157,3 @@ BadgeWithIcon.parameters = {
   },
 };
 BadgeWithIcon.storyName = 'With Icon';
-
-export const BadgeBold = BadgesWithVariantTemplate.bind({});
-BadgeBold.args = {
-  fontWeight: 'bold',
-};
-BadgeBold.storyName = 'Bold Font';

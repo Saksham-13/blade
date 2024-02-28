@@ -1,6 +1,5 @@
-import type { ComponentStory, Meta } from '@storybook/react';
+import type { StoryFn, Meta } from '@storybook/react';
 import { Title } from '@storybook/addon-docs';
-import capitalize from 'lodash/capitalize';
 import type { ReactElement } from 'react';
 import type { ListProps } from './List';
 import { List } from './List';
@@ -15,6 +14,7 @@ import { Sandbox } from '~utils/storybook/Sandbox';
 import StoryPageWrapper from '~utils/storybook/StoryPageWrapper';
 import BaseBox from '~components/Box/BaseBox';
 import { getStyledPropsArgTypes } from '~components/Box/BaseBox/storybookArgTypes';
+import { capitalize } from '~utils/lodashButBetter/capitalize';
 
 const listSizes: NonNullable<ListProps['size']>[] = ['small', 'medium', 'large'];
 
@@ -23,12 +23,7 @@ const Page = (): ReactElement => {
     <StoryPageWrapper
       componentDescription="List displays a set of related items that are composed of text/links."
       componentName="List"
-      figmaURL={{
-        paymentTheme:
-          'https://www.figma.com/file/jubmQL9Z8V7881ayUD95ps/Blade---Payment-Light?node-id=23205%3A446859&t=itEw2V8u5Q0PPGJq-4',
-        bankingTheme:
-          'https://www.figma.com/file/sAdplk2uYnI2ILnDKUxycW/Blade---Banking-Dark?node-id=13864%3A436458&t=nNhw3mY86j85bYfl-4',
-      }}
+      figmaURL="https://www.figma.com/file/jubmQL9Z8V7881ayUD95ps/Blade-DSL?type=design&node-id=23205-446933&mode=design&t=jyVG8aXFc1Dlw2Se-4"
     >
       <Title>Usage</Title>
       <Sandbox>
@@ -69,6 +64,7 @@ export default {
     size: 'large',
     variant: 'unordered',
   },
+  tags: ['autodocs'],
   argTypes: {
     icon: {
       name: 'icon',
@@ -84,7 +80,7 @@ export default {
   },
 } as Meta<ListProps>;
 
-const ListTemplate: ComponentStory<typeof List> = ({ ...args }) => {
+const ListTemplate: StoryFn<typeof List> = ({ ...args }) => {
   return (
     <List variant="unordered" {...args}>
       <ListItem>
@@ -127,7 +123,7 @@ export const Default = ListTemplate.bind({});
 Default.storyName = 'Default';
 Default.args = {};
 
-const ListMixNestedTemplate: ComponentStory<typeof List> = () => {
+const ListMixNestedTemplate: StoryFn<typeof List> = () => {
   return (
     <List variant="ordered">
       <ListItem>
@@ -169,7 +165,7 @@ export const ListMixNested = ListMixNestedTemplate.bind({});
 // Need to do this because of storybook's weird naming convention, More details here: https://storybook.js.org/docs/react/writing-stories/naming-components-and-hierarchy#single-story-hoisting
 ListMixNested.storyName = 'Unordered & Ordered Mix';
 
-const ListWithSizesTemplate: ComponentStory<typeof List> = ({ ...args }) => {
+const ListWithSizesTemplate: StoryFn<typeof List> = ({ ...args }) => {
   return (
     <BaseBox>
       {listSizes.map((size) => (
@@ -216,7 +212,7 @@ OrderedListWithSizes.args = {
   variant: 'ordered',
 };
 
-const OrderedFilledListWithSizesTemplate: ComponentStory<typeof List> = () => {
+const OrderedFilledListWithSizesTemplate: StoryFn<typeof List> = () => {
   return (
     <BaseBox>
       {listSizes.map((size) => (
@@ -245,7 +241,7 @@ const OrderedFilledListWithSizesTemplate: ComponentStory<typeof List> = () => {
 export const OrderedFilledListWithSizes = OrderedFilledListWithSizesTemplate.bind({});
 OrderedFilledListWithSizes.storyName = 'OrderedFilled - Sizes';
 
-const ListWithLinkAndIconTemplate: ComponentStory<typeof List> = () => {
+const ListWithLinkAndIconTemplate: StoryFn<typeof List> = () => {
   return (
     <List variant="unordered" icon={BookmarkIcon}>
       <ListItem>
@@ -267,7 +263,7 @@ const ListWithLinkAndIconTemplate: ComponentStory<typeof List> = () => {
 export const ListWithLinkAndIcon = ListWithLinkAndIconTemplate.bind({});
 ListWithLinkAndIcon.storyName = 'Link & Icon';
 
-const ListWithCodeTemplate: ComponentStory<typeof List> = () => {
+const ListWithCodeTemplate: StoryFn<typeof List> = () => {
   return (
     <BaseBox>
       {listSizes.map((size) => (
@@ -293,7 +289,7 @@ const ListWithCodeTemplate: ComponentStory<typeof List> = () => {
 export const ListWithCodeAndIcon = ListWithCodeTemplate.bind({});
 ListWithCodeAndIcon.storyName = 'With Inline Code';
 
-const ListWithListItemTextTemplate: ComponentStory<typeof List> = () => {
+const ListWithListItemTextTemplate: StoryFn<typeof List> = () => {
   return (
     <BaseBox>
       {listSizes.map((size) => (
@@ -303,7 +299,7 @@ const ListWithListItemTextTemplate: ComponentStory<typeof List> = () => {
             <ListItem>
               <ListItemText>
                 You will receive an invoice after a
-                <ListItemText as="span" weight="bold" color="feedback.text.positive.lowContrast">
+                <ListItemText as="span" weight="semibold" color="feedback.text.positive.intense">
                   {' successful '}
                 </ListItemText>
                 payment
@@ -311,7 +307,7 @@ const ListWithListItemTextTemplate: ComponentStory<typeof List> = () => {
             </ListItem>
             <ListItem>
               You will receive a mail with further instruction after a
-              <ListItemText as="span" weight="bold" color="feedback.text.negative.lowContrast">
+              <ListItemText as="span" weight="semibold" color="feedback.text.negative.intense">
                 {' failed '}
               </ListItemText>{' '}
               payment

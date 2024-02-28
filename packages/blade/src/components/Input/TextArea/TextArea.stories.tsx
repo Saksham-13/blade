@@ -1,4 +1,4 @@
-import type { ComponentStory, Meta } from '@storybook/react';
+import type { StoryFn, Meta } from '@storybook/react';
 import { Title } from '@storybook/addon-docs';
 import React from 'react';
 import type { TextAreaProps } from './TextArea';
@@ -47,6 +47,7 @@ export default {
     showClearButton: undefined,
     numberOfLines: 2,
   },
+  tags: ['autodocs'],
   argTypes: {
     defaultValue: {
       table: {
@@ -168,12 +169,8 @@ export default {
         <StoryPageWrapper
           componentDescription="The TextArea component lets you enter long form text which spans over multiple lines."
           componentName="TextArea"
-          figmaURL={{
-            paymentTheme:
-              'https://www.figma.com/file/jubmQL9Z8V7881ayUD95ps/Blade---Payment-Light?node-id=11115%3A166804',
-            bankingTheme:
-              'https://www.figma.com/file/sAdplk2uYnI2ILnDKUxycW/Blade---Banking-Dark?node-id=10050%3A180805',
-          }}
+          apiDecisionLink="https://github.com/razorpay/blade/blob/master/packages/blade/src/components/Input/TextArea/_decisions/decisions.md"
+          figmaURL="https://www.figma.com/file/jubmQL9Z8V7881ayUD95ps/Blade-DSL?type=design&node-id=11115-166804&mode=design&t=jyVG8aXFc1Dlw2Se-4"
         >
           <Title>Usage</Title>
           <Sandbox>
@@ -200,7 +197,7 @@ export default {
   },
 } as Meta<TextAreaProps>;
 
-const TextAreaTemplate: ComponentStory<typeof TextAreaComponent> = ({ ...args }) => {
+const TextAreaTemplate: StoryFn<typeof TextAreaComponent> = ({ ...args }) => {
   return <TextAreaComponent {...args} />;
 };
 
@@ -243,7 +240,7 @@ TextAreaNumberOfLines.args = {
   numberOfLines: 4,
 };
 
-const TextAreaMaxCharactersTemplate: ComponentStory<typeof TextAreaComponent> = () => {
+const TextAreaMaxCharactersTemplate: StoryFn<typeof TextAreaComponent> = () => {
   return (
     <TextArea
       label="Description"
@@ -256,7 +253,7 @@ const TextAreaMaxCharactersTemplate: ComponentStory<typeof TextAreaComponent> = 
 };
 export const TextAreaMaxCharacters = TextAreaMaxCharactersTemplate.bind({});
 
-const TextAreaUncontrolledTemplate: ComponentStory<typeof TextAreaComponent> = () => {
+const TextAreaUncontrolledTemplate: StoryFn<typeof TextAreaComponent> = () => {
   return (
     <TextArea
       label="Description"
@@ -269,7 +266,7 @@ const TextAreaUncontrolledTemplate: ComponentStory<typeof TextAreaComponent> = (
 };
 export const TextAreaUncontrolled = TextAreaUncontrolledTemplate.bind({});
 
-const TextAreaControlledTemplate: ComponentStory<typeof TextAreaComponent> = () => {
+const TextAreaControlledTemplate: StoryFn<typeof TextAreaComponent> = () => {
   const [inputValue, setInputValue] = React.useState('');
 
   return (
@@ -287,7 +284,7 @@ const TextAreaControlledTemplate: ComponentStory<typeof TextAreaComponent> = () 
 };
 export const TextAreaControlled = TextAreaControlledTemplate.bind({});
 
-const TextAreaKitchenSinkTemplate: ComponentStory<typeof TextAreaComponent> = () => {
+const TextAreaKitchenSinkTemplate: StoryFn<typeof TextAreaComponent> = () => {
   return (
     <>
       <BaseBox display="flex" gap="spacing.5">
@@ -382,7 +379,7 @@ const TextAreaKitchenSinkTemplate: ComponentStory<typeof TextAreaComponent> = ()
 };
 export const TextAreaKitchenSink = TextAreaKitchenSinkTemplate.bind({});
 
-export const inputRef: ComponentStory<typeof TextAreaComponent> = () => {
+export const inputRef: StoryFn<typeof TextAreaComponent> = () => {
   // eslint-disable-next-line react-hooks/rules-of-hooks
   const inputRef = React.useRef<HTMLTextAreaElement>(null);
 

@@ -3,7 +3,7 @@ import React from 'react';
 import type { ReactDOMAttributes } from '@use-gesture/react/dist/declarations/src/types';
 import { Divider } from '~components/Divider';
 import BaseBox from '~components/Box/BaseBox';
-import { Heading, Text } from '~components/Typography';
+import { Text } from '~components/Typography';
 import { IconButton } from '~components/Button/IconButton';
 import { ChevronLeftIcon, CloseIcon } from '~components/Icons';
 import type { TestID } from '~utils/types';
@@ -11,9 +11,10 @@ import type { BoxProps } from '~components/Box';
 import { Box } from '~components/Box';
 import { assignWithoutSideEffects } from '~utils/assignWithoutSideEffects';
 import { getComponentId } from '~utils/isValidAllowedChildren';
-import { isReactNative } from '~utils';
+import { isReactNative, makeSize } from '~utils';
 import { metaAttribute } from '~utils/metaAttribute';
 import { logger, throwBladeError } from '~utils/logger';
+import { size } from '~tokens/global';
 
 type BaseHeaderProps = {
   title?: string;
@@ -45,6 +46,7 @@ type BaseHeaderProps = {
   onCloseButtonClick?: () => void;
   onBackButtonClick?: () => void;
   closeButtonRef?: React.MutableRefObject<any>;
+  backButtonRef?: React.MutableRefObject<any>;
   metaComponentName?: string;
   /**
    * inner child of BottomSheetHeader. Meant to be used for AutoComplete only
@@ -93,7 +95,8 @@ const propRestrictionMap = {
     variant: 'body',
   },
   Amount: {
-    size: 'body-medium',
+    type: 'body',
+    size: 'medium',
   },
 } as const;
 
@@ -151,6 +154,7 @@ const _BaseHeader = ({
   onBackButtonClick,
   onCloseButtonClick,
   closeButtonRef,
+  backButtonRef,
   testID,
   onClickCapture,
   onKeyDown,
@@ -192,6 +196,7 @@ const _BaseHeader = ({
             <BaseBox overflow="visible" marginRight="spacing.5">
               <Box {...centerBoxProps}>
                 <IconButton
+                  ref={backButtonRef}
                   size="large"
                   icon={ChevronLeftIcon}
                   onClick={() => onBackButtonClick?.()}
@@ -209,12 +214,7 @@ const _BaseHeader = ({
             alignItems="flex-start"
           >
             {leading ? (
-              <BaseBox
-                width="spacing.8"
-                height="spacing.8"
-                marginRight="spacing.3"
-                {...centerBoxProps}
-              >
+              <BaseBox marginRight="spacing.3" {...centerBoxProps}>
                 {leading}
               </BaseBox>
             ) : null}
@@ -229,9 +229,14 @@ const _BaseHeader = ({
                 flexDirection="row"
               >
                 {title ? (
-                  <Heading size="small" variant="regular" type="normal">
+                  <Text
+                    size="large"
+                    marginTop={makeSize(size['1'])}
+                    weight="semibold"
+                    color="surface.text.gray.normal"
+                  >
                     {title}
-                  </Heading>
+                  </Text>
                 ) : null}
                 {titleSuffix && (
                   <BaseBox marginLeft="spacing.3">
@@ -240,7 +245,7 @@ const _BaseHeader = ({
                 )}
               </BaseBox>
               {subtitle ? (
-                <Text variant="body" size="small" weight="regular" type="muted">
+                <Text variant="body" size="small" weight="regular" color="surface.text.gray.muted">
                   {subtitle}
                 </Text>
               ) : null}

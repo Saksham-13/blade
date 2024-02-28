@@ -1,21 +1,27 @@
-import debounce from 'lodash/debounce';
+import { useEffect } from 'react';
 import styled from 'styled-components';
+import debounce from '~utils/lodashButBetter/debounce';
 import { Box } from '~components/Box';
+import { IconButton } from '~components/Button/IconButton';
 import { Card, CardBody } from '~components/Card';
-import { CheckIcon } from '~components/Icons';
+import { CheckIcon, LockIcon, UnlockIcon } from '~components/Icons';
 import { Radio, RadioGroup } from '~components/Radio';
+import { Tooltip } from '~components/Tooltip';
 import { Heading, Text } from '~components/Typography';
 import type { ColorSchemeNames } from '~tokens/theme';
-import { makeBorderSize, useTheme } from '~utils';
-import { SandboxHighlighter } from '~utils/storybook/Sandbox';
+import { makeBorderSize } from '~utils';
+import { SandboxHighlighter } from '~utils/storybook/Sandbox/SandpackEditor';
+import { useTheme } from '~components/BladeProvider';
 
 const ColorSelection = styled.button<{ color: string; isSelected?: boolean }>(
   ({ color, isSelected, theme }) => ({
     width: '24px',
     height: '24px',
     borderRadius: makeBorderSize(theme.border.radius.round),
-    outline: `1px solid ${theme.colors.surface.background.level1.lowContrast}`,
-    boxShadow: `0px 0px 4px 3px ${isSelected ? theme.colors.brand.primary[500] : 'transparent'}`,
+    outline: `1px solid ${theme.colors.surface.background.gray.subtle}`,
+    boxShadow: `0px 0px 4px 3px ${
+      isSelected ? theme.colors.feedback.background.information : 'transparent'
+    }`,
     border: 'none',
     backgroundColor: color,
     display: 'flex',
@@ -36,8 +42,10 @@ const ColorPickerTrigger = styled.label<{ isSelected?: boolean }>(({ isSelected,
   cursor: 'pointer',
   position: 'relative',
   background: 'conic-gradient(red, yellow, lime, aqua, blue, magenta, red)',
-  outline: `1px solid ${theme.colors.surface.background.level1.lowContrast}`,
-  boxShadow: `0px 0px 4px 3px ${isSelected ? theme.colors.brand.primary[500] : 'transparent'}`,
+  outline: `1px solid ${theme.colors.surface.background.gray.subtle}`,
+  boxShadow: `0px 0px 4px 3px ${
+    isSelected ? theme.colors.feedback.background.information : 'transparent'
+  }`,
 }));
 
 const ColorPickerInput = styled.input({
@@ -64,26 +72,36 @@ const ColorSelector = ({
 }): React.ReactElement => {
   return (
     <ColorSelection color={color} onClick={onClick} isSelected={isSelected}>
-      {isSelected ? <CheckIcon size="large" color="action.icon.primary.default" /> : null}
+      {isSelected ? <CheckIcon size="large" color="interactive.icon.onPrimary.normal" /> : null}
     </ColorSelection>
   );
 };
 
-const ThemeSelector = ({
-  selectedColor,
-  setSelectedColor,
-  colorScheme,
-  setColorScheme,
-  selectedPreBuiltTheme,
-  setSelectedPreBuiltTheme,
-}: {
+type ThemeSelectorProps = {
   selectedColor?: string;
   setSelectedColor: React.Dispatch<React.SetStateAction<string | undefined>>;
   colorScheme: ColorSchemeNames;
   setColorScheme: React.Dispatch<React.SetStateAction<ColorSchemeNames>>;
   selectedPreBuiltTheme?: string;
   setSelectedPreBuiltTheme: React.Dispatch<React.SetStateAction<string | undefined>>;
-}): React.ReactElement => {
+  setBorderBase: React.Dispatch<React.SetStateAction<string>>;
+  borderBase: string;
+  setShowInternalDemoConfig: React.Dispatch<React.SetStateAction<boolean>>;
+  showInternalDemoConfig: boolean;
+};
+
+const ThemeSelector = ({
+  selectedColor,
+  setSelectedColor,
+  colorScheme,
+  borderBase,
+  setColorScheme,
+  selectedPreBuiltTheme,
+  setSelectedPreBuiltTheme,
+  setBorderBase,
+  setShowInternalDemoConfig,
+  showInternalDemoConfig,
+}: ThemeSelectorProps): React.ReactElement => {
   const colorOptions = [
     '#EE681A',
     '#83003D',
@@ -103,6 +121,13 @@ const ThemeSelector = ({
   const { platform } = useTheme();
   const isDesktop = platform === 'onDesktop';
 
+  useEffect(() => {
+    if (!showInternalDemoConfig) {
+      setBorderBase('2');
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [showInternalDemoConfig]);
+
   return (
     <Box
       position={isDesktop ? 'fixed' : 'relative'}
@@ -111,10 +136,19 @@ const ThemeSelector = ({
       zIndex={50}
       height="100%"
     >
-      <Card surfaceLevel={3} elevation="highRaised" height="100%">
+      <Card elevation="highRaised" height="100%">
         <CardBody>
           <Box width={isDesktop ? '400px' : '100%'} marginTop="spacing.6">
-            <Heading>Customise theme</Heading>
+            <Box display="flex" flexDirection="row" gap="spacing.4">
+              <Heading>Customise theme</Heading>
+              <Tooltip content="Toggle configuration meant only for internal demo purposes">
+                <IconButton
+                  accessibilityLabel="Unlock internal demo configurations"
+                  icon={showInternalDemoConfig ? UnlockIcon : LockIcon}
+                  onClick={() => setShowInternalDemoConfig(!showInternalDemoConfig)}
+                />
+              </Tooltip>
+            </Box>
             <Box marginTop="spacing.8" />
             <Box display="flex" flexDirection="row" gap="spacing.2" flexWrap="wrap">
               <RadioGroup
@@ -126,19 +160,13 @@ const ThemeSelector = ({
                   setSelectedColor(undefined);
                 }}
               >
-                <Radio value="paymentTheme">Payment Theme</Radio>
-                <Radio value="bankingTheme">Banking Theme</Radio>
+                {/* TODO: remove the section that allows you to select theme */}
+                <Radio value="bladeTheme">Blade Theme</Radio>
               </RadioGroup>
             </Box>
             <Box marginTop="spacing.8" />
             <Box display="flex" flexDirection="column" gap="spacing.2" flexWrap="wrap">
-              <Text
-                size="small"
-                type="subdued"
-                weight="bold"
-                marginRight="spacing.8"
-                marginBottom="spacing.2"
-              >
+              <Text size="small" weight="semibold" marginRight="spacing.8" marginBottom="spacing.2">
                 {'Theme with custom brand color:'}
               </Text>
               <Box display="flex" flexDirection="row" gap="spacing.3">
@@ -185,8 +213,33 @@ const ThemeSelector = ({
                 <Radio value="dark">Dark</Radio>
               </RadioGroup>
             </Box>
+            {showInternalDemoConfig ? (
+              <>
+                <Box marginTop="spacing.8" />
+                <Box
+                  display="flex"
+                  flexDirection="row"
+                  gap="spacing.2"
+                  flexWrap="wrap"
+                  marginTop="spacing.8"
+                >
+                  <RadioGroup
+                    value={borderBase}
+                    labelPosition="top"
+                    label="Style:"
+                    onChange={({ value }) => setBorderBase(value)}
+                    helpText="For internal demo purpose only. Do not use in production."
+                  >
+                    <Radio value="0">Flat</Radio>
+                    <Radio value="2">Normal</Radio>
+                    <Radio value="12">Rounded</Radio>
+                  </RadioGroup>
+                </Box>
+              </>
+            ) : null}
+
             <Box marginTop="spacing.8" />
-            <Text type="subdued" weight="bold" marginRight="spacing.8" marginBottom="spacing.3">
+            <Text weight="semibold" marginRight="spacing.8" marginBottom="spacing.3">
               Code:
             </Text>
             <Box>

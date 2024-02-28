@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/explicit-function-return-type */
 import { Title } from '@storybook/addon-docs';
-import type { ComponentStory, Meta } from '@storybook/react';
+import type { StoryFn, Meta } from '@storybook/react';
 import React from 'react';
 import type { CheckboxProps } from './';
 import { Checkbox as CheckboxComponent } from './';
@@ -16,12 +16,7 @@ const Page = (): React.ReactElement => {
     <StoryPageWrapper
       componentName="Checkbox"
       componentDescription="Checkbox can be used in forms when a user needs to select multiple values from several options."
-      figmaURL={{
-        paymentTheme:
-          'https://www.figma.com/file/jubmQL9Z8V7881ayUD95ps/Blade---Payment-Light?node-id=13227%3A163026',
-        bankingTheme:
-          'https://www.figma.com/file/sAdplk2uYnI2ILnDKUxycW/Blade---Banking-Dark?node-id=11169%3A230354',
-      }}
+      figmaURL="https://www.figma.com/file/jubmQL9Z8V7881ayUD95ps/Blade-DSL?type=design&node-id=71951-34708&mode=design&t=jyVG8aXFc1Dlw2Se-4"
     >
       <Title>Usage</Title>
       <Sandbox showConsole>
@@ -63,6 +58,7 @@ export default {
     children: 'Toggle checkbox',
     size: 'medium',
   },
+  tags: ['autodocs'],
   argTypes: getStyledPropsArgTypes(),
   parameters: {
     docs: {
@@ -71,7 +67,7 @@ export default {
   },
 } as Meta<CheckboxProps>;
 
-const CheckboxTemplate: ComponentStory<typeof CheckboxComponent> = ({ children, ...args }) => {
+const CheckboxTemplate: StoryFn<typeof CheckboxComponent> = ({ children, ...args }) => {
   return <CheckboxComponent {...args}>{children}</CheckboxComponent>;
 };
 
@@ -131,12 +127,12 @@ const ControlledAndUncontrolledComp = () => {
     </>
   );
 };
-const _ControlledAndUncontrolled: ComponentStory<typeof CheckboxComponent> = () => {
+const _ControlledAndUncontrolled: StoryFn<typeof CheckboxComponent> = () => {
   return <ControlledAndUncontrolledComp />;
 };
 export const ControlledAndUncontrolled = _ControlledAndUncontrolled.bind({});
 
-export const checkboxRef: ComponentStory<typeof CheckboxComponent> = () => {
+export const checkboxRef: StoryFn<typeof CheckboxComponent> = () => {
   // eslint-disable-next-line react-hooks/rules-of-hooks
   const checkboxRef = React.useRef<HTMLInputElement>(null);
 

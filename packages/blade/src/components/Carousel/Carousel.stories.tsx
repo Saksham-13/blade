@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/explicit-function-return-type */
-import type { ComponentStory, Meta } from '@storybook/react';
+import type { StoryFn, Meta } from '@storybook/react';
 import { Title as AddonTitle } from '@storybook/addon-docs';
 import type { CarouselProps } from './';
 import { Carousel as CarouselComponent, CarouselItem } from './';
@@ -9,21 +9,17 @@ import { Card, CardBody } from '~components/Card';
 import StoryPageWrapper from '~utils/storybook/StoryPageWrapper';
 import { Sandbox } from '~utils/storybook/Sandbox';
 import { Divider } from '~components/Divider';
-import { isReactNative, useTheme } from '~utils';
+import { isReactNative } from '~utils';
 import { List, ListItem } from '~components/List';
 import { Link } from '~components/Link';
+import { useTheme } from '~components/BladeProvider';
 
 const Page = (): React.ReactElement => {
   return (
     <StoryPageWrapper
       componentName="Carousel"
       componentDescription="Carousel is a UI component that allows the display and navigation of a set of content items, typically images or cards, within a limited space. It is often used to showcase multiple pieces of content in a visually appealing and interactive way."
-      figmaURL={{
-        paymentTheme:
-          'https://www.figma.com/file/LSG77hEeVYDk7j7WV7OMJE/Blade-DSL---Components-Guideline?type=design&node-id=2115-975755&mode=design&t=5g2Lqj2ez02pxQfO-0',
-        bankingTheme:
-          'https://www.figma.com/file/LSG77hEeVYDk7j7WV7OMJE/Blade-DSL---Components-Guideline?type=design&node-id=2115-975755&mode=design&t=5g2Lqj2ez02pxQfO-0',
-      }}
+      figmaURL="https://www.figma.com/file/jubmQL9Z8V7881ayUD95ps/Blade-DSL?type=design&node-id=53853-58706&mode=design&t=jyVG8aXFc1Dlw2Se-4"
     >
       <AddonTitle>Usage</AddonTitle>
       <Sandbox editorHeight={500}>
@@ -76,6 +72,7 @@ const meta: Meta<CarouselProps> = {
     showIndicators: true,
     scrollOverlayColor: undefined,
   },
+  tags: ['autodocs'],
   argTypes: {
     // hide children prop
     children: {
@@ -185,7 +182,7 @@ const QuoteSvg = (): React.ReactElement => {
     <svg width="38" height="31" viewBox="0 0 38 31" fill="none" xmlns="http://www.w3.org/2000/svg">
       <path
         d="M8.848 0L14.56 4.48C12.2453 6.944 10.6027 9.25867 9.632 11.424C8.66133 13.5893 8.176 15.8293 8.176 18.144L4.704 14.896H15.792V30.576H0V20.272C0 16.464 0.672 12.9547 2.016 9.744C3.36 6.53334 5.63733 3.28534 8.848 0ZM30.576 0L36.288 4.48C33.9733 6.944 32.3307 9.25867 31.36 11.424C30.3893 13.5893 29.904 15.8293 29.904 18.144L26.432 14.896H37.52V30.576H21.728V20.272C21.728 16.464 22.4 12.9547 23.744 9.744C25.088 6.53334 27.3653 3.28534 30.576 0Z"
-        fill={theme.colors.brand.primary[300]}
+        fill={theme.colors.interactive.background.primary.faded}
       />
     </svg>
   );
@@ -218,10 +215,10 @@ const TestimonialCard = ({
         <Box height="100%" display="flex" gap="spacing.4" flexDirection="column">
           <QuoteSvg />
           <Box>
-            <Heading type="subtle" weight="bold" size="large">
+            <Heading weight="semibold" size="large">
               {quote}
             </Heading>
-            <Text size="medium" type="subdued" marginTop="spacing.4">
+            <Text size="medium" marginTop="spacing.4">
               {longQuote}
             </Text>
           </Box>
@@ -233,17 +230,15 @@ const TestimonialCard = ({
           >
             <Avatar name={name} />
             <Box>
-              <Text size="large" weight="bold">
+              <Text size="large" weight="semibold">
                 {name}
               </Text>
               <Text>
-                <Text as="span" weight="bold" type="subdued">
+                <Text as="span" weight="semibold">
                   {company}
                 </Text>
                 {', '}
-                <Text as="span" type="muted">
-                  {role}
-                </Text>
+                <Text as="span">{role}</Text>
               </Text>
             </Box>
           </Box>
@@ -253,7 +248,7 @@ const TestimonialCard = ({
   );
 };
 
-const CarouselExample = (props: Omit<CarouselProps, 'children'>): React.ReactElement => {
+export const CarouselExample = (props: Omit<CarouselProps, 'children'>): React.ReactElement => {
   const key = `${props.visibleItems}-${props.shouldAddStartEndSpacing}`;
   return (
     <Box width="100%" height={isReactNative() ? '350px' : 'auto'}>
@@ -273,7 +268,7 @@ const CarouselExample = (props: Omit<CarouselProps, 'children'>): React.ReactEle
   );
 };
 
-const CarouselTestimonialTemplate: ComponentStory<typeof CarouselComponent> = (props) => {
+const CarouselTestimonialTemplate: StoryFn<typeof CarouselComponent> = (props) => {
   return (
     <Box margin="auto" width={{ base: '100%', m: '100%' }} padding="spacing.4">
       <CarouselExample {...props} />
@@ -286,7 +281,7 @@ DefaultCarousel.args = {
   carouselItemWidth: { base: '100%', m: '100%' },
 };
 
-export const VisibleItems: ComponentStory<typeof CarouselComponent> = (props) => {
+export const VisibleItems: StoryFn<typeof CarouselComponent> = (props) => {
   if (isReactNative()) {
     return (
       <Box margin="auto" width="100%" padding="spacing.4">
@@ -329,7 +324,7 @@ VisibleItems.argTypes = {
   },
 };
 
-export const AutoBleed: ComponentStory<typeof CarouselComponent> = () => {
+export const AutoBleed: StoryFn<typeof CarouselComponent> = () => {
   if (isReactNative()) {
     return (
       <Box>
@@ -353,7 +348,7 @@ export const AutoBleed: ComponentStory<typeof CarouselComponent> = () => {
         </Text>
       </Box>
 
-      <Text weight="bold">Props:</Text>
+      <Text weight="semibold">Props:</Text>
       <List marginBottom="spacing.3">
         <ListItem>visibleItems: autofit</ListItem>
         <ListItem>
@@ -367,7 +362,7 @@ export const AutoBleed: ComponentStory<typeof CarouselComponent> = () => {
         <Code size="medium">shouldAddStartEndSpacing</Code> to true
       </Text>
 
-      <Text weight="bold">Props:</Text>
+      <Text weight="semibold">Props:</Text>
       <List marginBottom="spacing.3">
         <ListItem>visibleItems: autofit</ListItem>
         <ListItem>shouldAddStartEndSpacing: true</ListItem>
@@ -380,7 +375,7 @@ export const AutoBleed: ComponentStory<typeof CarouselComponent> = () => {
         shouldAddStartEndSpacing
         visibleItems="autofit"
         carouselItemWidth={{ base: '90%', m: '300px' }}
-        scrollOverlayColor="surface.background.level1.lowContrast"
+        scrollOverlayColor="surface.background.gray.subtle"
       />
     </Box>
   );
@@ -391,7 +386,7 @@ AutoBleed.args = {
   carouselItemWidth: { base: '90%', m: '300px' },
 };
 
-export const ButtonPositions: ComponentStory<typeof CarouselComponent> = (props) => {
+export const ButtonPositions: StoryFn<typeof CarouselComponent> = (props) => {
   return (
     <Box margin="auto" padding="spacing.4" width="100%">
       <Code size="medium" marginY="spacing.8">
@@ -417,7 +412,7 @@ ButtonPositions.argTypes = {
   },
 };
 
-export const AutoPlay: ComponentStory<typeof CarouselComponent> = (props) => {
+export const AutoPlay: StoryFn<typeof CarouselComponent> = (props) => {
   return (
     <Box margin="auto" padding="spacing.4" width="100%">
       <Text marginY="spacing.5">
@@ -460,10 +455,10 @@ const InteractiveTestimonialCard = ({
           <Box height="100%" display="flex" gap="spacing.4" flexDirection="column">
             <QuoteSvg />
             <Box>
-              <Heading type="subtle" weight="bold" size="large">
+              <Heading weight="semibold" size="large">
                 {quote}
               </Heading>
-              <Text size="medium" type="subdued" marginTop="spacing.4">
+              <Text size="medium" marginTop="spacing.4">
                 {longQuote}
               </Text>
             </Box>
@@ -479,13 +474,11 @@ const InteractiveTestimonialCard = ({
                   {name}
                 </Link>
                 <Text>
-                  <Text as="span" weight="bold" type="subdued">
+                  <Text as="span" weight="semibold">
                     {company}
                   </Text>
                   {', '}
-                  <Text as="span" type="muted">
-                    {role}
-                  </Text>
+                  <Text as="span">{role}</Text>
                 </Text>
               </Box>
             </Box>
@@ -496,7 +489,7 @@ const InteractiveTestimonialCard = ({
   );
 };
 
-const InteractiveCarouselTestimonialTemplate: ComponentStory<typeof CarouselComponent> = () => {
+const InteractiveCarouselTestimonialTemplate: StoryFn<typeof CarouselComponent> = () => {
   return (
     <Box margin="auto" width={{ base: '100%', m: '100%' }} padding="spacing.4">
       <Box width="100%" height={isReactNative() ? '350px' : 'auto'}>

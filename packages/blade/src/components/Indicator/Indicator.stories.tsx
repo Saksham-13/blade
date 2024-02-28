@@ -1,4 +1,4 @@
-import type { ComponentStory, Meta } from '@storybook/react';
+import type { StoryFn, Meta } from '@storybook/react';
 import { Title } from '@storybook/addon-docs';
 import type { ReactElement } from 'react';
 import type { IndicatorProps } from './Indicator';
@@ -16,12 +16,7 @@ const Page = (): ReactElement => {
       componentName="Indicator"
       componentDescription="Indicators describe the condition of an entity. They can be used to convey semantic meaning,
     such as statuses and semantical-categories."
-      figmaURL={{
-        paymentTheme:
-          'https://www.figma.com/file/jubmQL9Z8V7881ayUD95ps/Blade---Payment-Light?node-id=8224%3A1',
-        bankingTheme:
-          'https://www.figma.com/file/sAdplk2uYnI2ILnDKUxycW/Blade---Banking-Dark?node-id=8224%3A0',
-      }}
+      figmaURL="https://www.figma.com/file/jubmQL9Z8V7881ayUD95ps/Blade-DSL?type=design&node-id=71114-258498&mode=design&t=jyVG8aXFc1Dlw2Se-4"
     >
       <Title>Usage</Title>
       <Sandbox editorHeight={500}>
@@ -31,7 +26,7 @@ const Page = (): ReactElement => {
         function App() {
           return (
             <Box>
-              <Indicator accessibilityLabel="Success" intent="positive" />
+              <Indicator accessibilityLabel="Success" color="positive" />
             </Box>
           )
         }
@@ -49,9 +44,10 @@ const meta: Meta<IndicatorProps> = {
   args: {
     accessibilityLabel: 'Status OK',
     children: 'Success',
-    intent: 'neutral',
+    color: 'neutral',
     size: 'medium',
   },
+  tags: ['autodocs'],
   argTypes: getStyledPropsArgTypes(),
   parameters: {
     docs: {
@@ -60,13 +56,13 @@ const meta: Meta<IndicatorProps> = {
   },
 };
 
-const IndicatorTemplate: ComponentStory<typeof IndicatorComponent> = ({ ...args }) => {
+const IndicatorTemplate: StoryFn<typeof IndicatorComponent> = ({ ...args }) => {
   return <IndicatorComponent {...args} />;
 };
 
 export const Default = IndicatorTemplate.bind({});
 
-export const WithoutLabel: ComponentStory<typeof IndicatorComponent> = ({ ...args }) => {
+export const WithoutLabel: StoryFn<typeof IndicatorComponent> = ({ ...args }) => {
   return <IndicatorComponent {...args} />;
 };
 WithoutLabel.args = {
@@ -82,7 +78,7 @@ WithoutLabel.parameters = {
   },
 };
 
-export const Composition: ComponentStory<typeof IndicatorComponent> = ({ ...args }) => {
+export const Composition: StoryFn<typeof IndicatorComponent> = ({ ...args }) => {
   const isReactNative = getPlatformType() === 'react-native';
   return (
     <BaseBox
@@ -103,7 +99,7 @@ export const Composition: ComponentStory<typeof IndicatorComponent> = ({ ...args
 };
 Composition.args = {
   children: undefined,
-  intent: 'notice',
+  color: 'notice',
   accessibilityLabel: 'New offers',
   size: 'large',
 };

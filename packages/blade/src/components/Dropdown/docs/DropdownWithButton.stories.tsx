@@ -99,10 +99,10 @@ export const InternalMenu = (): React.ReactElement => {
         <DropdownButton variant="tertiary">Status: {status ?? ''}</DropdownButton>
         <DropdownOverlay>
           <DropdownHeader
-            leading={<StarIcon color="surface.text.normal.lowContrast" size="large" />}
+            leading={<StarIcon color="surface.icon.gray.normal" size="large" />}
             title="Header Title Header Title Header Title Header Title Header Title"
             subtitle="Header Subtitle"
-            titleSuffix={<Badge variant="positive">New</Badge>}
+            titleSuffix={<Badge color="positive">New</Badge>}
             trailing={<Amount value={1000} />}
           />
           <ActionList>
@@ -167,8 +167,8 @@ export const InternalAutoPositioning = (): React.ReactElement => {
       <Box display="inline-flex" position="fixed" left="spacing.5" top="spacing.5">
         <Dropdown>
           <DropdownButton>Top Left Menu</DropdownButton>
-          <DropdownOverlay>
-            <ActionList surfaceLevel={3}>
+          <DropdownOverlay width="70%">
+            <ActionList>
               <ActionListItem title="Apples" value="Apples" />
               <ActionListItem title="Appricots" value="Appricots" />
             </ActionList>
@@ -179,7 +179,7 @@ export const InternalAutoPositioning = (): React.ReactElement => {
         <Dropdown>
           <DropdownButton>Top Right Menu</DropdownButton>
           <DropdownOverlay>
-            <ActionList surfaceLevel={3}>
+            <ActionList>
               <ActionListItem title="Apples" value="Apples" />
               <ActionListItem title="Appricots" value="Appricots" />
             </ActionList>
@@ -190,7 +190,7 @@ export const InternalAutoPositioning = (): React.ReactElement => {
         <Dropdown>
           <DropdownButton>Bottom Right Menu</DropdownButton>
           <DropdownOverlay>
-            <ActionList surfaceLevel={3}>
+            <ActionList>
               <ActionListItem title="Apples" value="Apples" />
               <ActionListItem title="Appricots" value="Appricots" />
             </ActionList>
@@ -201,7 +201,7 @@ export const InternalAutoPositioning = (): React.ReactElement => {
         <Dropdown>
           <DropdownButton>Bottom Left Menu</DropdownButton>
           <DropdownOverlay>
-            <ActionList surfaceLevel={3}>
+            <ActionList>
               <ActionListItem title="Apples" value="Apples" />
               <ActionListItem title="Appricots" value="Appricots" />
             </ActionList>

@@ -4,13 +4,14 @@ import React from 'react';
 import { Modal, TouchableOpacity } from 'react-native';
 import { TooltipContent } from './TooltipContent';
 import type { TooltipProps } from './types';
-import { ARROW_HEIGHT, ARROW_WIDTH, tooltipZIndex } from './constants';
+import { ARROW_HEIGHT, ARROW_WIDTH } from './constants';
 import { TooltipContext } from './TooltipContext';
 import { useTheme } from '~components/BladeProvider';
 import { metaAttribute, MetaConstants } from '~utils/metaAttribute';
 import { mergeProps } from '~utils/mergeProps';
 import { PopupArrow } from '~components/PopupArrow';
 import { getFloatingPlacementParts } from '~utils/getFloatingPlacementParts';
+import { componentZIndices } from '~utils/componentZIndices';
 
 const Tooltip = ({
   title,
@@ -18,7 +19,7 @@ const Tooltip = ({
   children,
   placement = 'left',
   onOpenChange,
-  zIndex = tooltipZIndex,
+  zIndex = componentZIndices.tooltip,
 }: TooltipProps): React.ReactElement => {
   const { theme } = useTheme();
   const [isOpen, setIsOpen] = React.useState(false);
@@ -112,8 +113,8 @@ const Tooltip = ({
                 context={context}
                 width={ARROW_WIDTH}
                 height={ARROW_HEIGHT}
-                fillColor={theme.colors.brand.gray[200].highContrast}
-                strokeColor={theme.colors.brand.gray[300].highContrast}
+                fillColor={theme.colors.popup.background.intense}
+                strokeColor={theme.colors.popup.border.intense}
               />
             }
           >

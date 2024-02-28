@@ -1,10 +1,10 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint-disable @typescript-eslint/ban-types */
-import getIn from 'lodash/get';
 import type { CSSObject } from 'styled-components';
 import React from 'react';
 import styled from 'styled-components';
 import type { HoverProps, SelectorInputProps } from './types';
+import getIn from '~utils/lodashButBetter/get';
 import type { Theme } from '~components/BladeProvider';
 import { castWebType } from '~utils';
 import { screenReaderStyles } from '~components/VisuallyHidden';
@@ -13,6 +13,7 @@ import { assignWithoutSideEffects } from '~utils/assignWithoutSideEffects';
 import { makeMotionTime } from '~utils/makeMotionTime';
 import { makeAccessible } from '~utils/makeAccessible';
 import { useMergeRefs } from '~utils/useMergeRefs';
+import { getFocusRingStyles } from '~utils/getFocusRingStyles';
 
 const getHoverStyles = ({
   theme,
@@ -39,9 +40,7 @@ const StyledInput = styled.input<HoverProps>(
   ({ theme, isChecked, isDisabled, hasError, hoverTokens }) => ({
     ...screenReaderStyles,
     '&:focus-visible + div': {
-      // TODO: Replace with focus outline token
-      outline: `1px solid ${theme.colors.surface.background.level1.lowContrast}`,
-      boxShadow: `0px 0px 0px 4px ${theme.colors.brand.primary[400]}`,
+      ...getFocusRingStyles({ theme }),
     },
     '&:hover + div': {
       ...getHoverStyles({ theme, isChecked, isDisabled, hasError, hoverTokens }),

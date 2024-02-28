@@ -68,7 +68,9 @@ const AccordionItem = ({
   const isExpanded = expandedIndex === _index;
   const isDefaultExpanded = defaultExpandedIndex === _index;
 
-  const _description = description && <Text type="subtle">{description}</Text>;
+  const _description = description && (
+    <Text color="interactive.text.gray.subtle">{description}</Text>
+  );
   const handleExpandChange = ({ isExpanded }: { isExpanded: boolean }): void => {
     if (isExpanded && typeof _index !== 'undefined') {
       onExpandChange(_index);
@@ -110,7 +112,7 @@ const AccordionItem = ({
         </AccordionButton>
         <CollapsibleBody
           // Just React Native things, need this 100% so collapsed content flows correctly inside Accordion
-          _width={isReactNative() ? '100%' : undefined}
+          width={isReactNative() ? '100%' : undefined}
         >
           {collapsibleBodyContent}
         </CollapsibleBody>

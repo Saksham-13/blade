@@ -24,7 +24,7 @@ import { Badge } from '~components/Badge';
 describe('<Card />', () => {
   it('should render a plain Card', () => {
     const { container } = renderWithTheme(
-      <Card surfaceLevel={3} elevation="highRaised">
+      <Card backgroundColor="surface.background.gray.moderate" elevation="highRaised">
         <CardBody>Plain Card</CardBody>
       </Card>,
     );
@@ -128,7 +128,7 @@ describe('<Card />', () => {
             <CardHeaderLeading
               title={cardTitle}
               subtitle={cardSubtitle}
-              prefix={<InfoIcon color="action.icon.primary.default" size="xsmall" />}
+              prefix={<InfoIcon color="interactive.icon.staticWhite.normal" size="xsmall" />}
             />
           </CardHeader>
         </Card>,
@@ -160,7 +160,7 @@ describe('<Card />', () => {
         </Card>,
       ),
     ).toThrow(
-      '[Blade: CardHeaderTrailing]: Only one of `CardHeaderLink, CardHeaderText, CardHeaderIconButton, CardHeaderBadge` component is accepted in visual',
+      '[Blade: CardHeaderTrailing]: Only one of `CardHeaderLink, CardHeaderText, CardHeaderIconButton, CardHeaderBadge, CardHeaderAmount` component is accepted in visual',
     );
     mockConsoleError.mockRestore();
   });
@@ -203,7 +203,7 @@ describe('<Card />', () => {
         </Card>,
       ),
     ).toThrow(
-      '[Blade: Card]: Only one of `CardHeader, CardBody, CardFooter` component is accepted as Card children',
+      '[Blade: Card]: Only `CardHeader, CardBody, CardFooter` components are accepted in `Card` children',
     );
     mockConsoleError.mockRestore();
   });
@@ -223,7 +223,7 @@ describe('<Card />', () => {
         </Card>,
       ),
     ).toThrow(
-      '[Blade: Card]: Only one of `CardHeaderLeading, CardHeaderTrailing` component is accepted as CardHeader children',
+      '[Blade: CardHeader]: Only `CardHeaderLeading, CardHeaderTrailing` components are accepted in `CardHeader` children',
     );
     mockConsoleError.mockRestore();
   });
@@ -243,7 +243,7 @@ describe('<Card />', () => {
         </Card>,
       ),
     ).toThrow(
-      '[Blade: Card]: Only one of `CardFooterLeading, CardFooterTrailing` component is accepted as CardFooter children',
+      '[Blade: CardFooter]: Only `CardFooterLeading, CardFooterTrailing` components are accepted in `CardFooter` children',
     );
     mockConsoleError.mockRestore();
   });

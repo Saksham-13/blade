@@ -1,5 +1,5 @@
-import isEmpty from 'lodash/isEmpty';
 import type { MakeValueResponsive } from './types';
+import isEmpty from '~utils/lodashButBetter/isEmpty';
 import type { Breakpoints } from '~tokens/global';
 
 /**
@@ -30,7 +30,7 @@ const getResponsiveValue = <T extends string | number | string[]>(
   value: MakeValueResponsive<T> | undefined,
   breakpoint: keyof Breakpoints = 'base',
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-): any | undefined => {
+): T | undefined => {
   if (value === undefined || value === null) {
     return undefined;
   }
@@ -57,7 +57,7 @@ const getResponsiveValue = <T extends string | number | string[]>(
      * ```
      */
     if (breakpoint === 'base') {
-      return value;
+      return value as T;
     }
 
     return undefined;

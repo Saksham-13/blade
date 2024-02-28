@@ -6,7 +6,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { rubberbandIfOutOfBounds, useDrag } from '@use-gesture/react';
 import usePresence from 'use-presence';
-import { clearAllBodyScrollLocks } from 'body-scroll-lock';
+import { clearAllBodyScrollLocks } from 'body-scroll-lock-upgrade';
 import { BottomSheetHeader } from './BottomSheetHeader';
 import { BottomSheetFooter } from './BottomSheetFooter';
 import { BottomSheetBody } from './BottomSheetBody';
@@ -31,6 +31,7 @@ import { makeSize } from '~utils/makeSize';
 import { makeAccessible } from '~utils/makeAccessible';
 import { size } from '~tokens/global';
 import { makeMotionTime } from '~utils/makeMotionTime';
+import { componentZIndices } from '~utils/componentZIndices';
 
 export const BOTTOM_SHEET_EASING = 'cubic-bezier(.15,0,.24,.97)';
 const AUTOCOMPLETE_DEFAULT_SNAPPOINT = 0.85;
@@ -40,10 +41,10 @@ const BottomSheetSurface = styled.div<{
   isDragging: boolean;
 }>(({ theme, windowHeight, isDragging }) => {
   return {
-    background: theme.colors.surface.background.level2.lowContrast,
+    background: theme.colors.popup.background.subtle,
     borderTopLeftRadius: makeSize(size[16]),
     borderTopRightRadius: makeSize(size[16]),
-    borderColor: theme.colors.surface.border.normal.lowContrast,
+    borderColor: theme.colors.popup.border.subtle,
     // this is reverse top elevation of highRaised elevation token
     boxShadow: '0px -24px 48px -12px hsla(217, 56%, 17%, 0.18)',
     opacity: 0,
@@ -59,7 +60,7 @@ const BottomSheetSurface = styled.div<{
     right: 0,
     bottom: 0,
     top: windowHeight,
-    backgroundColor: theme.colors.surface.background.level2.lowContrast,
+    backgroundColor: theme.colors.popup.background.subtle,
     justifyContent: 'center',
     alignItems: 'center',
     touchAction: 'none',
@@ -73,7 +74,7 @@ const _BottomSheet = ({
   children,
   initialFocusRef,
   snapPoints = [0.35, 0.5, 0.85],
-  zIndex = 100,
+  zIndex = componentZIndices.bottomSheet,
 }: BottomSheetProps): React.ReactElement => {
   const { theme } = useTheme();
   const dimensions = useWindowSize();

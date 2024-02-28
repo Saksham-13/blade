@@ -5,8 +5,8 @@ import type { PopoverContentProps } from './types';
 import { PopoverCloseButton } from './PopoverCloseButton';
 import { usePopoverContext } from './PopoverContext';
 import BaseBox from '~components/Box/BaseBox';
-import { Heading } from '~components/Typography';
-import { isReactNative, useTheme } from '~utils';
+import { Text } from '~components/Typography';
+import { isReactNative } from '~utils';
 import { useIsMobile } from '~utils/useIsMobile';
 
 type PopoverHeaderProps = {
@@ -21,7 +21,6 @@ const PopoverHeader = ({ title, titleLeading }: PopoverHeaderProps): React.React
   if (isFloating) {
     return (
       <BaseBox
-        backgroundColor="white"
         borderRadius="max"
         position="absolute"
         padding="spacing.2"
@@ -47,9 +46,9 @@ const PopoverHeader = ({ title, titleLeading }: PopoverHeaderProps): React.React
         : null}
       {title ? (
         <BaseBox id={titleId} paddingRight="spacing.4">
-          <Heading size="small" weight="bold" type="normal">
+          <Text size="large" weight="semibold">
             {title}
-          </Heading>
+          </Text>
         </BaseBox>
       ) : null}
       <BaseBox marginLeft="auto">
@@ -61,11 +60,9 @@ const PopoverHeader = ({ title, titleLeading }: PopoverHeaderProps): React.React
 
 const PopoverContent = React.forwardRef<HTMLDivElement, PopoverContentProps>(
   ({ children, title, titleLeading, footer, arrow, side, style, isVisible }, ref) => {
-    const { colorScheme } = useTheme();
     const isMobile = useIsMobile();
     return (
       <PopoverContentWrapper
-        colorScheme={colorScheme}
         ref={ref as never}
         styles={style}
         side={side}

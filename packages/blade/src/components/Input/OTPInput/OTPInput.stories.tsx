@@ -1,4 +1,4 @@
-import type { ComponentStory, Meta } from '@storybook/react';
+import type { StoryFn, Meta } from '@storybook/react';
 import { Title } from '@storybook/addon-docs';
 import React from 'react';
 import { SelectInput } from '../DropdownInputTriggers';
@@ -48,6 +48,7 @@ export default {
     errorText: undefined,
     successText: undefined,
   },
+  tags: ['autodocs'],
   argTypes: {
     placeholder: {
       table: {
@@ -151,13 +152,9 @@ export default {
       page: () => (
         <StoryPageWrapper
           componentName="OTPInput"
+          apiDecisionLink="https://github.com/razorpay/blade/blob/master/packages/blade/src/components/Input/OTPInput/_decisions/_decisions.md"
           componentDescription="A one-time password (OTP), also known as a one-time PIN, one-time authorization code (OTAC) or dynamic password, is a password that is valid for only one login session or a transaction. These are a group of inputs and can be either 4 or 6 characters long."
-          figmaURL={{
-            paymentTheme:
-              'https://www.figma.com/file/jubmQL9Z8V7881ayUD95ps/Blade---Payment-Light?node-id=10953%3A191059',
-            bankingTheme:
-              'https://www.figma.com/file/sAdplk2uYnI2ILnDKUxycW/Blade---Banking-Dark?node-id=9941%3A193027',
-          }}
+          figmaURL="https://www.figma.com/file/jubmQL9Z8V7881ayUD95ps/Blade-DSL?type=design&node-id=10953-191059&mode=design&t=jyVG8aXFc1Dlw2Se-4"
         >
           <Title>Usage</Title>
           <Sandbox showConsole>
@@ -183,7 +180,7 @@ export default {
   },
 } as Meta<OTPInputProps>;
 
-const OTPInputTemplate: ComponentStory<typeof OTPInputComponent> = ({ ...args }) => {
+const OTPInputTemplate: StoryFn<typeof OTPInputComponent> = ({ ...args }) => {
   return <OTPInputComponent {...args} />;
 };
 
@@ -233,7 +230,7 @@ OTPInputSuccess.args = {
   successText: 'Validated',
 };
 
-const OTPInputUncontrolledTemplate: ComponentStory<typeof OTPInputComponent> = () => {
+const OTPInputUncontrolledTemplate: StoryFn<typeof OTPInputComponent> = () => {
   return (
     <OTPInput
       label="Enter OTP"
@@ -244,12 +241,12 @@ const OTPInputUncontrolledTemplate: ComponentStory<typeof OTPInputComponent> = (
 };
 export const OTPInputUncontrolled = OTPInputUncontrolledTemplate.bind({});
 
-const OTPInputControlledTemplate: ComponentStory<typeof OTPInputComponent> = () => {
+const OTPInputControlledTemplate: StoryFn<typeof OTPInputComponent> = () => {
   return <OTPInput label="Enter OTP" value="123456" name="otp" />;
 };
 export const OTPInputControlled = OTPInputControlledTemplate.bind({});
 
-export const OTPInputRef: ComponentStory<typeof OTPInputComponent> = () => {
+export const OTPInputRef: StoryFn<typeof OTPInputComponent> = () => {
   // eslint-disable-next-line react-hooks/rules-of-hooks
   const [focusOn, setFocusOn] = React.useState(0);
   const inputRef = React.useRef<HTMLInputElement[]>([]);

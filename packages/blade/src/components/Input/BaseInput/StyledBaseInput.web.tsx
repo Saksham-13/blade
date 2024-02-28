@@ -34,9 +34,8 @@ const getWebInputStyles = (
       ...getTextStyles({
         size: 'medium',
         variant: 'body',
-        type: 'placeholder',
         weight: 'regular',
-        contrast: 'low',
+        color: 'surface.text.gray.disabled',
         theme: props.theme,
       }),
       textAlign: props.textAlign,
@@ -116,7 +115,7 @@ const _StyledBaseInput: React.ForwardRefRenderFunction<
       handleOnBlur?.({ name, value: event });
     },
     onFocus: (event: React.ChangeEvent<HTMLInputElement>): void => {
-      setCurrentInteraction('active');
+      setCurrentInteraction('focus');
       handleOnFocus?.({ name, value: event });
     },
     onKeyDown: (event: React.KeyboardEvent<HTMLInputElement>) => {
@@ -136,6 +135,12 @@ const _StyledBaseInput: React.ForwardRefRenderFunction<
       name={name}
       type="button"
       onClick={(event: React.MouseEvent<HTMLInputElement>): void => {
+        if (props.isDropdownTrigger) {
+          // dropdown triggers have click event on outer container as well on web to handle outer padding clicks of input
+          // we don't want the clicks to be called twice in such cases so we stop propogation if this click has happened
+          event.stopPropagation();
+        }
+
         handleOnClick?.({ name, value: event });
       }}
       {...commonProps}
@@ -144,7 +149,9 @@ const _StyledBaseInput: React.ForwardRefRenderFunction<
       value={props.value}
     >
       <Text
-        type={props.value ? 'subtle' : 'placeholder'}
+        color={
+          props.value && !isDisabled ? 'surface.text.gray.subtle' : 'surface.text.gray.disabled'
+        }
         truncateAfterLines={1}
         textAlign={props.textAlign}
       >
@@ -166,6 +173,15 @@ const _StyledBaseInput: React.ForwardRefRenderFunction<
       }
       onInput={(event: React.ChangeEvent<HTMLInputElement>) => {
         handleOnInput?.({ name, value: event });
+      }}
+      onClick={(event) => {
+        if (props.isDropdownTrigger) {
+          // dropdown triggers have click event on outer container as well on web to handle outer padding clicks of input
+          // we don't want the clicks to be called twice in such cases so we stop propogation if this click has happened
+          event.stopPropagation();
+        }
+
+        handleOnClick?.({ name, value: event });
       }}
       autoCapitalize={autoCapitalize}
       {...commonProps}

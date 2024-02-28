@@ -1,4 +1,4 @@
-import type { ComponentStory, Meta } from '@storybook/react';
+import type { StoryFn, Meta } from '@storybook/react';
 import { Title as StorybookTitle } from '@storybook/addon-docs';
 import type { ReactElement } from 'react';
 import { Text } from '../Text';
@@ -16,12 +16,8 @@ const Page = (): ReactElement => {
     <StoryPageWrapper
       componentDescription="The Display component adds a strong visual touch. Utilize it to create eye-catching sections on your landing pages."
       componentName="Display"
-      figmaURL={{
-        paymentTheme:
-          'https://www.figma.com/file/jubmQL9Z8V7881ayUD95ps/Blade---Payment-Light?type=design&node-id=13708%3A180902&mode=design&t=1sYKFDyXDXlugu2m-1',
-        bankingTheme:
-          'https://www.figma.com/file/sAdplk2uYnI2ILnDKUxycW/Blade---Banking-Dark?type=design&node-id=10344%3A189840&mode=design&t=Np5DsiaBhYmDNpTw-1',
-      }}
+      apiDecisionLink="https://github.com/razorpay/blade/blob/master/packages/blade/src/components/Typography/_decisions/decisions.md"
+      figmaURL="https://www.figma.com/file/jubmQL9Z8V7881ayUD95ps/Blade---Payment-Light?type=design&node-id=13708%3A180902&mode=design&t=1sYKFDyXDXlugu2m-1"
     >
       <StorybookTitle>Usage</StorybookTitle>
       <Sandbox>
@@ -46,11 +42,10 @@ const DisplayStoryMeta: Meta<DisplayProps> = {
   component: DisplayComponent,
   args: {
     size: 'small',
-    type: 'normal',
     children: 'Power your finance, grow your business',
-    contrast: 'low',
     as: undefined,
   },
+  tags: ['autodocs'],
   argTypes: {
     size: {
       options: ['small', 'medium', 'large', 'xlarge'],
@@ -72,7 +67,7 @@ const DisplayStoryMeta: Meta<DisplayProps> = {
   },
 };
 
-const DisplayTemplate: ComponentStory<typeof DisplayComponent> = (args) => {
+const DisplayTemplate: StoryFn<typeof DisplayComponent> = (args) => {
   return <DisplayComponent {...args}>{args.children}</DisplayComponent>;
 };
 
@@ -80,22 +75,22 @@ export default DisplayStoryMeta;
 export const Display = DisplayTemplate.bind({});
 export const WithColor = DisplayTemplate.bind({});
 WithColor.args = {
-  color: 'brand.primary.500',
+  color: 'surface.text.primary.normal',
 };
 
 const Sup = isReactNative() ? DisplayComponent : 'sup';
-const WithMixedColorsTemplate: ComponentStory<typeof DisplayComponent> = (args) => {
+const WithMixedColorsTemplate: StoryFn<typeof DisplayComponent> = (args) => {
   return (
     <Box>
       <DisplayComponent {...args}>
         Supercharge your business with the all‑powerful{' '}
-        <DisplayComponent {...args} as="span" color="brand.primary.500">
+        <DisplayComponent {...args} as="span" color="surface.text.primary.normal">
           Payment Gateway
         </DisplayComponent>
       </DisplayComponent>
       <DisplayComponent marginTop="spacing.5" {...args}>
         Start accepting{' '}
-        <DisplayComponent {...args} as="span" color="feedback.text.information.lowContrast">
+        <DisplayComponent {...args} as="span" color="feedback.text.information.intense">
           payments
         </DisplayComponent>{' '}
         at just 2% <Sup>*</Sup>
@@ -106,12 +101,12 @@ const WithMixedColorsTemplate: ComponentStory<typeof DisplayComponent> = (args) 
 
 export const WithMixedColors = WithMixedColorsTemplate.bind({});
 
-const AsPropTemplate: ComponentStory<typeof DisplayComponent> = (args) => {
+const AsPropTemplate: StoryFn<typeof DisplayComponent> = (args) => {
   return (
     <Box>
       <Text>
         By default{' '}
-        <Text as="span" weight="bold">
+        <Text as="span" weight="semibold">
           Display
         </Text>{' '}
         component automatically renders the <Code size="medium">h1</Code> tag.

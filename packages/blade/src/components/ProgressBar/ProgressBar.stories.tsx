@@ -1,4 +1,4 @@
-import type { ComponentStory, Meta } from '@storybook/react';
+import type { StoryFn, Meta } from '@storybook/react';
 import { Title } from '@storybook/addon-docs';
 import type { ReactElement } from 'react';
 import { useEffect, useState } from 'react';
@@ -14,12 +14,7 @@ const Page = (): ReactElement => {
     <StoryPageWrapper
       componentDescription="A Progress bar is generally a branded element that indicates progress of process or task"
       componentName="ProgressBar"
-      figmaURL={{
-        paymentTheme:
-          'https://www.figma.com/file/jubmQL9Z8V7881ayUD95ps/Blade---Payment-Light?node-id=16430%3A256423&t=0raQL8ilgxTx5XYL-4',
-        bankingTheme:
-          'https://www.figma.com/file/sAdplk2uYnI2ILnDKUxycW/Blade---Banking-Dark?node-id=11989%3A362441&t=2wnorJeMBCxn5yGG-4',
-      }}
+      figmaURL="https://www.figma.com/file/jubmQL9Z8V7881ayUD95ps/Blade-DSL?type=design&node-id=74922-198459&mode=design&t=Qm80tBqhFBFB5BvZ-4"
     >
       <Title>Usage</Title>
       <Sandbox>
@@ -52,10 +47,11 @@ export default {
       page: Page,
     },
   },
+  tags: ['autodocs'],
   argTypes: getStyledPropsArgTypes(),
 } as Meta<ProgressBarProps>;
 
-const ProgressBarTemplate: ComponentStory<typeof ProgressBarComponent> = ({ ...args }) => {
+const ProgressBarTemplate: StoryFn<typeof ProgressBarComponent> = ({ ...args }) => {
   return <ProgressBarComponent {...args} />;
 };
 
@@ -65,10 +61,9 @@ Default.storyName = 'Default';
 Default.args = {
   label: 'Label',
   value: 20,
-  contrast: 'low',
 };
 
-const ProgressBarWithUpdatingValuesTemplate: ComponentStory<typeof ProgressBarComponent> = ({
+const ProgressBarWithUpdatingValuesTemplate: StoryFn<typeof ProgressBarComponent> = ({
   ...args
 }) => {
   const [value, setValue] = useState(10);
@@ -89,9 +84,7 @@ const ProgressBarWithUpdatingValuesTemplate: ComponentStory<typeof ProgressBarCo
   return <ProgressBarComponent {...args} value={value} />;
 };
 
-const ProgressBarWithIntentsTemplate: ComponentStory<typeof ProgressBarComponent> = ({
-  ...args
-}) => {
+const ProgressBarWithColorsTemplate: StoryFn<typeof ProgressBarComponent> = ({ ...args }) => {
   const [value, setValue] = useState(10);
   useEffect(() => {
     const interval = setInterval(() => {
@@ -118,7 +111,7 @@ const ProgressBarWithIntentsTemplate: ComponentStory<typeof ProgressBarComponent
     >
       {intents.map((intent) => (
         <BaseBox key={intent} paddingTop="spacing.4">
-          <ProgressBarComponent {...args} intent={intent} value={value} />
+          <ProgressBarComponent {...args} color={intent} value={value} />
         </BaseBox>
       ))}
     </BaseBox>
@@ -145,9 +138,9 @@ ProgressBarMediumSize.args = {
   size: 'medium',
 };
 
-export const ProgressBarWithIntents = ProgressBarWithIntentsTemplate.bind({});
-ProgressBarWithIntents.storyName = 'Intents';
-ProgressBarWithIntents.args = {
+export const ProgressBarWithColor = ProgressBarWithColorsTemplate.bind({});
+ProgressBarWithColor.storyName = 'Intents';
+ProgressBarWithColor.args = {
   size: 'medium',
   label: 'Label',
 };
@@ -159,7 +152,7 @@ ProgressBarMeterVariant.args = {
   size: 'medium',
   value: 10,
   label: 'Balance: ₹10,000',
-  intent: 'notice',
+  color: 'notice',
 };
 
 export const ProgressBarIndeterminate = ProgressBarTemplate.bind({});

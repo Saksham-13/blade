@@ -395,7 +395,7 @@ const WithValidationStateStory = `
             }}
           />
           <DropdownOverlay>
-            <ActionList surfaceLevel={2}>
+            <ActionList>
               <ActionListItem title="Blade" value="blade" />
               <ActionListItem title="Primer" value="primer" />
               <ActionListItem title="Geist" description="by Vercel" value="geist" />
@@ -623,7 +623,7 @@ const WithAutoPositioningSelectStory = `
       <Box>
         <Box
           padding="spacing.5"
-          backgroundColor="surface.background.level3.lowContrast"
+          backgroundColor="surface.background.gray.moderate"
           width="100%"
           minHeight="100px"
           overflow="scroll"
@@ -640,7 +640,7 @@ const WithAutoPositioningSelectStory = `
         </Box>
         <Box
           padding="spacing.5"
-          backgroundColor="surface.background.level3.lowContrast"
+          backgroundColor="surface.background.gray.moderate"
           width="100%"
           position="fixed"
           bottom="spacing.0"
@@ -746,7 +746,12 @@ const WithLinkStory = `
       <Box padding="spacing.10" display="flex" alignItems="center" gap="spacing.2">
         <Text>Sort By</Text>
         <Box flex="1">
-          <Dropdown onDismiss={() => setIsDropdownOpen(false)}>
+          <Dropdown 
+            onOpenChange={(isOpen) => {
+              if (!isOpen) {
+                setIsDropdownOpen(false)
+              }
+            }>
             <DropdownLink
               icon={isDropdownOpen ? ChevronUpIcon : ChevronDownIcon}
               iconPosition="right"

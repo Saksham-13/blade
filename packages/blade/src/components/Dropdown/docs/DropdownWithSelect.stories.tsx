@@ -1,5 +1,5 @@
 import React from 'react';
-import type { ComponentStory, Meta } from '@storybook/react';
+import type { StoryFn, Meta } from '@storybook/react';
 import { Dropdown, DropdownFooter, DropdownHeader, DropdownOverlay } from '..';
 import {
   getSimpleSelectCode,
@@ -44,7 +44,7 @@ const DropdownStoryMeta: Meta = {
   },
 };
 
-const DropdownTemplate: ComponentStory<typeof Dropdown> = ({ selectionType = 'single' }) => {
+const DropdownTemplate: StoryFn<typeof Dropdown> = ({ selectionType = 'single' }) => {
   return (
     <Sandbox showConsole padding="spacing.0" editorHeight="100vh">
       {getSimpleSelectCode(selectionType)}
@@ -194,6 +194,8 @@ export const InternalMultiSelect = (): React.ReactElement => {
           <DropdownHeader title="Header Title" subtitle="Header subtitle" />
           <ActionList>
             <ActionListItem title="Mumbai" value="mumbai" />
+            <ActionListItem title="Navi Mumbai" value="navi-mumbai" />
+            <ActionListItem title="Farrukhabad Fatehgarh" value="farrukhabad-fatehgarh" />
             <ActionListItem title="Bangalore" value="bangalore" />
             <ActionListItem title="Pune" value="pune" />
             <ActionListItem title="Chennai" value="chennai" />
@@ -281,7 +283,7 @@ export const InternalSelect = (): React.ReactElement => {
   return (
     <Box
       padding="spacing.5"
-      backgroundColor="surface.background.level3.lowContrast"
+      backgroundColor="surface.background.gray.moderate"
       width="100%"
       minHeight="100px"
       overflow="scroll"
@@ -299,12 +301,35 @@ export const InternalSelect = (): React.ReactElement => {
   );
 };
 
+export const InternalDisabledSelect = (): React.ReactElement => {
+  const [isDisabled, setIsDisabled] = React.useState(false);
+  return (
+    <Box padding="spacing.5" maxWidth="400px">
+      <Button marginBottom="spacing.4" isFullWidth onClick={() => setIsDisabled(!isDisabled)}>
+        Toggle Disabled State
+      </Button>
+      <Dropdown selectionType="multiple">
+        <SelectInput label="Select fruits" isDisabled={isDisabled} />
+        <DropdownOverlay>
+          <ActionList>
+            <ActionListItem title="Apples" value="Apples" />
+            <ActionListItem title="Appricots" value="Appricots" />
+            <ActionListItem title="Cherries" value="Cherries" />
+            <ActionListItem title="Crab apples" value="Crab apples" />
+            <ActionListItem title="Jambolan" value="Jambolan" />
+          </ActionList>
+        </DropdownOverlay>
+      </Dropdown>
+    </Box>
+  );
+};
+
 export const InternalAutoPositioning = (): React.ReactElement => {
   return (
     <Box>
       <Box
         padding="spacing.5"
-        backgroundColor="surface.background.level3.lowContrast"
+        backgroundColor="surface.background.gray.moderate"
         width="100%"
         minHeight="100px"
         overflow="scroll"
@@ -321,7 +346,7 @@ export const InternalAutoPositioning = (): React.ReactElement => {
       </Box>
       <Box
         padding="spacing.5"
-        backgroundColor="surface.background.level3.lowContrast"
+        backgroundColor="surface.background.gray.moderate"
         width="100%"
         position="fixed"
         bottom="spacing.0"

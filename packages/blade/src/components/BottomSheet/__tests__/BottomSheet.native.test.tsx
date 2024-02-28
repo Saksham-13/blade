@@ -6,6 +6,7 @@ import { Counter } from '../../Counter';
 import renderWithTheme from '~utils/testing/renderWithTheme.native';
 import { Button } from '~components/Button';
 import { Badge } from '~components/Badge';
+jest.useFakeTimers();
 
 describe('<BottomSheet />', () => {
   test('should render Header/Footer/Body properly', () => {
@@ -16,8 +17,8 @@ describe('<BottomSheet />', () => {
           <BottomSheetHeader
             title="Address Details"
             subtitle="Saving addresses will improve your checkout experience"
-            trailing={<Badge variant="positive">Action Needed</Badge>}
-            titleSuffix={<Counter variant="positive" value={2} />}
+            trailing={<Badge color="positive">Action Needed</Badge>}
+            titleSuffix={<Counter color="positive" value={2} />}
           />
           <BottomSheetFooter>
             <Button isFullWidth variant="secondary">

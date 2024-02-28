@@ -1,4 +1,4 @@
-import type { ComponentStory, Meta } from '@storybook/react';
+import type { StoryFn, Meta } from '@storybook/react';
 import { Title } from '@storybook/addon-docs';
 import type { ReactElement } from 'react';
 import { useState } from 'react';
@@ -20,12 +20,7 @@ const Page = (): ReactElement => {
     <StoryPageWrapper
       componentName="Accordion"
       componentDescription="An accordion is used to allow users to toggle between different content sections in a compact vertical stack."
-      figmaURL={{
-        paymentTheme:
-          'https://www.figma.com/file/LSG77hEeVYDk7j7WV7OMJE/Blade-DSL---Components-Guideline?type=design&node-id=79-629874&t=sVxH3DOnx3L3F9rO-0',
-        bankingTheme:
-          'https://www.figma.com/file/sAdplk2uYnI2ILnDKUxycW/Blade---Banking-Dark?type=design&node-id=16868-832623&t=rK6ydo54uVejIH9p-0',
-      }}
+      figmaURL="https://www.figma.com/file/jubmQL9Z8V7881ayUD95ps/Blade-DSL?type=design&node-id=73183-42793&mode=design&t=JkDSnlo8KJOBJimR-4"
     >
       <Title>Usage</Title>
       <Sandbox editorHeight={500}>
@@ -62,6 +57,7 @@ const meta: Meta<AccordionProps> = {
   title: 'Components/Accordion',
   component: AccordionComponent,
   args: {},
+  tags: ['autodocs'],
   argTypes: {
     ...getStyledPropsArgTypes(),
   },
@@ -72,7 +68,7 @@ const meta: Meta<AccordionProps> = {
   },
 };
 
-const AccordionTemplate: ComponentStory<typeof AccordionComponent> = ({ ...args }) => {
+const AccordionTemplate: StoryFn<typeof AccordionComponent> = ({ ...args }) => {
   return (
     <AccordionComponent {...args}>
       <AccordionItem
@@ -91,7 +87,7 @@ const AccordionTemplate: ComponentStory<typeof AccordionComponent> = ({ ...args 
   );
 };
 
-const AccordionWithIconsTemplate: ComponentStory<typeof AccordionComponent> = ({ ...args }) => {
+const AccordionWithIconsTemplate: StoryFn<typeof AccordionComponent> = ({ ...args }) => {
   return (
     <AccordionComponent {...args}>
       <AccordionItem
@@ -141,7 +137,7 @@ WithIcons.parameters = {
   },
 };
 
-const AccordionControlledTemplate: ComponentStory<typeof AccordionComponent> = ({
+const AccordionControlledTemplate: StoryFn<typeof AccordionComponent> = ({
   expandedIndex: _expandedIndex,
   onExpandChange,
   defaultExpandedIndex,
@@ -208,7 +204,7 @@ ControlledExample.args = {
   showNumberPrefix: true,
 };
 
-const AccordionWithSlotTemplate: ComponentStory<typeof AccordionComponent> = ({ ...args }) => {
+const AccordionWithSlotTemplate: StoryFn<typeof AccordionComponent> = ({ ...args }) => {
   const [isVisible, setIsVisible] = useState(true);
   return (
     <AccordionComponent {...args}>

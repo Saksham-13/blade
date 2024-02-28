@@ -1,7 +1,7 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
 /* eslint-disable @typescript-eslint/explicit-function-return-type */
 import { Title } from '@storybook/addon-docs';
-import type { ComponentStory, Meta } from '@storybook/react';
+import type { StoryFn, Meta } from '@storybook/react';
 import React from 'react';
 import type { SwitchProps } from './';
 import { Switch as SwitchComponent } from './';
@@ -23,26 +23,24 @@ const Page = (): React.ReactElement => {
     <StoryPageWrapper
       componentName="Switch"
       componentDescription="A switch component is used to quickly switch between two possible states. These are only used for binary actions that occur immediately after the user turn the switch on/off."
-      figmaURL={{
-        paymentTheme:
-          'https://www.figma.com/file/jubmQL9Z8V7881ayUD95ps/Blade---Payment-Light?node-id=13227%3A163026',
-        bankingTheme:
-          'https://www.figma.com/file/sAdplk2uYnI2ILnDKUxycW/Blade---Banking-Dark?node-id=11169%3A230354',
-      }}
+      figmaURL="https://www.figma.com/file/jubmQL9Z8V7881ayUD95ps/Blade-DSL?type=design&node-id=73282-409938&mode=design&t=Qm80tBqhFBFB5BvZ-4"
     >
       <Title>Usage</Title>
-      <Sandbox showConsole>
+      <Sandbox>
         {`
-        import { Switch } from '@razorpay/blade/components'
-        
+        import { Switch } from '@razorpay/blade/components';
+
         function App(): React.ReactElement {
           return (
             // Check console
-            <Switch onChange={(e) => console.log(e.isChecked)} accessibilityLabel="Toggle DarkMode" />
-          )
+            <Switch
+              onChange={(e) => console.log(e.isChecked)}
+              accessibilityLabel="Toggle DarkMode"
+            />
+          );
         }
-
-        export default App;
+        
+        export default App;        
       `}
       </Sandbox>
     </StoryPageWrapper>
@@ -62,6 +60,7 @@ export default {
     size: 'medium',
     accessibilityLabel: 'Toggle DarkMode',
   },
+  tags: ['autodocs'],
   argTypes: getStyledPropsArgTypes(),
   parameters: {
     docs: {
@@ -70,7 +69,7 @@ export default {
   },
 } as Meta<SwitchProps>;
 
-const SwitchTemplate: ComponentStory<typeof SwitchComponent> = ({ ...args }) => {
+const SwitchTemplate: StoryFn<typeof SwitchComponent> = ({ ...args }) => {
   return <SwitchComponent {...args} />;
 };
 
@@ -95,7 +94,7 @@ Small.args = {
   size: 'small',
 };
 
-const WithLabelTemplate: ComponentStory<typeof SwitchComponent> = () => {
+const WithLabelTemplate: StoryFn<typeof SwitchComponent> = () => {
   return (
     <Box>
       <Alert
@@ -137,7 +136,7 @@ const WithLabelTemplate: ComponentStory<typeof SwitchComponent> = () => {
       <Box width="350px">
         <Card>
           <CardBody>
-            <Text size="small" weight="bold" marginBottom="spacing.4">
+            <Text size="small" weight="semibold" marginBottom="spacing.4">
               Activate/lock the below methods for card transactions
             </Text>
             <Box display="flex" flexDirection="column" gap="spacing.3">
@@ -149,7 +148,7 @@ const WithLabelTemplate: ComponentStory<typeof SwitchComponent> = () => {
                 gap="spacing.2"
               >
                 <Box display="flex" alignItems="center" gap="spacing.2">
-                  <MapPinIcon color="surface.text.subdued.lowContrast" size="small" />
+                  <MapPinIcon color="surface.icon.gray.subtle" size="small" />
                   <Text weight="regular" variant="body" size="medium">
                     International transaction
                   </Text>
@@ -164,7 +163,7 @@ const WithLabelTemplate: ComponentStory<typeof SwitchComponent> = () => {
                 gap="spacing.2"
               >
                 <Box display="flex" alignItems="center" gap="spacing.2">
-                  <GlobeIcon color="surface.text.subdued.lowContrast" size="small" />
+                  <GlobeIcon color="surface.icon.gray.muted" size="small" />
                   <Text weight="regular" variant="body" size="medium">
                     Online transaction
                   </Text>
@@ -179,7 +178,7 @@ const WithLabelTemplate: ComponentStory<typeof SwitchComponent> = () => {
                 gap="spacing.2"
               >
                 <Box display="flex" alignItems="center" gap="spacing.2">
-                  <WifiIcon color="surface.text.subdued.lowContrast" size="small" />
+                  <WifiIcon color="surface.icon.gray.muted" size="small" />
                   <Text weight="regular" variant="body" size="medium">
                     Contactless Transaction
                   </Text>
@@ -224,12 +223,12 @@ const ControlledAndUncontrolledComp = () => {
     </>
   );
 };
-const _ControlledAndUncontrolled: ComponentStory<typeof SwitchComponent> = () => {
+const _ControlledAndUncontrolled: StoryFn<typeof SwitchComponent> = () => {
   return <ControlledAndUncontrolledComp />;
 };
 export const ControlledAndUncontrolled = _ControlledAndUncontrolled.bind({});
 
-export const SwitchRef: ComponentStory<typeof SwitchComponent> = () => {
+export const SwitchRef: StoryFn<typeof SwitchComponent> = () => {
   const switchRef = React.useRef<BladeElementRef>(null);
 
   return (

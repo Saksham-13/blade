@@ -1,10 +1,10 @@
 /* eslint-disable @typescript-eslint/prefer-nullish-coalescing */
 /* eslint-disable @typescript-eslint/explicit-function-return-type */
 /* eslint-disable @typescript-eslint/explicit-module-boundary-types */
-import getIn from 'lodash/get';
 import React from 'react';
 import { CheckboxIconWrapper } from './CheckboxIconWrapper';
 import { Fade } from './Fade';
+import getIn from '~utils/lodashButBetter/get';
 import { useTheme } from '~components/BladeProvider';
 import Svg, { Path } from '~components/Icons/_Svg';
 import { makeSpace } from '~utils/makeSpace';
@@ -78,10 +78,7 @@ const CheckboxIcon = ({
   size,
 }: CheckboxIconProps) => {
   const { theme } = useTheme();
-  const defaultIconColor = getIn(theme, 'colors.brand.gray.200.lowContrast');
-  const disabledIconColor = getIn(theme, 'colors.brand.gray.500.lowContrast');
-  const iconColor = isDisabled ? disabledIconColor : defaultIconColor;
-
+  const iconColor = getIn(theme, 'colors.interactive.icon.onPrimary.normal');
   return (
     <CheckboxIconWrapper
       size={size}

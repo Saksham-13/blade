@@ -1,7 +1,7 @@
-import getIn from 'lodash/get';
 import type { CSSObject } from 'styled-components';
 import { radioIconColors, radioSizes } from '../radioTokens';
 import type { RadioIconProps } from './RadioIcon';
+import getIn from '~utils/lodashButBetter/get';
 import type { Theme } from '~components/BladeProvider';
 import { castWebType, getPlatformType } from '~utils';
 import { makeSpace } from '~utils/makeSpace';
@@ -25,8 +25,8 @@ const getRadioIconWrapperStyles = ({
   const checked = isChecked ? 'checked' : 'unchecked';
   const background = radioIconColors.variants[variant].background[checked];
   const border = radioIconColors.variants[variant].border[checked];
-  const backgroundColor = background === 'transparent' ? background : getIn(theme, background);
-  const borderColor = border === 'transparent' ? border : getIn(theme, border);
+  const backgroundColor = getIn(theme, background);
+  const borderColor = getIn(theme, border);
 
   return {
     position: 'relative',

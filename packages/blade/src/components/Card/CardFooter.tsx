@@ -1,8 +1,9 @@
 /* eslint-disable @typescript-eslint/no-unnecessary-type-assertion */
 import type { ReactElement } from 'react';
 import React from 'react';
-import { useVerifyInsideCard, useVerifyAllowedComponents } from './CardContext';
+import { useVerifyInsideCard } from './CardContext';
 import { ComponentIds } from './Card';
+import type { CardSpacingValueType } from './types';
 import type { ButtonProps } from '~components/Button';
 import { Button } from '~components/Button';
 import { Divider } from '~components/Divider';
@@ -13,6 +14,7 @@ import type { TestID } from '~utils/types';
 import { assignWithoutSideEffects } from '~utils/assignWithoutSideEffects';
 import { useIsMobile } from '~utils/useIsMobile';
 import { throwBladeError } from '~utils/logger';
+import { useVerifyAllowedChildren } from '~utils/useVerifyAllowedChildren/useVerifyAllowedChildren';
 
 export type CardFooterAction = Pick<
   ButtonProps,
@@ -23,15 +25,34 @@ export type CardFooterAction = Pick<
 
 type CardFooterProps = {
   children?: React.ReactNode;
+  /**
+   * For spacing between divider and footer title
+   */
+  paddingTop?: CardSpacingValueType;
+  /**
+   * For spacing between body content and divider
+   */
+  marginTop?: CardSpacingValueType;
+  /**
+   * @default true
+   */
+  showDivider?: boolean;
 } & TestID;
 
-const _CardFooter = ({ children, testID }: CardFooterProps): React.ReactElement => {
+const _CardFooter = ({
+  children,
+  testID,
+  marginTop = 'spacing.4',
+  paddingTop = 'spacing.4',
+  showDivider = true,
+}: CardFooterProps): React.ReactElement => {
   const isMobile = useIsMobile();
   useVerifyInsideCard('CardFooter');
-  useVerifyAllowedComponents(children, 'CardFooter', [
-    ComponentIds.CardFooterLeading,
-    ComponentIds.CardFooterTrailing,
-  ]);
+  useVerifyAllowedChildren({
+    children,
+    componentName: 'CardFooter',
+    allowedComponents: [ComponentIds.CardFooterLeading, ComponentIds.CardFooterTrailing],
+  });
 
   const footerChildrensArray = React.Children.toArray(children);
   if (__DEV__) {
@@ -53,11 +74,10 @@ const _CardFooter = ({ children, testID }: CardFooterProps): React.ReactElement 
       : 'flex-end';
 
   return (
-    <BaseBox marginTop="auto" {...metaAttribute({ name: MetaConstants.CardFooter, testID })}>
-      <BaseBox marginTop="spacing.7" />
-      <Divider />
+    <BaseBox marginTop={marginTop} {...metaAttribute({ name: MetaConstants.CardFooter, testID })}>
+      {showDivider ? <Divider /> : null}
       <BaseBox
-        marginTop="spacing.7"
+        paddingTop={paddingTop}
         display="flex"
         flexDirection={isMobile ? 'column' : 'row'}
         justifyContent={baseBoxJustifyContent}
@@ -80,12 +100,12 @@ const _CardFooterLeading = ({ title, subtitle }: CardFooterLeadingProps): React.
   return (
     <BaseBox textAlign={'left' as never}>
       {title && (
-        <Text variant="body" size="medium" weight="bold">
+        <Text color="surface.text.gray.normal" size="medium" weight="semibold">
           {title}
         </Text>
       )}
       {subtitle && (
-        <Text variant="body" size="small" weight="regular">
+        <Text color="surface.text.gray.subtle" size="small" weight="regular">
           {subtitle}
         </Text>
       )}
